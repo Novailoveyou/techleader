@@ -1,0 +1,7 @@
+@use "sass:math"
+@use '@/styles/utils/funcs/toUnit' as f
+
+@function px($px, $unit: rem)
+  $val: math.div($px, 16)
+  $output: f.toUnit($unit, $val)
+  @return $output

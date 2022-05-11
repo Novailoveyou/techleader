@@ -1,0 +1,73 @@
+// Set theme depended colors
+@mixin dye($prop, $color)
+
+  @if $prop == 'c'
+    &
+      color: $color
+
+  @if $prop == 'bg'
+    &
+      background-color: $color
+
+  @if $prop == 'stroke'
+    &
+      stroke: $color
+
+  @if $prop == 'fill'
+    &
+      fill: $color
+
+  @if $prop == 'border'
+    &
+      border-color: $color
+
+  @if $prop == 'borderTop'
+    &
+      border-top-color: $color
+
+  @if $prop == 'borderRight'
+    &
+      border-right-color: $color
+
+  @if $prop == 'borderBottom'
+    &
+      border-bottom-color: $color
+
+  @if $prop == 'borderLeft'
+    &
+      border-left-color: $color
+
+  @if $prop == 'outline'
+    &
+      outline-color: $color
+
+  // @media (prefers-color-scheme: dark)
+  //   // &
+  //   //   color: grayscale($color)
+  //   // @if $color == $c-alpha
+  //   //   &
+  //   //     color: red
+
+  //   @if $prop == 'c'
+  //     &
+  //       color: grayscale($color)
+
+  //   @if $prop == 'bg'
+  //     &
+  //       background-color: grayscale($color)
+
+  //   @if $prop == 'stroke'
+  //     &
+  //       stroke: grayscale($color)
+
+  //   @if $prop == 'fill'
+  //     &
+  //       fill: $color
+
+  //   @if $prop == 'border'
+  //     &
+  //       border-color: grayscale($color)
+
+  // @if $prop == 'outline'
+  //   &
+  //     outline-color: $color

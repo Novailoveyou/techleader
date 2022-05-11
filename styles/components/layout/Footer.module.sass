@@ -1,0 +1,20 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/config/Colors.module.sass' as c
+
+.container
+  @include m.media(phone, tablet)
+    padding-top: f.px(45)
+    padding-bottom: f.px(45)
+  @include m.media(laptop, desktop)
+    padding-top: f.px(70)
+    padding-bottom: f.px(70)
+  @include m.dye(bg, c.$delta)
+
+.copy
+  margin: 0
+  font-size: f.px(14)
+  font-weight: 600
+  line-height: 120%
+  text-align: center
+  @include m.dye(c, c.$phi)

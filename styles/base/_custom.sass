@@ -1,0 +1,37 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/config/Colors.module.sass' as c
+@use '@/styles/config/Breakpoints.module.sass' as bp
+
+// npm package: nprogress
+html #nprogress .bar 
+  @include m.dye(c, c.$beta)
+
+html #nprogress .spinner-icon
+  @include m.dye(borderTop, c.$beta)
+  @include m.dye(borderLeft, c.$beta)
+
+// npm package: reactjs-popup
+@keyframes anvil
+  0%
+    transform: scale(1) translateY(0px)
+    opacity: 0
+  1%
+    transform: scale(0.96) translateY(10px)
+    opacity: 0
+  100%
+    transform: scale(1) translateY(0px)
+    opacity: 1
+
+div.popup-content
+  width: 100%
+  width: max-content
+  max-width: 100%
+  border: none
+  background-color: transparent
+  animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards
+
+div.popup-overlay
+  padding-top: f.px(42)
+  overflow-y: auto
+  // background-color: rgba(0,0,0, .5)

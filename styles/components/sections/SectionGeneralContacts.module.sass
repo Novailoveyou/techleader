@@ -1,0 +1,42 @@
+@use 'sass:math'
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/config/Colors.module.sass' as c
+
+.list
+  margin: 0
+  padding: 0
+  @include m.media(laptop, desktop)
+    display: flex
+    flex-wrap: wrap
+
+$listItem_ld_ml: 2%
+.listItem
+  display: flex
+  flex-direction: column
+  align-items: center
+  @include m.media(phone, tablet)
+    & + .listItem
+      margin-top: f.px(20)
+  @include m.media(laptop, desktop)
+    flex-basis: math.div(100% - $listItem_ld_ml * 1, 2)
+    &:nth-child(even)
+      margin-left: $listItem_ld_ml
+    &:nth-child(n + 3)
+      margin-top: f.px(28)
+
+$keyvalue_mw: 40ch
+.key
+  max-width: $keyvalue_mw
+  margin-top: 0
+  text-align: center
+
+.value
+  max-width: $keyvalue_mw
+  font-size: f.px(20)
+  line-height: 120%
+  text-align: center
+
+.href
+  font-weight: 700
+  @include m.dye(c, c.$beta)

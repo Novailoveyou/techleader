@@ -1,0 +1,72 @@
+@use "sass:math"
+
+// https://codepen.io/jakob-e/pen/AHunv
+// Base font size in pixel for converting em and rem to absolute lengths.
+$base-font-size: 16px !default
+
+// Conversion function
+@function toUnit($unit, $input)
+  $to-unit: map-get(( px: 0px, pt: 0pt, pc: 0pc, in: 0in, mm: 0mm, cm: 0cm, q: 0q, em: 0em, rem: 0rem, ch: 0ch, ex: 0ex, vw: 0vw, vh: 0vh, vmin: 0vmin, vmax: 0vmax, deg: 0deg, turn: 0turn, grad: 0grad, rad: 0rad, s: 0s, ms: 0ms, hz: 0hz, khz: 0khz, dpi: 0dpi, dpcm: 0dpcm, dppx: 0dppx, pct: 0%, percent: 0%, num: 0, number: 0), $unit)
+
+  // Error handling – wrong $unit
+  // Incomparable units are caught in convertion
+  @if not $to-unit
+    @error 'Could not convert to `#{$unit}` – must be a valid CSS unit'
+    @return null
+
+  // Number/incomparable conversion
+  @if index(num number ex ch vw vh vmin vmax, $unit)
+    $value: num($input)
+
+  // EM/REM convertion using px as base
+  @if index(em rem, unit($input))
+    $input: 0px + num($input) * math.div($base-font-size, 1px)
+
+  @if index(em rem, $unit) and not unitless($input)
+    $input: 0px + $input
+    $input: math.div((num($input) * 1px), $base-font-size)
+
+  // Bug fix – resolution units seems to be flipped
+  @if index(dpi dpcm dppx, $unit)
+    $units: ( dppx: 0dppx, dpcm: 0dpcm, dpi: 0dpi)
+    $input-unit: map-get($units, unit($input))
+    $input: if(1dppx < 95dpi,num($input-unit + (num($input) + $to-unit)),$input)
+
+  // Convert
+  @return $to-unit + $input
+
+//  Convert number to ratio
+//  ratio(1.7777778) =>   16/9
+@function ratio($x, $y: null)
+  @if not $y
+    $n: $x
+    $y: 1
+    @while $y < 10
+      $x: $n * 10 - ((10 - $y) * $n)
+      @if $x == round($x)
+        @return #{$x}/#{$y}
+      @else
+        $y: $y + 1
+
+    $x: round($n * 1000000)
+    $y: 1000000
+    @while $x % 10 == 0
+      $x: math.div($x, 10)
+      $y: math.div($y, 10)
+
+    @while $x % 5 == 0
+      $x: math.div($x, 5)
+      $y: math.div($y, 5)
+
+    @while $x % 2 == 0
+      $x: math.div($x, 2)
+      $y: math.div($y, 2)
+
+    @return #{$x}/#{$y}
+  @else if $x == round($x) and $y == round($y)
+    @return #{$x}/#{$y}
+
+  @warn 'X and Y must be integers'
+  @return false
+
+/* #{ ratio(1.7777778) } */

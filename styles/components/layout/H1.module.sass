@@ -1,0 +1,14 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/config/Colors.module.sass' as c
+
+.container
+  margin-top: 0
+  @include m.media(phone, tablet)
+    font-size: f.px(36)
+  @include m.media(laptop, desktop)
+    font-size: f.px(64)
+  line-height: 120%
+  overflow-wrap: break-word
+  text-align: center
+  @include m.dye(c, c.$chi)

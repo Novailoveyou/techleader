@@ -1,0 +1,11 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/config/Colors.module.sass' as c
+
+.container
+  @include m.media(phone, tablet)
+    padding-top: f.px(50)
+    padding-bottom: f.px(50)
+  @include m.media(laptop, desktop)
+    padding-top: f.px(120)
+    padding-bottom: f.px(120)

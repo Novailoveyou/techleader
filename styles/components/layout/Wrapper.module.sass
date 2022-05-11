@@ -1,0 +1,16 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/config/Colors.module.sass' as c
+
+$c_plr: 15
+.container
+  margin-right: auto
+  margin-left: auto
+  padding-right: f.px($c_plr)
+  padding-left: f.px($c_plr)
+  @include m.media(phone)
+    min-width: f.px(320)
+  @include m.media(tablet)
+    max-width: f.px(640 + $c_plr * 2)
+  @include m.media(laptop, desktop)
+    max-width: f.px(1200 + $c_plr * 2)
