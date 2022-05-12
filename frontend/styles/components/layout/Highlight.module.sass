@@ -2,5 +2,11 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
 
-.container
-  @include m.dye(bg, c.$gamma)
+.color
+  @include m.dye(c, c.$alpha)
+
+.weight
+  font-weight: 600
+
+.uppercase
+  text-transform: uppercase

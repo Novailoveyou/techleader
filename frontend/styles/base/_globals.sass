@@ -11,4 +11,8 @@ html
   box-sizing: border-box
   scroll-behavior: smooth
   // font-family: SFProDisplay, Arial, sans-serif
-  font-family: Mont, sans-serif
+
+body
+  font-family: sans-serif
+  @include m.dye(bg, c.$beta)
+  @include m.dye(c, c.$psi)

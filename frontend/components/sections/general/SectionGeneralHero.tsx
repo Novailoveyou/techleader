@@ -3,7 +3,7 @@ import { TPropClassNames } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
 import { useAt, useCompanyInfo } from '@/hooks/index'
-import { Section, Wrapper, H1 } from '@/components/layout'
+import { Section, Wrapper, H1, P, Highlight } from '@/components/layout'
 import { GeneralNonBrakingSpace } from '@/components/general'
 
 type TSectionGeneralHeroProps = TPropClassNames
@@ -11,21 +11,29 @@ type TSectionGeneralHeroProps = TPropClassNames
 const SectionGeneralHero: FC<TSectionGeneralHeroProps> = ({ classNames }) => {
   const at = useAt()
   const company = useCompanyInfo()
+
+  const CompanyName = () => <Highlight color>{company.name.default}</Highlight>
+
   return (
     <Section classNames={[cn(stls.container, classNames)]}>
       <Wrapper>
-        <H1>
+        <H1 classNames={[stls.h1]}>
           <span className={stls.titleTop}>
             {at.en ? (
-              <>{company.name.default} Company</>
+              <>
+                <CompanyName /> Company
+              </>
             ) : (
-              <>Компания {company.name.default}</>
+              <>
+                Компания <CompanyName />
+              </>
             )}
           </span>{' '}
           <span className={stls.titleBottom}>
             {at.en ? <>creates solutions</> : <>создает решения</>}
           </span>
         </H1>
+        <P classNames={[stls.p]}>{company.desc}</P>
       </Wrapper>
     </Section>
   )

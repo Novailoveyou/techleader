@@ -10,9 +10,7 @@ const useCompanyInfo = () => {
       full: at.en
         ? 'Limited Liability Company "S 7 Space Transport Systems", subdivision of Gorki Leninskiye'
         : 'Общество с ограниченной ответственностью «С 7 Космические Транспортные Системы», подразделение Горки Ленинские',
-      short: at.en
-        ? 'LLC "S 7 Space Transport Systems"'
-        : 'ООО «С 7 Космические Транспортные Системы»'
+      short: at.en ? 'LLC "Techleader"' : 'ООО «Технолидер»'
     },
     type: {
       default: at.en

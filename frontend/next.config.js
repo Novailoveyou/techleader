@@ -10,7 +10,7 @@ const nextConfig = {
   i18n: {
     locales: ['ru', 'en'],
     defaultLocale: 'ru',
-    localeDetection: true
+    localeDetection: !dev
   },
   pwa: {
     dest: 'public',
