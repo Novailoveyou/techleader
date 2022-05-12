@@ -2,5 +2,42 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
 
-.SvgGeneralLogo
-  max-width: f.px(56)
+.container
+  min-height: 100vh
+  overflow: hidden
+
+.wrapper
+  margin-left: 7.9%
+  margin-right: 7.9%
+
+.top,
+.bottom
+  max-width: f.px(993)
+
+.top
+  padding-top: f.px(48)
+
+.bottom
+  position: relative
+
+.ImgGeneralOilRig
+  position: absolute
+  z-index: -1
+  top: 50%
+  right: 0
+  transform: translate(30%, -50%)
+
+.h1
+  display: flex
+  flex-direction: column
+  margin: 0
+  margin-top: f.px(128)
+
+.titleBottom
+  align-self: flex-end
+
+.p
+  max-width: 15ch
+  margin: 0
+  margin-top: f.px(65)
+  margin-left: auto

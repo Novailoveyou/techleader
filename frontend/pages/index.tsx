@@ -1,7 +1,6 @@
 import stls from '@/styles/pages/PageHome.module.sass'
 import type { NextPage } from 'next'
 import {
-  SectionGeneralHero,
   SectionGeneralAbout,
   SectionGeneralServices,
   SectionGeneralContacts
@@ -10,7 +9,6 @@ import {
 const PageHome: NextPage = () => {
   return (
     <>
-      <SectionGeneralHero />
       <SectionGeneralAbout />
       <SectionGeneralServices />
       <SectionGeneralContacts />

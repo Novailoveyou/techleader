@@ -4,18 +4,51 @@ import { TPropClassNames } from '@/types/index'
 import cn from 'classnames'
 import { selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { SvgGeneralLogo } from '@/components/svgs'
+import { useAt, useCompanyInfo } from '@/hooks/index'
+import { Wrapper, H1, P, Highlight } from '@/components/layout'
+import { GeneralNonBrakingSpace } from '@/components/general'
+import { BtnLogo } from '@/components/btns'
+import { ImgGeneralOilRig } from '@/components/imgs'
 
 type THeaderProps = TPropClassNames
 
 const Header: FC<THeaderProps> = ({ classNames }) => {
+  const at = useAt()
+  const company = useCompanyInfo()
+
+  const CompanyName = () => <Highlight color>{company.name.default}</Highlight>
+
   return (
     <header
       id={selectors.ids.header}
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <SvgGeneralLogo classNames={[stls.SvgGeneralLogo]} />
+      <Wrapper classNames={[stls.wrapper]}>
+        <div className={stls.top}>
+          <BtnLogo classNames={[stls.BtnLogo]} />
+        </div>
+        <div className={stls.bottom}>
+          <H1 classNames={[stls.h1]}>
+            <span className={stls.titleTop}>
+              {at.en ? (
+                <>
+                  <CompanyName /> Company
+                </>
+              ) : (
+                <>
+                  Компания <CompanyName />
+                </>
+              )}
+            </span>{' '}
+            <span className={stls.titleBottom}>
+              {at.en ? <>creates solutions</> : <>создает решения</>}
+            </span>
+          </H1>
+          <P classNames={[stls.p]}>{company.desc}</P>
+          <ImgGeneralOilRig classNames={[stls.ImgGeneralOilRig]} />
+        </div>
+      </Wrapper>
     </header>
   )
 }

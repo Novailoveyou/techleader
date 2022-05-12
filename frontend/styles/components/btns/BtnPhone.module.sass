@@ -1,0 +1,15 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/config/Colors.module.sass' as c
+
+.container
+  padding: f.px(18)
+  border: 1px solid
+  @include m.dye(border, c.$zeta)
+  border-radius: f.px(16)
+
+.SvgGeneralPhone
+  min-width: f.px(20)
+  max-width: f.px(20)
+  min-height: f.px(20)
+  max-height: f.px(20)

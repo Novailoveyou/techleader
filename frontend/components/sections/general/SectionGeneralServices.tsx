@@ -14,7 +14,7 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
   return (
     <Section classNames={[cn(stls.container, classNames)]}>
       <Wrapper>
-        <H2>{at.en ? 'Main activities' : 'Основные виды деятельности'}</H2>
+        <H2>{at.en ? 'Services' : 'Услуги'}</H2>
       </Wrapper>
     </Section>
   )

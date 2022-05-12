@@ -4,6 +4,7 @@ import { TPropClassNames, TPropChildren } from '@/types/index'
 import cn from 'classnames'
 import { selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { BtnMenu, BtnPhone } from '@/components/btns'
 
 type TMenuProps = TPropClassNames
 
@@ -12,7 +13,10 @@ const Menu: FC<TMenuProps> = ({ classNames }) => {
     <nav
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
-      }></nav>
+      }>
+      <BtnMenu />
+      <BtnPhone classNames={[stls.btnPhone]} />
+    </nav>
   )
 }
 
