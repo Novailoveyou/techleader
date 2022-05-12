@@ -4,6 +4,7 @@ import { TPropClassNames } from '@/types/index'
 import cn from 'classnames'
 import { selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { SvgGeneralLogo } from '@/components/svgs'
 
 type THeaderProps = TPropClassNames
 
@@ -14,7 +15,7 @@ const Header: FC<THeaderProps> = ({ classNames }) => {
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      Header
+      <SvgGeneralLogo classNames={[stls.SvgGeneralLogo]} />
     </header>
   )
 }

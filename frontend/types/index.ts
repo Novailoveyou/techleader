@@ -8,3 +8,4 @@ export type { default as TGeneralDataUrl } from '@/types/general/TGeneralDataUrl
 // ./props
 export type { default as TPropChildren } from '@/types/props/TPropChildren'
 export type { default as TPropClassNames } from '@/types/props/TPropClassNames'
+export type { default as TPropColor } from '@/types/props/TPropColor'
