@@ -16,6 +16,7 @@ export type { default as TImgUnoptimized } from '@/types/img/TImgUnoptimized'
 export type { default as TImgWidth } from '@/types/img/TImgWidth'
 
 // ./props
+export type { default as TPropBgc } from '@/types/props/TPropBgc'
 export type { default as TPropChildren } from '@/types/props/TPropChildren'
 export type { default as TPropClassNames } from '@/types/props/TPropClassNames'
 export type { default as TPropColor } from '@/types/props/TPropColor'
