@@ -1,3 +1,4 @@
+export { default as Content } from '@/components/layout/Content'
 export { default as Footer } from '@/components/layout/Footer'
 export { default as H1 } from '@/components/layout/H1'
 export { default as H2 } from '@/components/layout/H2'

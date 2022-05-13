@@ -1,6 +1,20 @@
+@use "sass:math"
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
 
 .container
   @include m.dye(bg, c.$gamma)
+
+.wrapper
+  display: flex
+
+.ImgGeneralAbout
+  min-width: f.px(264)
+  max-width: f.px(264)
+  margin-right: 14%
+
+.content 
+
+.p
+  max-width: 51ch
