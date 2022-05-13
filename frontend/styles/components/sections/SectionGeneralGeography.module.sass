@@ -2,3 +2,10 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
+
+.container
+  @include m.dye(bg, c.$alpha)
+  @include m.dye(c, c.$omega)
+
+.h2
+  text-align: center

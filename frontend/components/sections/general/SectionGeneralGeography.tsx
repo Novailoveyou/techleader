@@ -21,12 +21,12 @@ const SectionGeneralGeography: FC<TSectionGeneralGeographyProps> = ({
   const at = useAt()
   return (
     <Section
-      id={selectors.ids.services}
+      id={selectors.ids.geography}
       classNames={[cn(stls.container, classNames)]}>
-      <MenuContentContainer menuBgc={colors.gamma} withLeftGap>
+      <MenuContentContainer menuBgc={colors.alpha}>
         <Wrapper>
           <Content>
-            <H2>{at.en ? 'Geography' : 'География'}</H2>
+            <H2 classNames={[stls.h2]}>{at.en ? 'Geography' : 'География'}</H2>
           </Content>
         </Wrapper>
       </MenuContentContainer>
