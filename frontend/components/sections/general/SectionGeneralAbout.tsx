@@ -2,9 +2,10 @@ import stls from '@/styles/components/sections/SectionGeneralAbout.module.sass'
 import { TPropClassNames } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
-import { useAt, useCompanyInfo } from '@/hooks/index'
+import { colors } from '@/config/index'
 import { addSpacesToNumber } from '@/helpers/index'
-import { Section, Wrapper, H2, P, Highlight } from '@/components/layout'
+import { useAt, useCompanyInfo } from '@/hooks/index'
+import { Section, Wrapper, H2, P, Highlight, NavBg } from '@/components/layout'
 
 type TSectionGeneralAboutProps = TPropClassNames
 
@@ -17,6 +18,7 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({ classNames }) => {
   ]
   return (
     <Section classNames={[cn(stls.container, classNames)]}>
+      <NavBg color={colors.beta} />
       <Wrapper>
         <H2>{at.en ? 'About' : 'О компании'}</H2>
         <P>

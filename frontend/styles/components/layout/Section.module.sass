@@ -3,7 +3,10 @@
 @use '@/styles/config/Colors.module.sass' as c
 
 .container
+  position: relative
+  z-index: -1
   min-height: 100vh
+  padding-left: f.px(120)
   @include m.media(phone, tablet)
     padding-top: f.px(50)
     padding-bottom: f.px(50)
