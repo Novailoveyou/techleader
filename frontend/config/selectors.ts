@@ -4,8 +4,10 @@ const selectors = {
     main: 'main',
     footer: 'footer',
     about: 'about',
+    geography: 'geography',
     services: 'services',
-    geography: 'geography'
+    products: 'products',
+    partners: 'partners'
   },
   classNames: {
     locality: 'locality',

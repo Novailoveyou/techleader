@@ -3,7 +3,9 @@ import type { NextPage } from 'next'
 import {
   SectionGeneralAbout,
   SectionGeneralGeography,
-  SectionGeneralServices
+  SectionGeneralServices,
+  SectionGeneralProducts,
+  SectionGeneralPartners
 } from '@/components/sections'
 
 const PageHome: NextPage = () => {
@@ -12,6 +14,8 @@ const PageHome: NextPage = () => {
       <SectionGeneralAbout />
       <SectionGeneralGeography />
       <SectionGeneralServices />
+      <SectionGeneralProducts />
+      <SectionGeneralPartners />
     </>
   )
 }

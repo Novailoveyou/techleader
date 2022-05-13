@@ -2,14 +2,15 @@ import stls from '@/styles/components/layout/Footer.module.sass'
 import { FC } from 'react'
 import { TPropClassNames } from '@/types/index'
 import cn from 'classnames'
-import { selectors } from '@/config/index'
+import { selectors, colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { useCompanyInfo } from '@/hooks/index'
-import { Wrapper } from '@/components/layout'
+import { useAt, useCompanyInfo } from '@/hooks/index'
+import { MenuContentContainer, Wrapper, Content, H2 } from '@/components/layout'
 
 type TFooterProps = TPropClassNames
 
 const Footer: FC<TFooterProps> = ({ classNames }) => {
+  const at = useAt()
   const company = useCompanyInfo()
   return (
     <footer
@@ -17,11 +18,16 @@ const Footer: FC<TFooterProps> = ({ classNames }) => {
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <Wrapper>
-        <p className={stls.copy}>
-          {company.name.default} &copy; {new Date().getFullYear()}
-        </p>
-      </Wrapper>
+      <MenuContentContainer menuBgc={colors.alpha}>
+        <Wrapper>
+          <Content>
+            <H2 classNames={[stls.h2]}>{at.en ? 'Contacts' : 'Контакты'}</H2>
+          </Content>
+          {/* <p className={stls.copy}>
+            {company.name.default} &copy; {new Date().getFullYear()}
+          </p> */}
+        </Wrapper>
+      </MenuContentContainer>
     </footer>
   )
 }

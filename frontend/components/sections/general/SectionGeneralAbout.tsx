@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/SectionGeneralAbout.module.sass'
+import stls from '@/styles/components/sections/general/SectionGeneralAbout.module.sass'
 import { TPropClassNames } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'

@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/SectionGeneralGeography.module.sass'
+import stls from '@/styles/components/sections/general/SectionGeneralGeography.module.sass'
 import { TPropClassNames } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'

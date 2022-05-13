@@ -3,13 +3,8 @@
 @use '@/styles/config/Colors.module.sass' as c
 
 .container
-  @include m.media(phone, tablet)
-    padding-top: f.px(45)
-    padding-bottom: f.px(45)
-  @include m.media(laptop, desktop)
-    padding-top: f.px(70)
-    padding-bottom: f.px(70)
-  @include m.dye(bg, c.$delta)
+  @include m.dye(bg, c.$alpha)
+  @include m.dye(c, c.$omega)
 
 .copy
   margin: 0

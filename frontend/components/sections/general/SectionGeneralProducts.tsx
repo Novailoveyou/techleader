@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/general/SectionGeneralServices.module.sass'
+import stls from '@/styles/components/sections/general/SectionGeneralProducts.module.sass'
 import { TPropClassNames } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
@@ -13,20 +13,20 @@ import {
   H3
 } from '@/components/layout'
 
-type TSectionGeneralServicesProps = TPropClassNames
+type TSectionGeneralProductsProps = TPropClassNames
 
-const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
+const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
   classNames
 }) => {
   const at = useAt()
   return (
     <Section
-      id={selectors.ids.services}
+      id={selectors.ids.products}
       classNames={[cn(stls.container, classNames)]}>
-      <MenuContentContainer menuBgc={colors.beta}>
+      <MenuContentContainer menuBgc={colors.gamma}>
         <Wrapper>
           <Content>
-            <H2 classNames={[stls.h2]}>{at.en ? 'Services' : 'Услуги'}</H2>
+            <H2 classNames={[stls.h2]}>{at.en ? 'Products' : 'Продукция'}</H2>
           </Content>
         </Wrapper>
       </MenuContentContainer>
@@ -34,4 +34,4 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
   )
 }
 
-export default SectionGeneralServices
+export default SectionGeneralProducts
