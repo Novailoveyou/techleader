@@ -2,10 +2,10 @@ import stls from '@/styles/components/sections/SectionGeneralAbout.module.sass'
 import { TPropClassNames } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
-import { colors } from '@/config/index'
+import { colors, selectors } from '@/config/index'
 import { addSpacesToNumber } from '@/helpers/index'
 import { useAt, useCompanyInfo } from '@/hooks/index'
-import { Section, Wrapper, H2, P, Highlight, NavBg } from '@/components/layout'
+import { Section, Wrapper, Menu, H2, P, Highlight } from '@/components/layout'
 
 type TSectionGeneralAboutProps = TPropClassNames
 
@@ -17,8 +17,10 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({ classNames }) => {
     { title: `${addSpacesToNumber(189228)} ${at.en ? 'meters' : 'метра'}` }
   ]
   return (
-    <Section classNames={[cn(stls.container, classNames)]}>
-      <NavBg color={colors.beta} />
+    <Section
+      id={selectors.ids.about}
+      classNames={[cn(stls.container, classNames)]}>
+      <Menu bgc={colors.beta} />
       <Wrapper>
         <H2>{at.en ? 'About' : 'О компании'}</H2>
         <P>

@@ -3,7 +3,7 @@
 @use '@/styles/config/Colors.module.sass' as c
 
 .container
-  position: fixed
+  position: sticky
   top: 0
   left: 0
   display: flex
@@ -12,6 +12,7 @@
   min-width: f.px(120)
   max-width: f.px(120)
   min-height: 100%
+  max-height: 100vh
   padding-top: f.px(48)
   padding-bottom: f.px(48)
   // @include m.dye(bg, c.$gamma)

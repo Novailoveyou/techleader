@@ -4,6 +4,7 @@ export type { default as TGeneralClassNames } from '@/types/general/TGeneralClas
 export type { default as TGeneralColorHex } from '@/types/general/TGeneralColorHex'
 export type { default as TGeneralColorKeys } from '@/types/general/TGeneralColorKeys'
 export type { default as TGeneralDataUrl } from '@/types/general/TGeneralDataUrl'
+export type { default as TGeneralElId } from '@/types/general/TGeneralElId'
 export type { default as TGeneralTitle } from '@/types/general/TGeneralTitle'
 
 // ./img
@@ -18,6 +19,7 @@ export type { default as TImgWidth } from '@/types/img/TImgWidth'
 export type { default as TPropChildren } from '@/types/props/TPropChildren'
 export type { default as TPropClassNames } from '@/types/props/TPropClassNames'
 export type { default as TPropColor } from '@/types/props/TPropColor'
+export type { default as TPropElId } from '@/types/props/TPropElId'
 export type { default as TPropImgAlt } from '@/types/props/TPropImgAlt'
 export type { default as TPropImgHeight } from '@/types/props/TPropImgHeight'
 export type { default as TPropImgPriority } from '@/types/props/TPropImgPriority'

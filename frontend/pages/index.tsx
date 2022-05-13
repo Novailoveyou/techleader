@@ -2,8 +2,7 @@ import stls from '@/styles/pages/PageHome.module.sass'
 import type { NextPage } from 'next'
 import {
   SectionGeneralAbout,
-  SectionGeneralServices,
-  SectionGeneralContacts
+  SectionGeneralServices
 } from '@/components/sections'
 
 const PageHome: NextPage = () => {
@@ -11,7 +10,6 @@ const PageHome: NextPage = () => {
     <>
       <SectionGeneralAbout />
       <SectionGeneralServices />
-      <SectionGeneralContacts />
     </>
   )
 }

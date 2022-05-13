@@ -2,7 +2,9 @@ const selectors = {
   ids: {
     header: 'header',
     main: 'main',
-    footer: 'footer'
+    footer: 'footer',
+    about: 'about',
+    services: 'services'
   },
   classNames: {
     locality: 'locality',

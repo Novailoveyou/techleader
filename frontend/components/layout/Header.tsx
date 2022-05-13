@@ -5,7 +5,7 @@ import cn from 'classnames'
 import { colors, selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { useAt, useCompanyInfo } from '@/hooks/index'
-import { Wrapper, H1, P, Highlight, NavBg } from '@/components/layout'
+import { Wrapper, Menu, H1, P, Highlight } from '@/components/layout'
 import { GeneralNonBrakingSpace } from '@/components/general'
 import { BtnLogo } from '@/components/btns'
 import { ImgGeneralOilRig } from '@/components/imgs'
@@ -24,7 +24,7 @@ const Header: FC<THeaderProps> = ({ classNames }) => {
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <NavBg color={colors.gamma} />
+      <Menu bgc={colors.gamma} />
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.top}>
           <BtnLogo classNames={[stls.BtnLogo]} />
