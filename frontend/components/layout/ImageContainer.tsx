@@ -12,7 +12,7 @@ import {
   TPropImgPriority
 } from '@/types/index'
 import cn from 'classnames'
-import { nextexport, base64pixel } from '@/config/index'
+import { nextexport, ui } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import TPropImgUnoptimized from '@/types/props/TPropImgUnoptimized'
 
@@ -48,7 +48,7 @@ const ImageContainer: FC<TImageContainerProps> = ({
         height={height}
         className={stls.img}
         placeholder='blur'
-        blurDataURL={base64pixel}
+        blurDataURL={ui.base64pixel}
         priority={priority}
         unoptimized={nextexport || unoptimized}
       />
