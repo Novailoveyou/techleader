@@ -1,0 +1,13 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/config/Colors.module.sass' as c
+
+.container
+  font-size: f.px(14)
+  font-weight: 400
+  line-height: 120%
+  text-decoration: none
+  @include m.dye(c, c.$psi)
+
+.isActive
+  @include m.dye(c, c.$alpha)

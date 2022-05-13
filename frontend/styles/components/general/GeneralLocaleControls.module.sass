@@ -2,3 +2,8 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
 
+.listItem
+  display: flex
+  justify-content: flex-end
+  & + .listItem
+    margin-top: f.px(24)
