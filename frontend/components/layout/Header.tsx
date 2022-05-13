@@ -25,7 +25,7 @@ const Header: FC<THeaderProps> = ({ classNames }) => {
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <MenuContentContainer menuBgc={colors.gamma}>
+      <MenuContentContainer menuBgc={colors.gamma} withLeftGap>
         <Wrapper classNames={[stls.wrapper]}>
           <div className={stls.top}>
             <BtnLogo classNames={[stls.BtnLogo]} />

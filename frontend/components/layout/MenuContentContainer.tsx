@@ -11,12 +11,17 @@ import { selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { Menu } from '@/components/layout'
 
-type TMenuContentContainerProps = TPropClassNames & TPropChildren & TPropBgc
+type TMenuContentContainerProps = TPropClassNames &
+  TPropChildren &
+  TPropBgc & {
+    withLeftGap?: boolean
+  }
 
 const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   classNames,
   children,
-  menuBgc
+  menuBgc,
+  withLeftGap
 }) => {
   return (
     <div
@@ -24,7 +29,9 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <Menu menuBgc={menuBgc} />
-      <div className={stls.content}>{children}</div>
+      <div className={cn(stls.content, { [stls.withLeftGap]: withLeftGap })}>
+        {children}
+      </div>
     </div>
   )
 }

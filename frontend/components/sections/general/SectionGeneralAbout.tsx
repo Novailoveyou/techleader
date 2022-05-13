@@ -28,7 +28,7 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({ classNames }) => {
     <Section
       id={selectors.ids.about}
       classNames={[cn(stls.container, classNames)]}>
-      <MenuContentContainer menuBgc={colors.beta}>
+      <MenuContentContainer menuBgc={colors.beta} withLeftGap>
         <Wrapper>
           <H2>{at.en ? 'About' : 'О компании'}</H2>
           <P>
