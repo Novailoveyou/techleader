@@ -2,3 +2,65 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
+
+.container
+  @include m.dye(bg, c.$gamma)
+
+.h2
+  text-align: center
+
+.listContainer
+  position: relative
+  max-width: 77.6%
+  margin-left: auto
+  margin-right: auto
+
+.pAbsolute
+  position: absolute
+  top: 0
+  right: 0
+  text-align: right
+  max-width: 10ch
+  transform: translateY(f.px(-68))
+
+.list
+  display: flex
+  flex-wrap: wrap
+
+.listItem
+  display: flex
+  justify-content: center
+  align-items: center
+  min-width: f.px(156)
+  max-width: f.px(156)
+  min-height: f.px(156)
+  max-height: f.px(156)
+  padding-right: f.px(24)
+  padding-left: f.px(24)
+  &:nth-child(n + 3)
+    &:nth-child(-n + 6)
+      &:nth-child(odd)
+        @include m.dye(bg, c.$beta)
+      &:nth-child(even)
+        @include m.dye(bg, c.$zeta)
+  &:nth-child(n + 7)
+    margin-top: f.px(32)
+    &:nth-child(odd)
+      @include m.dye(bg, c.$zeta)
+    &:nth-child(even)
+      @include m.dye(bg, c.$beta)
+
+.listItemP
+  align-items: flex-end
+
+.p
+  @include m.dye(c, c.$alpha)
+
+.img
+  max-width: 100%
+
+.pPartner
+  font-size: f.px(14)
+  font-weight: 400
+  line-height: 120%
+  @include m.dye(c, c.$eta)
