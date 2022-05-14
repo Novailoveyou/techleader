@@ -6,10 +6,23 @@
   @include m.dye(bg, c.$alpha)
   @include m.dye(c, c.$omega)
 
-.copy
-  margin: 0
-  font-size: f.px(14)
-  font-weight: 600
-  line-height: 120%
+.h2
   text-align: center
-  @include m.dye(c, c.$phi)
+
+.p
+  @include m.dye(c, c.$beta)
+
+.link
+  text-decoration: none
+  @include m.dye(c, c.$beta)
+
+.list
+  display: flex
+  margin-left: 50%
+  transform: translateX(f.px(-121))
+
+.listItem
+  display: flex
+  flex-direction: column
+  & + .listItem
+    margin-left: 6.7% * 2

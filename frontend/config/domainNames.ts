@@ -1,5 +1,5 @@
 const domainNames = {
-  default: 's7rd.ru'
+  default: 'tehlid.ru'
 }
 
 export default domainNames

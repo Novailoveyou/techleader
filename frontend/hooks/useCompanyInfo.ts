@@ -85,8 +85,8 @@ const useCompanyInfo = () => {
     phoneNumbers: {
       default: {
         city: at.en ? 'Moscow' : 'Москва',
-        href: 'tel:+7-777-777-77-77',
-        val: '+7 (777) 777-77-77',
+        href: 'tel:+7-345-266-21-05',
+        val: '+7 (345) 266-21-05',
         contactType: at.en ? 'Customer support' : 'Техподдержка',
         areaServed: ['RU'],
         languages: ['Russian']
