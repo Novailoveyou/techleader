@@ -6,16 +6,17 @@ const useCompanyInfo = () => {
 
   const companyInfo = {
     name: {
-      default: at.en ? 'Techleader' : 'Технолидер',
+      default: at.en ? 'TechnoLeader' : 'Технолидер',
       full: at.en
         ? 'Limited Liability Company "S 7 Space Transport Systems", subdivision of Gorki Leninskiye'
         : 'Общество с ограниченной ответственностью «С 7 Космические Транспортные Системы», подразделение Горки Ленинские',
-      short: at.en ? 'LLC "Techleader"' : 'ООО «Технолидер»'
+      short: at.en ? 'LLC "TechnoLeader"' : 'ООО «Технолидер»'
     },
     type: {
       default: at.en
         ? 'Research organization'
-        : 'Научно-производственная организация'
+        : 'Научно-производственная организация',
+      seo: 'ResearchOrganization'
     },
     desc: at.en
       ? 'Russian oilfield services company'
@@ -78,8 +79,8 @@ const useCompanyInfo = () => {
         href: `mailto:contact@${domainNames.default}`,
         val: `contact@${domainNames.default}`,
         contactType: at.en ? 'Sales team' : 'Отдел продаж',
-        areaServed: ['RU'],
-        languages: ['Russian', 'English']
+        areaServed: ['EN', 'RU'],
+        languages: ['English', 'Russian']
       }
     },
     phoneNumbers: {
@@ -88,8 +89,8 @@ const useCompanyInfo = () => {
         href: 'tel:+7-345-266-21-05',
         val: '+7 (345) 266-21-05',
         contactType: at.en ? 'Customer support' : 'Техподдержка',
-        areaServed: ['RU'],
-        languages: ['Russian']
+        areaServed: ['EN', 'RU'],
+        languages: ['English', 'Russian']
       }
     }
   }
