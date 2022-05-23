@@ -3,12 +3,14 @@ import { TPropClassNames } from '@/types/index'
 import Link from 'next/link'
 import cn from 'classnames'
 import { routes } from '@/config/index'
+import { useCompanyInfo } from '@/hooks/index'
 import { getClassNames } from '@/helpers/index'
 import { SvgGeneralLogo } from '@/components/svgs'
 
 type TypeBtnLogoProps = TPropClassNames
 
 const BtnLogo = ({ classNames }: TypeBtnLogoProps) => {
+  const company = useCompanyInfo()
   return (
     <Link href={routes.front.home}>
       <a

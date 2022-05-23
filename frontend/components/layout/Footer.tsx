@@ -13,6 +13,7 @@ import {
   P,
   Highlight
 } from '@/components/layout'
+import { SvgGeneralLogo, SvgGeneralLogoAlt } from '@/components/svgs'
 
 type TFooterProps = TPropClassNames
 
@@ -57,6 +58,8 @@ const Footer: FC<TFooterProps> = ({ classNames }) => {
                 </li>
               ))}
             </ul>
+            <SvgGeneralLogoAlt />
+            {/* <SvgGeneralLogo color2={colors.theta} /> */}
           </Content>
         </Wrapper>
       </MenuContentContainer>
