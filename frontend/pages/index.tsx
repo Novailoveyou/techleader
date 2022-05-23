@@ -16,10 +16,10 @@ const PageHome: NextPage = () => {
   const company = useCompanyInfo()
 
   const seoParams = {
-    title: `${company.name.default || 'TechnoLeader'}${
-      company.tagline ? ` | ${company.tagline}` : ''
+    title: `${company.name.default || 'TechnoLeader'} | ${
+      company.tagline || company.desc
     }`,
-    desc: truncate(company.desc, 120),
+    desc: truncate(company.about, 120),
     canonical: routes.front.root
   }
 

@@ -3,7 +3,7 @@ import { TPropClassNames } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
 import { colors, selectors } from '@/config/index'
-import { addSpacesToNumber } from '@/helpers/index'
+import { addSpacesToNumber, firstLetterToLowerCase } from '@/helpers/index'
 import { useAt, useCompanyInfo } from '@/hooks/index'
 import {
   Section,
@@ -62,20 +62,7 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({ classNames }) => {
               <Highlight weight uppercase>
                 {company.name.short}
               </Highlight>{' '}
-              —{' '}
-              {at.en ? (
-                <>
-                  oilfield services company focused on creating technical and
-                  engineering solutions for the oil and gas industry
-                </>
-              ) : (
-                <>
-                  нефтесервисная компания, основной задачей которой является
-                  создание инженерных и<GeneralNonBrakingSpace />
-                  технологических решений отвечающих вызовам нефтегазовой
-                  индустрии
-                </>
-              )}
+              — {firstLetterToLowerCase(company.about)}
             </P>
           </Content>
         </Wrapper>

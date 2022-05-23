@@ -1,4 +1,4 @@
-import { domainNames } from '@/config/index'
+import { domainNames, ui } from '@/config/index'
 import { useAt } from '@/hooks/index'
 
 const useCompanyInfo = () => {
@@ -21,7 +21,9 @@ const useCompanyInfo = () => {
     desc: at.en
       ? 'Russian oilfield services company'
       : 'Российская нефтесервисная компания',
-    about: null,
+    about: at.en
+      ? 'Oilfield services company focused on creating technical and engineering solutions for the oil and gas industry'
+      : `Нефтесервисная компания, основной задачей которой является создание инженерных и${ui.nonBrakingSpace}технологических решений отвечающих вызовам нефтегазовой индустрии`,
     tagline: null,
     addresses: {
       default: {
