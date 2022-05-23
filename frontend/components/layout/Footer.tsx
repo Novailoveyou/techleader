@@ -41,8 +41,8 @@ const Footer: FC<TFooterProps> = ({ classNames }) => {
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <MenuContentContainer menuBgc={colors.alpha}>
-        <Wrapper>
-          <Content>
+        <Wrapper classNames={[stls.wrapper]}>
+          <Content classNames={[stls.content]}>
             <H2 classNames={[stls.h2]}>{at.en ? 'Contacts' : 'Контакты'}</H2>
             <ul className={stls.list}>
               {list.map(({ title, href, val }, idx) => (
@@ -58,8 +58,9 @@ const Footer: FC<TFooterProps> = ({ classNames }) => {
                 </li>
               ))}
             </ul>
-            <SvgGeneralLogoAlt />
-            {/* <SvgGeneralLogo color2={colors.theta} /> */}
+            <div className={stls.SvgGeneralLogoAltContainer}>
+              <SvgGeneralLogoAlt classNames={[stls.SvgGeneralLogoAlt]} />
+            </div>
           </Content>
         </Wrapper>
       </MenuContentContainer>
