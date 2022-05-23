@@ -40,10 +40,10 @@ const Footer: FC<TFooterProps> = ({ classNames }) => {
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <MenuContentContainer menuBgc={colors.alpha}>
+      <MenuContentContainer menuBgc={colors.alpha} withLeftGapXl>
         <Wrapper classNames={[stls.wrapper]}>
           <Content classNames={[stls.content]}>
-            <H2 classNames={[stls.h2]}>{at.en ? 'Contacts' : 'Контакты'}</H2>
+            <H2>{at.en ? 'Contacts' : 'Контакты'}</H2>
             <ul className={stls.list}>
               {list.map(({ title, href, val }, idx) => (
                 <li key={`${title}-${idx}`} className={stls.listItem}>

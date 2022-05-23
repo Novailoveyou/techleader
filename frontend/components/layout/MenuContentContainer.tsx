@@ -15,13 +15,15 @@ type TMenuContentContainerProps = TPropClassNames &
   TPropChildren &
   TPropBgc & {
     withLeftGap?: boolean
+    withLeftGapXl?: boolean
   }
 
 const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   classNames,
   children,
   menuBgc,
-  withLeftGap
+  withLeftGap,
+  withLeftGapXl
 }) => {
   return (
     <div
@@ -29,7 +31,11 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <Menu menuBgc={menuBgc} />
-      <div className={cn(stls.content, { [stls.withLeftGap]: withLeftGap })}>
+      <div
+        className={cn(stls.content, {
+          [stls.withLeftGap]: withLeftGap,
+          [stls.withLeftGapXl]: withLeftGapXl
+        })}>
         {children}
       </div>
     </div>
