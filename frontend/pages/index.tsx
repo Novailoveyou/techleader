@@ -8,7 +8,6 @@ import {
   SectionGeneralProducts,
   SectionGeneralCertification,
   SectionGeneralGeography,
-  // SectionGeneralPartners
   SectionGeneralClients
 } from '@/components/sections'
 import {
@@ -35,7 +34,6 @@ const PageHome: NextPage = () => {
       <SectionGeneralProducts />
       <SectionGeneralCertification />
       <SectionGeneralGeography />
-      {/* <SectionGeneralPartners /> */}
       <SectionGeneralClients />
       <Footer />
     </>

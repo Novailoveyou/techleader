@@ -3,7 +3,7 @@ import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
 import { colors, selectors } from '@/config/index'
-import { useAt } from '@/hooks/index'
+import { useAt, useTitles } from '@/hooks/index'
 import {
   Section,
   Wrapper,
@@ -20,8 +20,9 @@ const SectionGeneralCertification: FC<TSectionGeneralCertificationProps> = ({
   h1
 }) => {
   const at = useAt()
+  const titles = useTitles()
 
-  const title = h1 || (at.en ? 'Certification' : 'Сертификация')
+  const title = h1 || titles.certification
 
   return (
     <Section

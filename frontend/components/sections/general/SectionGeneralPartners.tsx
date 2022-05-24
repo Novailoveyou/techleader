@@ -1,14 +1,15 @@
 import stls from '@/styles/components/sections/general/SectionGeneralPartners.module.sass'
-import { TPropClassNames } from '@/types/index'
+import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
 import { selectors, colors } from '@/config/index'
-import { useAt } from '@/hooks/index'
+import { useAt, useTitles } from '@/hooks/index'
 import {
   Section,
   MenuContentContainer,
   Wrapper,
   Content,
+  H1,
   H2,
   H3,
   P
@@ -24,12 +25,18 @@ import {
   ImgPartnerVniibt
 } from '@/components/imgs'
 
-type TSectionGeneralPartnersProps = TPropClassNames
+type TSectionGeneralPartnersProps = TPropClassNames & TPropH1
+
+// * This is unfinished in terms of UI and unused in terms of pages & sections section
 
 const SectionGeneralPartners: FC<TSectionGeneralPartnersProps> = ({
-  classNames
+  classNames,
+  h1
 }) => {
   const at = useAt()
+  const titles = useTitles()
+
+  const title = h1 || titles.partners
 
   const list = [
     ImgPartnerRosgeologia,
@@ -49,7 +56,13 @@ const SectionGeneralPartners: FC<TSectionGeneralPartnersProps> = ({
       <MenuContentContainer menuBgc={colors.beta}>
         <Wrapper>
           <Content>
-            <H2 classNames={[stls.h2]}>{at.en ? 'Partners' : 'Партнеры'}</H2>
+            {h1 ? (
+              <H1 styledAsH2 classNames={[stls.h2]}>
+                {title}
+              </H1>
+            ) : (
+              <H2 classNames={[stls.h2]}>{title}</H2>
+            )}
             <div className={stls.listContainer}>
               <P classNames={[cn(stls.p, stls.pAbsolute)]}>
                 {at.en ? 'Main customers' : 'Основные заказчики'}

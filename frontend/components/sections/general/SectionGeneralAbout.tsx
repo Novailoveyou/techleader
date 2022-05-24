@@ -4,7 +4,7 @@ import { FC } from 'react'
 import cn from 'classnames'
 import { colors, selectors } from '@/config/index'
 import { addSpacesToNumber, firstLetterToLowerCase } from '@/helpers/index'
-import { useAt, useCompanyInfo } from '@/hooks/index'
+import { useAt, useCompanyInfo, useTitles } from '@/hooks/index'
 import {
   Section,
   Wrapper,
@@ -25,8 +25,9 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
 }) => {
   const at = useAt()
   const company = useCompanyInfo()
+  const titles = useTitles()
 
-  const title = h1 || (at.en ? 'About' : 'О компании')
+  const title = h1 || titles.about
 
   const list = [
     {

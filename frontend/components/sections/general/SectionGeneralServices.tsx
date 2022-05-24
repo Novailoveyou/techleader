@@ -3,7 +3,7 @@ import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
 import { selectors, colors } from '@/config/index'
-import { useAt } from '@/hooks/index'
+import { useAt, useTitles } from '@/hooks/index'
 import {
   Section,
   MenuContentContainer,
@@ -21,8 +21,9 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
   h1
 }) => {
   const at = useAt()
+  const titles = useTitles()
 
-  const title = h1 || (at.en ? 'Services' : 'Услуги')
+  const title = h1 || titles.services
 
   return (
     <Section

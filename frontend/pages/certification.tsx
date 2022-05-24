@@ -1,8 +1,8 @@
 import stls from '@/styles/pages/PageCertification.module.sass'
 import type { NextPage } from 'next'
-import { useAt, useCompanyInfo } from '@/hooks/index'
+import { useAt, useCompanyInfo, useTitles } from '@/hooks/index'
 import { routes } from '@/config/index'
-import { SectionGeneralGeography } from '@/components/sections'
+import { SectionGeneralCertification } from '@/components/sections'
 import {
   SeoGeneralNextSeo,
   SeoGeneralOrganizationJsonLd
@@ -11,21 +11,22 @@ import {
 const PageCertification: NextPage = () => {
   const at = useAt()
   const company = useCompanyInfo()
+  const titles = useTitles()
 
-  const title = at.en ? 'Certification' : 'Сертификация'
+  const h1 = titles.certification
 
   // TODO: figure out better SEO
   return (
     <>
       <SeoGeneralNextSeo
-        title={`${title} | ${company.name.default} | ${
+        title={`${h1} | ${company.name.default} | ${
           company.tagline || company.desc
         }`}
         desc={company.about}
         canonical={`${routes.front.root}${routes.front.certification}`}
       />
       <SeoGeneralOrganizationJsonLd />
-      <SectionGeneralGeography h1={title} />
+      <SectionGeneralCertification h1={h1} />
     </>
   )
 }
