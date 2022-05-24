@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-  siteUrl: 'https://tehlid.ru',
+  siteUrl: 'https://technoleader.ru',
   changefreq: 'daily',
   priority: 0.7,
   sitemapSize: 5000,
@@ -9,7 +9,7 @@ module.exports = {
   // exclude: ['/payment'],
   alternateRefs: [
     {
-      href: 'https://tehlid.ru/en',
+      href: 'https://technoleader.ru/en',
       hreflang: 'en'
     }
   ],
