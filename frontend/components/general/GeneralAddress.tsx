@@ -6,29 +6,31 @@ import { GeneralNonBrakingSpace } from '@/components/general'
 
 const GeneralAddress: FC = () => {
   const company = useCompanyInfo()
+
+  const { zip, province, region, city, area, street } =
+    company.addresses.default
+
   return (
     <>
-      {company.addresses.default.zip},{' '}
-      {company.addresses.default.province.name.default}
+      {zip}, {province.name.default}
       <GeneralNonBrakingSpace />
-      {company.addresses.default.province.type.short},{' '}
-      {company.addresses.default.region.name}
+      {province.type.short}, {region.name}
       <GeneralNonBrakingSpace />
-      {company.addresses.default.region.type.short},{' '}
+      {region.type.short},{' '}
       <span className={selectors.classNames.locality}>
-        {company.addresses.default.city.type.short}
+        {city.type.short}
         <GeneralNonBrakingSpace />
-        {company.addresses.default.city.name}
+        {city.name}
       </span>
-      , {company.addresses.default.area.name}
+      , {area.name}
       <GeneralNonBrakingSpace />
-      {company.addresses.default.area.house},{' '}
+      {area.house},{' '}
       <span className={selectors.classNames.streetAddress}>
-        {company.addresses.default.street.type.short}
+        {street.type.short}
         <GeneralNonBrakingSpace />
-        {company.addresses.default.street.name}
+        {street.name}
         <GeneralNonBrakingSpace />
-        {company.addresses.default.street.house}
+        {street.house}
       </span>
     </>
   )

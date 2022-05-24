@@ -32,7 +32,7 @@ const Header: FC<THeaderProps> = ({ classNames }) => {
     <header
       id={selectors.ids.header}
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <GeneralLocaleControls classNames={[stls.GeneralLocaleControls]} />
       <MenuContentContainer menuBgc={colors.gamma} withLeftGap>

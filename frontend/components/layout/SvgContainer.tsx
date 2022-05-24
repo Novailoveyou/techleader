@@ -10,7 +10,7 @@ const SvgContainer: FC<TSvgContainerProps> = ({ classNames, children }) => {
   return (
     <span
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       {children}
     </span>

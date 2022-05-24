@@ -12,9 +12,7 @@ const BtnPhone = ({ classNames }: TypeBtnPhoneProps) => {
   const company = useCompanyInfo()
   return (
     <a
-      className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
-      }
+      className={cn(stls.container, getClassNames({ classNames })) || undefined}
       href={company.phoneNumbers.default.href}
       title={at.en ? 'Call us' : 'Позвонить нам'}>
       <SvgGeneralPhone classNames={[stls.SvgGeneralPhone]} />

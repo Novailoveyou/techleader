@@ -1,8 +1,9 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
+@use '@/styles/shared/hs' as hs
 
-.container
+.default
   margin-bottom: f.px(64)
   @include m.media(phone, tablet)
     font-size: f.px(36)
@@ -13,3 +14,6 @@
   line-height: 120%
   overflow-wrap: break-word
   text-transform: uppercase
+
+.h2
+  @include hs.h2

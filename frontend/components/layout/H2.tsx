@@ -10,7 +10,7 @@ const H2: FC<TH2Props> = ({ classNames, children }) => {
   return (
     <h2
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       {children}
     </h2>

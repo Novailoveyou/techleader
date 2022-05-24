@@ -10,7 +10,7 @@ const H3: FC<TH3Props> = ({ classNames, children }) => {
   return (
     <h3
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       {children}
     </h3>

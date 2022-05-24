@@ -37,9 +37,7 @@ const ImageContainer: FC<TImageContainerProps> = ({
 }) => {
   return (
     <span
-      className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
-      }
+      className={cn(stls.container, getClassNames({ classNames })) || undefined}
       title={title}>
       <Image
         src={src}

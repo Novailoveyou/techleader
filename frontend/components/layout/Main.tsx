@@ -12,7 +12,7 @@ const Main: FC<TMainProps> = ({ classNames, children }) => {
     <main
       id={selectors.ids.main}
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       {children}
     </main>

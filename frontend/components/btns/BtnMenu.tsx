@@ -10,7 +10,7 @@ const BtnMenu = ({ classNames }: TypeBtnMenuProps) => {
   return (
     <button
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <SvgGeneralMenu classNames={[stls.SvgGeneralMenu]} />
     </button>

@@ -10,7 +10,7 @@ const Content: FC<TContentProps> = ({ classNames, children }) => {
   return (
     <div
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       {children}
     </div>

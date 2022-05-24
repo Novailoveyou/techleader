@@ -1,6 +1,6 @@
 import stls from '@/styles/components/layout/Footer.module.sass'
 import { FC } from 'react'
-import { TPropClassNames } from '@/types/index'
+import { TPropClassNames, TPropH1 } from '@/types/index'
 import cn from 'classnames'
 import { selectors, colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
@@ -9,17 +9,20 @@ import {
   MenuContentContainer,
   Wrapper,
   Content,
+  H1,
   H2,
   P,
   Highlight
 } from '@/components/layout'
 import { SvgGeneralLogo, SvgGeneralLogoAlt } from '@/components/svgs'
 
-type TFooterProps = TPropClassNames
+type TFooterProps = TPropClassNames & TPropH1
 
-const Footer: FC<TFooterProps> = ({ classNames }) => {
+const Footer: FC<TFooterProps> = ({ classNames, h1 }) => {
   const at = useAt()
   const company = useCompanyInfo()
+
+  const title = h1 || (at.en ? 'Contacts' : 'Контакты')
 
   const list = [
     {
@@ -38,12 +41,13 @@ const Footer: FC<TFooterProps> = ({ classNames }) => {
     <footer
       id={selectors.ids.footer}
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <MenuContentContainer menuBgc={colors.alpha} withLeftGapXl>
         <Wrapper classNames={[stls.wrapper]}>
           <Content classNames={[stls.content]}>
-            <H2>{at.en ? 'Contacts' : 'Контакты'}</H2>
+            {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
+
             <ul className={stls.list}>
               {list.map(({ title, href, val }, idx) => (
                 <li key={`${title}-${idx}`} className={stls.listItem}>

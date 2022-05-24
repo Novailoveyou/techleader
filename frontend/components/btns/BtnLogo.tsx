@@ -15,7 +15,7 @@ const BtnLogo = ({ classNames }: TypeBtnLogoProps) => {
     <Link href={routes.front.home}>
       <a
         className={
-          cn([stls.container], getClassNames({ classNames })) || undefined
+          cn(stls.container, getClassNames({ classNames })) || undefined
         }>
         <SvgGeneralLogo classNames={[stls.SvgGeneralLogo]} />
       </a>

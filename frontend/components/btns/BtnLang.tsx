@@ -19,7 +19,7 @@ const BtnLang = ({ classNames, children, locale }: TypeBtnLangProps) => {
     <Link href={router.asPath} locale={locale}>
       <a
         className={
-          cn([stls.container], getClassNames({ classNames }), {
+          cn(stls.container, getClassNames({ classNames }), {
             [stls.isActive]: isActive
           }) || undefined
         }>

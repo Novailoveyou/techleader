@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/general/SectionGeneralAbout.module.sass'
-import { TPropClassNames } from '@/types/index'
+import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
 import { colors, selectors } from '@/config/index'
@@ -9,19 +9,24 @@ import {
   Section,
   Wrapper,
   Content,
+  H1,
   H2,
   P,
   Highlight,
   MenuContentContainer
 } from '@/components/layout'
-import { GeneralNonBrakingSpace } from '@/components/general'
 import { ImgGeneralAbout } from '@/components/imgs'
 
-type TSectionGeneralAboutProps = TPropClassNames
+type TSectionGeneralAboutProps = TPropClassNames & TPropH1
 
-const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({ classNames }) => {
+const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
+  classNames,
+  h1
+}) => {
   const at = useAt()
   const company = useCompanyInfo()
+
+  const title = h1 || (at.en ? 'About' : 'О компании')
 
   const list = [
     {
@@ -57,7 +62,7 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({ classNames }) => {
         <Wrapper classNames={[stls.wrapper]}>
           <ImgGeneralAbout classNames={[stls.ImgGeneralAbout]} />
           <Content classNames={[stls.content]}>
-            <H2>{at.en ? 'About' : 'О компании'}</H2>
+            {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
             <P classNames={[stls.p]}>
               <Highlight weight uppercase>
                 {company.name.short}

@@ -1,16 +1,20 @@
-import { domainNames, ui } from '@/config/index'
+import { domainNames, companyInfo } from '@/config/index'
 import { useAt } from '@/hooks/index'
 
 const useCompanyInfo = () => {
   const at = useAt()
 
-  const companyInfo = {
+  const output = {
     name: {
-      default: at.en ? 'TechnoLeader' : 'Технолидер',
+      default: at.en
+        ? companyInfo.name.default.en
+        : companyInfo.name.default.ru,
       full: at.en
         ? 'Limited Liability Company "S 7 Space Transport Systems", subdivision of Gorki Leninskiye'
         : 'Общество с ограниченной ответственностью «С 7 Космические Транспортные Системы», подразделение Горки Ленинские',
-      short: at.en ? 'LLC "TechnoLeader"' : 'ООО «Технолидер»'
+      short: at.en
+        ? `LLC "${companyInfo.name.default.en}"`
+        : `ООО ${companyInfo.name.default.ru}`
     },
     type: {
       default: at.en
@@ -21,9 +25,7 @@ const useCompanyInfo = () => {
     desc: at.en
       ? 'Russian oilfield services company'
       : 'Российская нефтесервисная компания',
-    about: at.en
-      ? 'Oilfield services company focused on creating technical and engineering solutions for the oil and gas industry'
-      : `Нефтесервисная компания, основной задачей которой является создание инженерных и${ui.nonBrakingSpace}технологических решений отвечающих вызовам нефтегазовой индустрии`,
+    about: at.en ? companyInfo.about.en : companyInfo.about.ru,
     tagline: null,
     addresses: {
       default: {
@@ -97,7 +99,7 @@ const useCompanyInfo = () => {
     }
   }
 
-  return companyInfo
+  return output
 }
 
 export default useCompanyInfo

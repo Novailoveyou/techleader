@@ -1,32 +1,36 @@
-import stls from '@/styles/components/sections/general/SectionGeneralProducts.module.sass'
-import { TPropClassNames } from '@/types/index'
+import stls from '@/styles/components/sections/general/SectionGeneralCertification.module.sass'
+import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
-import { selectors, colors } from '@/config/index'
+import { colors, selectors } from '@/config/index'
 import { useAt } from '@/hooks/index'
 import {
   Section,
-  MenuContentContainer,
   Wrapper,
   Content,
+  H1,
   H2,
-  H3
+  MenuContentContainer
 } from '@/components/layout'
 
-type TSectionGeneralProductsProps = TPropClassNames
+type TSectionGeneralCertificationProps = TPropClassNames & TPropH1
 
-const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
-  classNames
+const SectionGeneralCertification: FC<TSectionGeneralCertificationProps> = ({
+  classNames,
+  h1
 }) => {
   const at = useAt()
+
+  const title = h1 || (at.en ? 'Products' : 'Продукция')
+
   return (
     <Section
       id={selectors.ids.products}
       classNames={[cn(stls.container, classNames)]}>
-      <MenuContentContainer menuBgc={colors.gamma}>
-        <Wrapper>
-          <Content>
-            <H2 classNames={[stls.h2]}>{at.en ? 'Products' : 'Продукция'}</H2>
+      <MenuContentContainer menuBgc={colors.beta} withLeftGap>
+        <Wrapper classNames={[stls.wrapper]}>
+          <Content classNames={[stls.content]}>
+            {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
           </Content>
         </Wrapper>
       </MenuContentContainer>
@@ -34,4 +38,4 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
   )
 }
 
-export default SectionGeneralProducts
+export default SectionGeneralCertification

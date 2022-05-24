@@ -28,7 +28,7 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   return (
     <div
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <Menu menuBgc={menuBgc} />
       <div

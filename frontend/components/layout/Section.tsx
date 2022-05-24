@@ -11,7 +11,7 @@ const Section: FC<TSectionProps> = ({ classNames, id, children }) => {
     <section
       id={id}
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       {children}
     </section>

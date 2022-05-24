@@ -10,7 +10,7 @@ const P: FC<TPProps> = ({ classNames, children }) => {
   return (
     <p
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       {children}
     </p>

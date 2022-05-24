@@ -16,9 +16,7 @@ type TMenuProps = TPropClassNames & TPropBgc
 const Menu: FC<TMenuProps> = ({ classNames, menuBgc }) => {
   return (
     <nav
-      className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
-      }
+      className={cn(stls.container, getClassNames({ classNames })) || undefined}
       style={{ backgroundColor: menuBgc }}>
       <BtnMenu />
       <BtnPhone classNames={[stls.btnPhone]} />
