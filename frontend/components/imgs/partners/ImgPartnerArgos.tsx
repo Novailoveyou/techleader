@@ -19,8 +19,8 @@ const ImgPartnerArgos: FC<TypeImgPartnerArgosProps> = ({
       <ImageContainer
         classNames={[cn(stls.container, classNames)]}
         src={src}
-        width={width}
-        height={height}
+        {...(width ? { width } : {})}
+        {...(height ? { height } : {})}
         alt={at.en ? 'Argos' : 'Аргос'}
         title={at.en ? 'Argos' : 'Аргос'}
       />

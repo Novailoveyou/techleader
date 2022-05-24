@@ -21,8 +21,8 @@ const ImgPartnerTitanPzto: FC<TypeImgPartnerTitanPztoProps> = ({
       <ImageContainer
         classNames={[cn(stls.container, classNames)]}
         src={src}
-        width={width}
-        height={height}
+        {...(width ? { width } : {})}
+        {...(height ? { height } : {})}
         alt={at.en ? 'Titan Pzto' : 'Титан ПЗТО'}
         title={at.en ? 'Titan Pzto' : 'Титан ПЗТО'}
       />

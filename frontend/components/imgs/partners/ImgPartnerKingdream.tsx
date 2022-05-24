@@ -21,8 +21,8 @@ const ImgPartnerKingdream: FC<TypeImgPartnerKingdreamProps> = ({
       <ImageContainer
         classNames={[cn(stls.container, classNames)]}
         src={src}
-        width={width}
-        height={height}
+        {...(width ? { width } : {})}
+        {...(height ? { height } : {})}
         alt={at.en ? 'Kingdream' : 'Kingdream'}
         title={at.en ? 'Kingdream' : 'Kingdream'}
       />

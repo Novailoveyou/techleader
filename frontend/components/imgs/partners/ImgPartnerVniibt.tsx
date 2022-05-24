@@ -21,8 +21,8 @@ const ImgPartnerVniibt: FC<TypeImgPartnerVniibtProps> = ({
       <ImageContainer
         classNames={[cn(stls.container, classNames)]}
         src={src}
-        width={width}
-        height={height}
+        {...(width ? { width } : {})}
+        {...(height ? { height } : {})}
         alt={at.en ? 'Vniibt' : 'ВНИИБТ'}
         title={at.en ? 'Vniibt' : 'ВНИИБТ'}
       />

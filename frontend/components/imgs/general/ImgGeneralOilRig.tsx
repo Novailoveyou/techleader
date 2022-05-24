@@ -21,8 +21,8 @@ const ImgGeneralOilRig: FC<TypeImgGeneralOilRigProps> = ({
       <ImageContainer
         classNames={[cn(stls.container, classNames)]}
         src={src}
-        width={width}
-        height={height}
+        {...(width ? { width } : {})}
+        {...(height ? { height } : {})}
         alt={at.en ? 'Oil rig' : 'Нефтяная платформа'}
       />
     </>

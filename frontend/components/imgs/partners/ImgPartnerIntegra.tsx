@@ -21,8 +21,8 @@ const ImgPartnerIntegra: FC<TypeImgPartnerIntegraProps> = ({
       <ImageContainer
         classNames={[cn(stls.container, classNames)]}
         src={src}
-        width={width}
-        height={height}
+        {...(width ? { width } : {})}
+        {...(height ? { height } : {})}
         alt={at.en ? 'Integra' : 'Integra'}
         title={at.en ? 'Integra' : 'Integra'}
       />

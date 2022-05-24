@@ -19,8 +19,8 @@ const ImgPartnerGreat: FC<TypeImgPartnerGreatProps> = ({
       <ImageContainer
         classNames={[cn(stls.container, classNames)]}
         src={src}
-        width={width}
-        height={height}
+        {...(width ? { width } : {})}
+        {...(height ? { height } : {})}
         alt={at.en ? 'Great' : 'Great'}
         title={at.en ? 'Great' : 'Great'}
       />

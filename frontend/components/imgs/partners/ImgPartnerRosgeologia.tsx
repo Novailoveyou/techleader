@@ -21,8 +21,8 @@ const ImgPartnerRosgeologia: FC<TypeImgPartnerRosgeologiaProps> = ({
       <ImageContainer
         classNames={[cn(stls.container, classNames)]}
         src={src}
-        width={width}
-        height={height}
+        {...(width ? { width } : {})}
+        {...(height ? { height } : {})}
         alt={at.en ? 'Rosgeologia' : 'Росгеология'}
         title={at.en ? 'Rosgeologia' : 'Росгеология'}
       />

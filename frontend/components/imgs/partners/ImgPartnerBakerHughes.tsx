@@ -21,8 +21,8 @@ const ImgPartnerBakerHughes: FC<TypeImgPartnerBakerHughesProps> = ({
       <ImageContainer
         classNames={[cn(stls.container, classNames)]}
         src={src}
-        width={width}
-        height={height}
+        {...(width ? { width } : {})}
+        {...(height ? { height } : {})}
         alt={at.en ? 'Baker Hughes' : 'Baker Hughes'}
         title={at.en ? 'Baker Hughes' : 'Baker Hughes'}
       />
