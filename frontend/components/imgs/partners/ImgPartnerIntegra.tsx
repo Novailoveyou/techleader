@@ -6,15 +6,13 @@ import { ImageContainer } from '@/components/layout'
 import { useAt } from '@/hooks/index'
 import src from '@/public/assets/imgs/partners/integra.png'
 
-type TypeImgPartnerIntegraProps = TPropClassNames &
-  TPropImgWidth &
-  TPropImgHeight
+type TImgPartnerIntegraProps = TPropClassNames & TPropImgWidth & TPropImgHeight
 
-const ImgPartnerIntegra: FC<TypeImgPartnerIntegraProps> = ({
+const ImgPartnerIntegra: FC<TImgPartnerIntegraProps> = ({
   classNames,
   width,
   height
-}: TypeImgPartnerIntegraProps) => {
+}) => {
   const at = useAt()
   return (
     <>

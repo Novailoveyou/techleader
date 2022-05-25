@@ -1,5 +1,6 @@
 import stls from '@/styles/components/svgs/general/SvgGeneralLogoAlt.module.sass'
 import { TPropClassNames, TPropColor } from '@/types/index'
+import { FC } from 'react'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { useCompanyInfo } from '@/hooks/index'
@@ -7,7 +8,10 @@ import { SvgContainer } from '@/components/layout'
 
 type TSvgGeneralLogoAltProps = TPropClassNames & TPropColor
 
-const SvgGeneralLogoAlt = ({ classNames, color }: TSvgGeneralLogoAltProps) => {
+const SvgGeneralLogoAlt: FC<TSvgGeneralLogoAltProps> = ({
+  classNames,
+  color
+}) => {
   const company = useCompanyInfo()
   return (
     <SvgContainer classNames={[cn(stls.container, classNames)]}>

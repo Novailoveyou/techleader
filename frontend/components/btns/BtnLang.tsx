@@ -1,17 +1,15 @@
 import stls from '@/styles/components/btns/BtnLang.module.sass'
-import { TPropChildren, TPropClassNames } from '@/types/index'
+import { TPropChildren, TPropClassNames, TPropLinkLocale } from '@/types/index'
+import { FC } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import { routes } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { useRouter } from 'next/router'
 
-type TypeBtnLangProps = TPropClassNames &
-  TPropChildren & {
-    locale: string
-  }
+type TBtnLangProps = TPropClassNames & TPropChildren & TPropLinkLocale
 
-const BtnLang = ({ classNames, children, locale }: TypeBtnLangProps) => {
+const BtnLang: FC<TBtnLangProps> = ({ classNames, children, locale }) => {
   const router = useRouter()
 
   const isActive = router.locale === locale

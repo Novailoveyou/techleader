@@ -30,7 +30,7 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
-      <Menu menuBgc={menuBgc} />
+      <Menu classNames={[stls.menu]} menuBgc={menuBgc} />
       <div
         className={cn(stls.content, {
           [stls.withLeftGap]: withLeftGap,

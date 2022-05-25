@@ -1,5 +1,6 @@
 import stls from '@/styles/components/svgs/general/SvgGeneralPhone.module.sass'
 import { TPropClassNames, TPropColor } from '@/types/index'
+import { FC } from 'react'
 import cn from 'classnames'
 import { useAt } from '@/hooks/index'
 import { colors } from '@/config/index'
@@ -7,7 +8,7 @@ import { SvgContainer } from '@/components/layout'
 
 type TSvgGeneralPhoneProps = TPropClassNames & TPropColor
 
-const SvgGeneralPhone = ({ classNames, color }: TSvgGeneralPhoneProps) => {
+const SvgGeneralPhone: FC<TSvgGeneralPhoneProps> = ({ classNames, color }) => {
   const at = useAt()
   return (
     <SvgContainer classNames={[cn(stls.container, classNames)]}>

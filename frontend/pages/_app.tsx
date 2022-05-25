@@ -1,5 +1,6 @@
-import '@/styles/app.sass'
+import 'reactjs-popup/dist/index.css'
 import 'nprogress/nprogress.css'
+import '@/styles/app.sass'
 import { TGeneralRoute } from '@/types/index'
 import { useState, useEffect } from 'react'
 import type { AppProps, NextWebVitalsMetric } from 'next/app'

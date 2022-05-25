@@ -6,13 +6,13 @@ import { ImageContainer } from '@/components/layout'
 import { useAt } from '@/hooks/index'
 import src from '@/public/assets/imgs/general/about.jpg'
 
-type TypeImgGeneralAboutProps = TPropClassNames & TPropImgWidth & TPropImgHeight
+type TImgGeneralAboutProps = TPropClassNames & TPropImgWidth & TPropImgHeight
 
-const ImgGeneralAbout: FC<TypeImgGeneralAboutProps> = ({
+const ImgGeneralAbout: FC<TImgGeneralAboutProps> = ({
   classNames,
   width,
   height
-}: TypeImgGeneralAboutProps) => {
+}) => {
   const at = useAt()
   return (
     <>

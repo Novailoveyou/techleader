@@ -6,15 +6,13 @@ import { ImageContainer } from '@/components/layout'
 import { useAt } from '@/hooks/index'
 import src from '@/public/assets/imgs/partners/vniibt.png'
 
-type TypeImgPartnerVniibtProps = TPropClassNames &
-  TPropImgWidth &
-  TPropImgHeight
+type TImgPartnerVniibtProps = TPropClassNames & TPropImgWidth & TPropImgHeight
 
-const ImgPartnerVniibt: FC<TypeImgPartnerVniibtProps> = ({
+const ImgPartnerVniibt: FC<TImgPartnerVniibtProps> = ({
   classNames,
   width,
   height
-}: TypeImgPartnerVniibtProps) => {
+}) => {
   const at = useAt()
   return (
     <>

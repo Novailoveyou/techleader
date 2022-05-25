@@ -6,15 +6,15 @@ import { ImageContainer } from '@/components/layout'
 import { useAt } from '@/hooks/index'
 import src from '@/public/assets/imgs/partners/kingdream.png'
 
-type TypeImgPartnerKingdreamProps = TPropClassNames &
+type TImgPartnerKingdreamProps = TPropClassNames &
   TPropImgWidth &
   TPropImgHeight
 
-const ImgPartnerKingdream: FC<TypeImgPartnerKingdreamProps> = ({
+const ImgPartnerKingdream: FC<TImgPartnerKingdreamProps> = ({
   classNames,
   width,
   height
-}: TypeImgPartnerKingdreamProps) => {
+}) => {
   const at = useAt()
   return (
     <>

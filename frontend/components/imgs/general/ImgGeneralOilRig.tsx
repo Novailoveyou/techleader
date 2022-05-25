@@ -6,15 +6,13 @@ import { ImageContainer } from '@/components/layout'
 import { useAt } from '@/hooks/index'
 import src from '@/public/assets/imgs/general/oil-rig.png'
 
-type TypeImgGeneralOilRigProps = TPropClassNames &
-  TPropImgWidth &
-  TPropImgHeight
+type TImgGeneralOilRigProps = TPropClassNames & TPropImgWidth & TPropImgHeight
 
-const ImgGeneralOilRig: FC<TypeImgGeneralOilRigProps> = ({
+const ImgGeneralOilRig: FC<TImgGeneralOilRigProps> = ({
   classNames,
   width,
   height
-}: TypeImgGeneralOilRigProps) => {
+}) => {
   const at = useAt()
   return (
     <>

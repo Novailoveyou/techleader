@@ -1,5 +1,6 @@
 import stls from '@/styles/components/svgs/general/SvgGeneralLogo.module.sass'
 import { TGeneralColorHex, TPropClassNames, TPropColor } from '@/types/index'
+import { FC } from 'react'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { useCompanyInfo } from '@/hooks/index'
@@ -11,12 +12,12 @@ type TSvgGeneralLogoProps = TPropClassNames & {
   color3?: TGeneralColorHex
 }
 
-const SvgGeneralLogo = ({
+const SvgGeneralLogo: FC<TSvgGeneralLogoProps> = ({
   classNames,
   color1,
   color2,
   color3
-}: TSvgGeneralLogoProps) => {
+}) => {
   const company = useCompanyInfo()
   return (
     <SvgContainer classNames={[cn(stls.container, classNames)]}>
