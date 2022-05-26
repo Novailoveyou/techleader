@@ -36,7 +36,7 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
           [stls.withLeftGap]: withLeftGap,
           [stls.withLeftGapXl]: withLeftGapXl
         })}>
-        {children}
+        <div className={stls.contentInner}>{children}</div>
       </div>
     </div>
   )

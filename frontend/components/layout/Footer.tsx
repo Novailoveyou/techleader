@@ -1,6 +1,6 @@
 import stls from '@/styles/components/layout/Footer.module.sass'
 import { FC } from 'react'
-import { TPropClassNames, TPropH1 } from '@/types/index'
+import { TPropClassNames, TPropH1, TListContacts } from '@/types/index'
 import cn from 'classnames'
 import { selectors, colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
@@ -12,6 +12,8 @@ import {
   H1,
   H2,
   P,
+  Ul,
+  Li,
   Highlight
 } from '@/components/layout'
 import { SvgGeneralLogo, SvgGeneralLogoAlt } from '@/components/svgs'
@@ -24,7 +26,7 @@ const Footer: FC<TFooterProps> = ({ classNames, h1 }) => {
 
   const title = h1 || (at.en ? 'Contacts' : 'Контакты')
 
-  const list = [
+  const list: TListContacts = [
     {
       title: at.en ? 'Phone number' : 'Телефон',
       href: company.phoneNumbers.default.href,
@@ -44,29 +46,24 @@ const Footer: FC<TFooterProps> = ({ classNames, h1 }) => {
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <MenuContentContainer menuBgc={colors.alpha} withLeftGapXl>
-        <Wrapper classNames={[stls.wrapper]}>
-          <Content classNames={[stls.content]}>
-            {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
-
-            <ul className={stls.list}>
-              {list.map(({ title, href, val }, idx) => (
-                <li key={`${title}-${idx}`} className={stls.listItem}>
-                  <P classNames={[stls.p]}>
-                    <Highlight weight>{title}</Highlight>
-                  </P>
-                  <P classNames={[stls.p]}>
-                    <a href={href} className={stls.link}>
-                      {val}
-                    </a>
-                  </P>
-                </li>
-              ))}
-            </ul>
-            <div className={stls.SvgGeneralLogoAltContainer}>
-              <SvgGeneralLogoAlt classNames={[stls.SvgGeneralLogoAlt]} />
-            </div>
-          </Content>
-        </Wrapper>
+        {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
+        <Ul classNames={[stls.list]}>
+          {list.map(({ title, href, val }, idx) => (
+            <Li key={`${title}-${idx}`} classNames={[stls.listItem]}>
+              <P classNames={[stls.p]}>
+                <Highlight weight>{title}</Highlight>
+              </P>
+              <P classNames={[stls.p]}>
+                <a href={href} className={stls.link}>
+                  {val}
+                </a>
+              </P>
+            </Li>
+          ))}
+        </Ul>
+        <div className={stls.SvgGeneralLogoAltContainer}>
+          <SvgGeneralLogoAlt classNames={[stls.SvgGeneralLogoAlt]} />
+        </div>
       </MenuContentContainer>
     </footer>
   )

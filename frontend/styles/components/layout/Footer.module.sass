@@ -1,6 +1,7 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
+@use '@/styles/shared/margins/marginBottomH2.sass' as mb
 
 .container
   position: relative
@@ -18,6 +19,17 @@
   flex-grow: 1
   padding-bottom: 0
 
+ul.list
+  display: flex
+  margin-bottom: mb.$marginBottomH2
+  gap: 11.7%
+
+.listItem
+  display: flex
+  flex-direction: column
+  // & + .listItem
+  //   margin-left: 11.7%
+
 .p
   @include m.dye(c, c.$beta)
 
@@ -25,20 +37,9 @@
   text-decoration: none
   @include m.dye(c, c.$beta)
 
-.list
-  display: flex
-  margin-bottom: f.px(56)
-
-.listItem
-  display: flex
-  flex-direction: column
-  & + .listItem
-    margin-left: 11.7%
-
 .SvgGeneralLogoAltContainer
   position: relative
   margin-top: auto
-  overflow: hidden
   min-width: 100%
   max-width: 100%
   min-height: f.px(387)

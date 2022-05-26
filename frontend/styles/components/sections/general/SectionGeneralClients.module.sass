@@ -2,3 +2,24 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
+
+.MenuContentContainer
+  overflow-x: hidden
+
+.list
+  display: flex
+
+.item
+  display: flex
+  align-items: flex-start
+  min-width: 92.2%
+  max-width: 92.2%
+  // padding-right: f.px(48)
+
+.top
+  display: flex
+  align-items: center
+
+.p
+  max-width: 24ch
+  margin-left: f.px(48)

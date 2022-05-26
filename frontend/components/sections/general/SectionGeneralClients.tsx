@@ -10,8 +10,16 @@ import {
   Content,
   H1,
   H2,
-  MenuContentContainer
+  Ul,
+  P,
+  MenuContentContainer,
+  Highlight
 } from '@/components/layout'
+import {
+  ImgPartnerArgos,
+  ImgPartnerBakerHughes,
+  ImgPartnerRosgeologia
+} from '@/components/imgs'
 
 type TSectionGeneralClientsProps = TPropClassNames & TPropH1
 
@@ -24,14 +32,52 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
 
   const title = h1 || titles.clients
 
+  const list = [
+    {
+      img: <ImgPartnerRosgeologia />,
+      title: 'АО «Росгеология»',
+      desc: '— сервис по отработке долот, ВЗД, ясов'
+    },
+    {
+      img: <ImgPartnerArgos />,
+      title: 'ООО «Аргос»-ЧУРС',
+      desc: '— сервис по отработке долот и отбору керна'
+    },
+    {
+      img: <ImgPartnerBakerHughes />,
+      title: 'АО «Бейкер Хьюз»',
+      desc: '— аренда долот'
+    },
+    {
+      img: <ImgPartnerRosgeologia />,
+      title: 'ООО «Смит Сайбириан Сервисез»',
+      desc: '— поставка и ремонт долотенда долот'
+    }
+  ]
+
   return (
     <Section
       id={selectors.ids.clients}
       classNames={[cn(stls.container, classNames)]}>
-      <MenuContentContainer menuBgc={colors.beta} withLeftGap>
+      <MenuContentContainer
+        classNames={[stls.MenuContentContainer]}
+        menuBgc={colors.beta}
+        withLeftGapXl>
         <Wrapper classNames={[stls.wrapper]}>
           <Content classNames={[stls.content]}>
             {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
+            <Ul classNames={[stls.list]}>
+              {list.map((item, idx) => (
+                <li key={`${item.title}-${idx}`} className={stls.item}>
+                  <div className={stls.top}>
+                    {item.img}{' '}
+                    <P classNames={[stls.p]}>
+                      <Highlight color>{item.title}</Highlight> {item.desc}
+                    </P>
+                  </div>
+                </li>
+              ))}
+            </Ul>
           </Content>
         </Wrapper>
       </MenuContentContainer>

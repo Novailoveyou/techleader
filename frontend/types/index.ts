@@ -17,6 +17,12 @@ export type { default as TImgSrc } from '@/types/img/TImgSrc'
 export type { default as TImgUnoptimized } from '@/types/img/TImgUnoptimized'
 export type { default as TImgWidth } from '@/types/img/TImgWidth'
 
+// ./items
+export type { default as TItemContact } from '@/types/items/TItemContact'
+
+// ./lists
+export type { default as TListContacts } from '@/types/lists/TListContacts'
+
 // ./props
 export type { default as TPropBgc } from '@/types/props/TPropBgc'
 export type { default as TPropChildren } from '@/types/props/TPropChildren'
@@ -31,6 +37,7 @@ export type { default as TPropImgPriority } from '@/types/props/TPropImgPriority
 export type { default as TPropImgSrc } from '@/types/props/TPropImgSrc'
 export type { default as TPropImgUnoptimized } from '@/types/props/TPropImgUnoptimized'
 export type { default as TPropImgWidth } from '@/types/props/TPropImgWidth'
+export type { default as TPropItemContact } from '@/types/props/TPropItemContact'
 export type { default as TPropLinkLocale } from '@/types/props/TPropLinkLocale'
 export type { default as TPropOpen } from '@/types/props/TPropOpen'
 export type { default as TPropStyledAsH2 } from '@/types/props/TPropStyledAsH2'
