@@ -28,12 +28,12 @@ const SectionGeneralCertification: FC<TSectionGeneralCertificationProps> = ({
     <Section
       id={selectors.ids.products}
       classNames={[cn(stls.container, classNames)]}>
-      <MenuContentContainer menuBgc={colors.beta} withLeftGap>
-        <Wrapper classNames={[stls.wrapper]}>
-          <Content classNames={[stls.content]}>
-            {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
-          </Content>
-        </Wrapper>
+      <MenuContentContainer
+        menuBgc={colors.beta}
+        leftGap='xl'
+        topGap='l'
+        bottomGap='l'>
+        {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
       </MenuContentContainer>
     </Section>
   )

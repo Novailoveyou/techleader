@@ -45,7 +45,7 @@ const Footer: FC<TFooterProps> = ({ classNames, h1 }) => {
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
-      <MenuContentContainer menuBgc={colors.alpha} withLeftGapXl>
+      <MenuContentContainer menuBgc={colors.alpha} leftGap='xl' topGap='xl'>
         {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
         <Ul classNames={[stls.list]}>
           {list.map(({ title, href, val }, idx) => (

@@ -14,17 +14,27 @@ import { Menu } from '@/components/layout'
 type TMenuContentContainerProps = TPropClassNames &
   TPropChildren &
   TPropBgc & {
-    withLeftGap?: boolean
-    withLeftGapXl?: boolean
+    topGap?: 'l' | 'xl'
+    bottomGap?: 'l' | 'xl'
+    leftGap?: 'xl'
   }
 
 const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   classNames,
   children,
   menuBgc,
-  withLeftGap,
-  withLeftGapXl
+  topGap,
+  bottomGap,
+  leftGap
 }) => {
+  const topGapL = topGap === 'l'
+  const topGapXl = topGap === 'xl'
+
+  const bottomGapL = bottomGap === 'l'
+  const bottomGapXl = bottomGap === 'xl'
+
+  const leftGapXl = leftGap === 'xl'
+
   return (
     <div
       className={
@@ -33,10 +43,18 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
       <Menu classNames={[stls.menu]} menuBgc={menuBgc} />
       <div
         className={cn(stls.content, {
-          [stls.withLeftGap]: withLeftGap,
-          [stls.withLeftGapXl]: withLeftGapXl
+          [stls.contentTopGapL]: topGapL,
+          [stls.contentTopGapXl]: topGapXl,
+          [stls.contentBottomGapL]: bottomGapL,
+          [stls.contentBottomGapXl]: bottomGapXl,
+          [stls.contentLeftGapXl]: leftGapXl
         })}>
-        <div className={stls.contentInner}>{children}</div>
+        <div
+          className={cn(stls.contentChild, {
+            [stls.contentChildleftGapXl]: leftGapXl
+          })}>
+          {children}
+        </div>
       </div>
     </div>
   )

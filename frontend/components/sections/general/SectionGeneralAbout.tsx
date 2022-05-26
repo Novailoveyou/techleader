@@ -59,19 +59,19 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
     <Section
       id={selectors.ids.about}
       classNames={[cn(stls.container, classNames)]}>
-      <MenuContentContainer menuBgc={colors.beta} withLeftGap>
-        <Wrapper classNames={[stls.wrapper]}>
-          <ImgGeneralAbout classNames={[stls.ImgGeneralAbout]} />
-          <Content classNames={[stls.content]}>
-            {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
-            <P classNames={[stls.p]}>
-              <Highlight weight uppercase>
-                {company.name.short}
-              </Highlight>{' '}
-              — {firstLetterToLowerCase(company.about)}
-            </P>
-          </Content>
-        </Wrapper>
+      <MenuContentContainer
+        menuBgc={colors.beta}
+        leftGap='xl'
+        topGap='l'
+        bottomGap='l'>
+        <ImgGeneralAbout classNames={[stls.ImgGeneralAbout]} />
+        {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
+        <P classNames={[stls.p]}>
+          <Highlight weight uppercase>
+            {company.name.short}
+          </Highlight>{' '}
+          — {firstLetterToLowerCase(company.about)}
+        </P>
       </MenuContentContainer>
     </Section>
   )

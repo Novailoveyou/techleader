@@ -62,24 +62,22 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
       <MenuContentContainer
         classNames={[stls.MenuContentContainer]}
         menuBgc={colors.beta}
-        withLeftGapXl>
-        <Wrapper classNames={[stls.wrapper]}>
-          <Content classNames={[stls.content]}>
-            {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
-            <Ul classNames={[stls.list]}>
-              {list.map((item, idx) => (
-                <li key={`${item.title}-${idx}`} className={stls.item}>
-                  <div className={stls.top}>
-                    {item.img}{' '}
-                    <P classNames={[stls.p]}>
-                      <Highlight color>{item.title}</Highlight> {item.desc}
-                    </P>
-                  </div>
-                </li>
-              ))}
-            </Ul>
-          </Content>
-        </Wrapper>
+        leftGap='xl'
+        topGap='l'
+        bottomGap='l'>
+        {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
+        <Ul classNames={[stls.list]}>
+          {list.map((item, idx) => (
+            <li key={`${item.title}-${idx}`} className={stls.item}>
+              <div className={stls.top}>
+                {item.img}{' '}
+                <P classNames={[stls.p]}>
+                  <Highlight color>{item.title}</Highlight> {item.desc}
+                </P>
+              </div>
+            </li>
+          ))}
+        </Ul>
       </MenuContentContainer>
     </Section>
   )

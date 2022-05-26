@@ -29,16 +29,16 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
     <Section
       id={selectors.ids.services}
       classNames={[cn(stls.container, classNames)]}>
-      <MenuContentContainer menuBgc={colors.beta}>
-        <Wrapper>
-          <Content>
-            {h1 ? (
-              <H1 styledAsH2>{title}</H1>
-            ) : (
-              <H2 classNames={[stls.h2]}>{title}</H2>
-            )}
-          </Content>
-        </Wrapper>
+      <MenuContentContainer
+        menuBgc={colors.beta}
+        leftGap='xl'
+        topGap='l'
+        bottomGap='l'>
+        {h1 ? (
+          <H1 styledAsH2>{title}</H1>
+        ) : (
+          <H2 classNames={[stls.h2]}>{title}</H2>
+        )}
       </MenuContentContainer>
     </Section>
   )
