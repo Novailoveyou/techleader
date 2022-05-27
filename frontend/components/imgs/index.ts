@@ -17,3 +17,9 @@ export { default as ImgPartnerKingdream } from '@/components/imgs/partners/ImgPa
 export { default as ImgPartnerRosgeologia } from '@/components/imgs/partners/ImgPartnerRosgeologia'
 export { default as ImgPartnerTitanPzto } from '@/components/imgs/partners/ImgPartnerTitanPzto'
 export { default as ImgPartnerVniibt } from '@/components/imgs/partners/ImgPartnerVniibt'
+
+// ./products
+export { default as ImgProduct1 } from '@/components/imgs/products/ImgProduct1'
+export { default as ImgProduct2 } from '@/components/imgs/products/ImgProduct2'
+export { default as ImgProduct3 } from '@/components/imgs/products/ImgProduct3'
+export { default as ImgProduct4 } from '@/components/imgs/products/ImgProduct4'

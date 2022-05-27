@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/general/SectionGeneralCertification.module.sass'
+import stls from '@/styles/components/sections/general/SectionGeneralProducts.module.sass'
 import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
@@ -10,12 +10,25 @@ import {
   Content,
   H1,
   H2,
-  MenuContentContainer
+  H3,
+  Ul,
+  Li,
+  P,
+  MenuContentContainer,
+  Highlight
 } from '@/components/layout'
+import { UlGeneralXScrollable } from '@/components/uls'
+import { LiGeneralXScrollable } from '@/components/lis'
+import {
+  ImgProduct1,
+  ImgProduct2,
+  ImgProduct3,
+  ImgProduct4
+} from '@/components/imgs'
 
-type TSectionGeneralCertificationProps = TPropClassNames & TPropH1
+type TSectionGeneralProductsProps = TPropClassNames & TPropH1
 
-const SectionGeneralCertification: FC<TSectionGeneralCertificationProps> = ({
+const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
   classNames,
   h1
 }) => {
@@ -23,6 +36,38 @@ const SectionGeneralCertification: FC<TSectionGeneralCertificationProps> = ({
   const titles = useTitles()
 
   const title = h1 || titles.products
+
+  const list = [
+    {
+      Img: ImgProduct1,
+      list: [
+        'Производим собственные буровые долота PDC',
+        'Команда профессиональных конструкторов',
+        'Производство стальных и матричных корпусов',
+        'Резцы различной геометрии премиального класса для бурения твердых и крепких пород'
+      ]
+    },
+    {
+      Img: ImgProduct2,
+      title: 'PDC Резцы',
+      desc: 'Возможность изготовления резцов сложной геометрии (3D и 4D), по разработанным чертежам'
+    },
+    {
+      Img: ImgProduct3,
+      title: 'Резцы с двойной фаской',
+      desc: 'Усовершенствованная кромка резца обеспечивает лучшую ударную стойкость, увеличивая проходку долота в твердых и крепких породах'
+    },
+    {
+      Img: ImgProduct4,
+      title: '3D-4D Резцы',
+      list: [
+        'Улучшенное точечное воздействие на породу',
+        'Значительное снижение момента на долоте',
+        'Увеличенная стойкость',
+        'Увеличение МСП'
+      ]
+    }
+  ]
 
   return (
     <Section
@@ -34,9 +79,39 @@ const SectionGeneralCertification: FC<TSectionGeneralCertificationProps> = ({
         topGap='l'
         bottomGap='l'>
         {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
+        <UlGeneralXScrollable classNames={[stls.list]}>
+          {list.map(({ Img, title, desc, list }, idx) => (
+            <LiGeneralXScrollable
+              key={`${title}-${idx}`}
+              classNames={[stls.LiGeneralXScrollable]}>
+              <Img classNames={[stls.Img]} />
+              <div className={stls.right}>
+                {title && (
+                  <H3>
+                    <Highlight color>{title}</Highlight>
+                  </H3>
+                )}
+                {desc && <P>{desc}</P>}
+                <Ul classNames={[stls.Ul]}>
+                  {list &&
+                    list.map((str, idx, list) => (
+                      <Li
+                        key={`ProductItem-${str}-${idx}`}
+                        classNames={[stls.Li]}>
+                        <P>
+                          {str}
+                          {list[idx + 1] ? ';' : '.'}
+                        </P>
+                      </Li>
+                    ))}
+                </Ul>
+              </div>
+            </LiGeneralXScrollable>
+          ))}
+        </UlGeneralXScrollable>
       </MenuContentContainer>
     </Section>
   )
 }
 
-export default SectionGeneralCertification
+export default SectionGeneralProducts
