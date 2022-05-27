@@ -11,10 +11,13 @@ import {
   H1,
   H2,
   Ul,
+  Li,
   P,
   MenuContentContainer,
   Highlight
 } from '@/components/layout'
+import { UlGeneralXScrollable } from '@/components/uls'
+import { LiGeneralXScrollable } from '@/components/lis'
 import {
   ImgPartnerArgos,
   ImgPartnerBakerHughes,
@@ -34,22 +37,22 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
 
   const list = [
     {
-      img: <ImgPartnerRosgeologia />,
+      Img: ImgPartnerRosgeologia,
       title: 'АО «Росгеология»',
       desc: '— сервис по отработке долот, ВЗД, ясов'
     },
     {
-      img: <ImgPartnerArgos />,
+      Img: ImgPartnerArgos,
       title: 'ООО «Аргос»-ЧУРС',
       desc: '— сервис по отработке долот и отбору керна'
     },
     {
-      img: <ImgPartnerBakerHughes />,
+      Img: ImgPartnerBakerHughes,
       title: 'АО «Бейкер Хьюз»',
       desc: '— аренда долот'
     },
     {
-      img: <ImgPartnerRosgeologia />,
+      Img: ImgPartnerRosgeologia,
       title: 'ООО «Смит Сайбириан Сервисез»',
       desc: '— поставка и ремонт долотенда долот'
     }
@@ -66,18 +69,20 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
         topGap='l'
         bottomGap='l'>
         {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
-        <Ul classNames={[stls.list]}>
-          {list.map((item, idx) => (
-            <li key={`${item.title}-${idx}`} className={stls.item}>
+        <UlGeneralXScrollable classNames={[stls.list]}>
+          {list.map(({ Img, title, desc }, idx) => (
+            <LiGeneralXScrollable
+              key={`${title}-${idx}`}
+              classNames={[stls.item]}>
               <div className={stls.top}>
-                {item.img}{' '}
+                <Img classNames={[stls.Img]} />{' '}
                 <P classNames={[stls.p]}>
-                  <Highlight color>{item.title}</Highlight> {item.desc}
+                  <Highlight color>{title}</Highlight> {desc}
                 </P>
               </div>
-            </li>
+            </LiGeneralXScrollable>
           ))}
-        </Ul>
+        </UlGeneralXScrollable>
       </MenuContentContainer>
     </Section>
   )

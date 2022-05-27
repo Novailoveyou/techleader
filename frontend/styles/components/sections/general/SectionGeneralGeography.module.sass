@@ -12,6 +12,8 @@
 
 .content
   display: flex
+  @include m.media(phone, tablet)
+    flex-direction: column
 
 $ImgGeographyMap_ld_fb: 55.2%
 $list_ld_ml: 3.7%

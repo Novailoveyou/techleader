@@ -1,4 +1,4 @@
-import stls from '@/styles/components/uls/general/UlGeneralXScrollable.module.sass'
+import stls from '@/styles/components/lis/general/LiGeneralXScrollable.module.sass'
 import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
@@ -11,16 +11,17 @@ import {
   H1,
   H2,
   Ul,
+  Li,
   MenuContentContainer
 } from '@/components/layout'
 
 type TUlGeneralXScrollableProps = TPropClassNames & TPropH1
 
-const UlGeneralXScrollable: FC<TUlGeneralXScrollableProps> = ({
+const LiGeneralXScrollable: FC<TUlGeneralXScrollableProps> = ({
   classNames,
   children
 }) => {
-  return <Ul classNames={[cn(stls.container, classNames)]}>{children}</Ul>
+  return <Li classNames={[cn(stls.container, classNames)]}>{children}</Li>
 }
 
-export default UlGeneralXScrollable
+export default LiGeneralXScrollable
