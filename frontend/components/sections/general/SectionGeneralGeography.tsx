@@ -49,7 +49,7 @@ const SectionGeneralGeography: FC<TSectionGeneralGeographyProps> = ({
     <Section
       id={selectors.ids.geography}
       classNames={[cn(stls.container, classNames)]}>
-      <MenuContentContainer menuBgc={colors.beta} topGap='l' bottomGap='l'>
+      <MenuContentContainer menuBgc={colors.alpha} topGap='l' bottomGap='l'>
         {h1 ? (
           <H1 styledAsH2 classNames={[stls.title]}>
             {title}
