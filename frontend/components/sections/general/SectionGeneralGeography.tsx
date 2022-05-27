@@ -10,8 +10,13 @@ import {
   Content,
   H1,
   H2,
-  MenuContentContainer
+  Ul,
+  Li,
+  P,
+  MenuContentContainer,
+  Highlight
 } from '@/components/layout'
+import { ImgGeographyMap } from '@/components/imgs'
 
 type TSectionGeneralGeographyProps = TPropClassNames & TPropH1
 
@@ -24,12 +29,46 @@ const SectionGeneralGeography: FC<TSectionGeneralGeographyProps> = ({
 
   const title = h1 || titles.geography
 
+  const list = [
+    <>
+      <Highlight weight>8 разведочных скважин</Highlight> в Пермском и
+      Оренбургском регионах
+    </>,
+    <>
+      <Highlight weight>2 параметрические скважины</Highlight> в Забайкальском
+      крае и на п-ове Гыдан
+    </>,
+    <>
+      В Восточной Сибири успешно пробурено{' '}
+      <Highlight weight>8 000 метров</Highlight> с трапповой интрузией
+      протяженностью 500 метров
+    </>
+  ]
+
   return (
     <Section
       id={selectors.ids.geography}
       classNames={[cn(stls.container, classNames)]}>
       <MenuContentContainer menuBgc={colors.beta} topGap='l' bottomGap='l'>
-        {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
+        {h1 ? (
+          <H1 styledAsH2 classNames={[stls.title]}>
+            {title}
+          </H1>
+        ) : (
+          <H2 classNames={[stls.title]}>{title}</H2>
+        )}
+        <div className={stls.content}>
+          <ImgGeographyMap classNames={[stls.ImgGeographyMap]} />
+          <Ul classNames={[stls.list]}>
+            {list.map((item, idx) => (
+              <Li
+                key={`${item.toString()}-${idx}`}
+                classNames={[stls.listItem]}>
+                <P>{item}</P>
+              </Li>
+            ))}
+          </Ul>
+        </div>
       </MenuContentContainer>
     </Section>
   )
