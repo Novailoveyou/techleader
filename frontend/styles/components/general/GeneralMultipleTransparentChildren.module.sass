@@ -1,0 +1,19 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/config/Colors.module.sass' as c
+
+.container
+  display: flex
+
+.Li
+  display: flex
+  min-width: f.px(261)
+  max-width: f.px(261)
+  & + .Li
+    margin-left: f.px(64)
+
+.opacity10
+  opacity: .1
+
+.opacity2
+  opacity: .02

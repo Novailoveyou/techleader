@@ -2,6 +2,9 @@
 export { default as ImgGeneralAbout } from '@/components/imgs/general/ImgGeneralAbout'
 export { default as ImgGeneralOilRig } from '@/components/imgs/general/ImgGeneralOilRig'
 
+// ./certification
+export { default as ImgCertification } from '@/components/imgs/certification/ImgCertification'
+
 // ./geography
 export { default as ImgGeographyMap } from '@/components/imgs/geography/ImgGeographyMap'
 

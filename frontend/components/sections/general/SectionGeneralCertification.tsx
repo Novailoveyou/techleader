@@ -12,6 +12,8 @@ import {
   H2,
   MenuContentContainer
 } from '@/components/layout'
+import GeneralMultipleTransparentChildren from '@/components/general/GeneralMultipleTransparentChildren'
+import { ImgCertification } from '@/components/imgs'
 
 type TSectionGeneralCertificationProps = TPropClassNames & TPropH1
 
@@ -34,6 +36,10 @@ const SectionGeneralCertification: FC<TSectionGeneralCertificationProps> = ({
         topGap='l'
         bottomGap='l'>
         {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
+        <GeneralMultipleTransparentChildren
+          classNames={[stls.GeneralMultipleTransparentChildren]}>
+          <ImgCertification />
+        </GeneralMultipleTransparentChildren>
       </MenuContentContainer>
     </Section>
   )
