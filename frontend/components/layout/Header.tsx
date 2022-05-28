@@ -35,7 +35,7 @@ const Header: FC<THeaderProps> = ({ classNames }) => {
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <GeneralLocaleControls classNames={[stls.GeneralLocaleControls]} />
-      <MenuContentContainer menuBgc={colors.gamma} withLeftGap>
+      <MenuContentContainer menuBgc={colors.gamma}>
         <Wrapper classNames={[stls.wrapper]}>
           <div className={stls.top}>
             <BtnLogo classNames={[stls.BtnLogo]} />
