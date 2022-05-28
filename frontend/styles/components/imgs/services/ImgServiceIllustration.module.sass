@@ -1,0 +1,16 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/config/Colors.module.sass' as c
+
+.circle
+  position: absolute
+  top: 0
+  left: 0
+  min-width: f.px(472)
+  max-width: f.px(472)
+  min-height: f.px(472)
+  max-height: f.px(472)
+  opacity: .05
+  filter: blur(366px)
+  border-radius: 50%
+  @include m.dye(bg, c.$epsilon)

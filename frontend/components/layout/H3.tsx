@@ -4,13 +4,20 @@ import { TPropClassNames, TPropChildren } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 
-type TH3Props = TPropClassNames & TPropChildren
+type TH3Props = TPropClassNames &
+  TPropChildren & {
+    styledAlt?: boolean
+  }
 
-const H3: FC<TH3Props> = ({ classNames, children }) => {
+const H3: FC<TH3Props> = ({ classNames, children, styledAlt }) => {
   return (
     <h3
       className={
-        cn(stls.container, getClassNames({ classNames })) || undefined
+        cn(
+          stls.container,
+          { [stls.default]: !styledAlt, [stls.styledAlt]: styledAlt },
+          getClassNames({ classNames })
+        ) || undefined
       }>
       {children}
     </h3>

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/layout/ImageContainer.module.sass'
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import {
   TPropClassNames,
@@ -24,7 +24,9 @@ type TImageContainerProps = TPropClassNames &
   TPropImgAltRequired &
   TPropTitle &
   TPropImgPriority &
-  TPropImgUnoptimized
+  TPropImgUnoptimized & {
+    reactNodeDecoration?: ReactNode
+  }
 
 const ImageContainer: FC<TImageContainerProps> = ({
   classNames,
@@ -34,12 +36,14 @@ const ImageContainer: FC<TImageContainerProps> = ({
   width,
   height,
   priority = false,
-  unoptimized = false
+  unoptimized = false,
+  reactNodeDecoration
 }) => {
   return (
     <span
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       title={title}>
+      {reactNodeDecoration}
       <Image
         src={src}
         alt={alt}

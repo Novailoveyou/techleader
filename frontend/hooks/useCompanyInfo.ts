@@ -14,7 +14,7 @@ const useCompanyInfo = () => {
         : 'Общество с ограниченной ответственностью «С 7 Космические Транспортные Системы», подразделение Горки Ленинские',
       short: at.en
         ? `LLC "${companyInfo.name.default.en}"`
-        : `ООО ${companyInfo.name.default.ru}`
+        : `ООО «${companyInfo.name.default.ru}»`
     },
     type: {
       default: at.en

@@ -11,10 +11,15 @@ import {
   Content,
   H1,
   H2,
+  H3,
   P,
+  Ul,
+  Li,
   Highlight,
   MenuContentContainer
 } from '@/components/layout'
+import { UlGeneralXScrollable } from '@/components/uls'
+import { LiGeneralXScrollable } from '@/components/lis'
 import { ImgGeneralAbout } from '@/components/imgs'
 
 type TSectionGeneralAboutProps = TPropClassNames & TPropH1
@@ -33,7 +38,7 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
     {
       title: `${addSpacesToNumber(189228)} ${at.en ? 'meters' : 'метра'}`,
       content: `${
-        at.en ? 'пробурено за 2018 — 2021 гг.' : 'drilled from 2018 to 2021'
+        at.en ? 'drilled from 2018 to 2021' : 'пробурено за 2018 — 2021 гг.'
       }`
     },
     {
@@ -55,6 +60,7 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
         : 'отобрано изолированного керна'
     }
   ]
+
   return (
     <Section
       id={selectors.ids.about}
@@ -63,8 +69,10 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
         menuBgc={colors.beta}
         leftGap='xl'
         topGap='l'
-        bottomGap='l'>
-        <ImgGeneralAbout classNames={[stls.ImgGeneralAbout]} />
+        bottomGap='l'
+        ReactNodeImage={
+          <ImgGeneralAbout classNames={[stls.ImgGeneralAbout]} />
+        }>
         {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
         <P classNames={[stls.p]}>
           <Highlight weight uppercase>
@@ -72,6 +80,18 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
           </Highlight>{' '}
           — {firstLetterToLowerCase(company.about)}
         </P>
+        <UlGeneralXScrollable classNames={[stls.list]}>
+          {list.map(({ title, content }, idx) => (
+            <LiGeneralXScrollable
+              key={`SectionGeneralAbout-item-${title}-${idx}`}
+              classNames={[stls.listItem]}>
+              {h1 ? <H2 styledAsH3Alt>{title}</H2> : <H3 styledAlt>{title}</H3>}
+              <P classNames={[stls.p]}>
+                <Highlight color>{content}</Highlight>
+              </P>
+            </LiGeneralXScrollable>
+          ))}
+        </UlGeneralXScrollable>
       </MenuContentContainer>
     </Section>
   )

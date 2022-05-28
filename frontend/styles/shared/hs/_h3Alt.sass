@@ -1,15 +1,12 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
-@use '@/styles/shared/hs' as hs
 
-.default
-  margin-bottom: f.px(32)
-  font-size: f.px(32)
+@mixin h3Alt
+  margin-bottom: f.px(8)
+  font-family: 'Montserrat', sans-serif
+  font-size: f.px(64)
   font-weight: 600
   line-height: 120%
-  overflow-wrap: break-word
   text-transform: uppercase
-
-.styledAlt
-  @include hs.h3Alt
+  @include m.dye(c, c.$alpha)

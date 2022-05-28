@@ -20,7 +20,8 @@ import {
   ImgService1,
   ImgService2,
   ImgService3,
-  ImgService4
+  ImgService4,
+  ImgServiceIllustration
 } from '@/components/imgs'
 import truncate from 'truncate'
 
@@ -60,6 +61,9 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
       classNames={[cn(stls.container, classNames)]}>
       <MenuContentContainer
         menuBgc={colors.beta}
+        ReactNodeImage={
+          <ImgServiceIllustration classNames={[stls.ImgServiceIllustration]} />
+        }
         leftGap='xl'
         topGap='l'
         bottomGap='l'>

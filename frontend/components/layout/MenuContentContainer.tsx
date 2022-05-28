@@ -1,5 +1,5 @@
 import stls from '@/styles/components/layout/MenuContentContainer.module.sass'
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import {
   TPropClassNames,
   TPropChildren,
@@ -14,6 +14,7 @@ import { Menu } from '@/components/layout'
 type TMenuContentContainerProps = TPropClassNames &
   TPropChildren &
   TPropBgc & {
+    ReactNodeImage?: ReactNode
     topGap?: 'l' | 'xl'
     bottomGap?: 'l' | 'xl'
     leftGap?: 'xl'
@@ -22,6 +23,7 @@ type TMenuContentContainerProps = TPropClassNames &
 const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   classNames,
   children,
+  ReactNodeImage,
   menuBgc,
   topGap,
   bottomGap,
@@ -49,6 +51,9 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
           [stls.contentBottomGapXl]: bottomGapXl,
           [stls.contentLeftGapXl]: leftGapXl
         })}>
+        {ReactNodeImage && (
+          <div className={stls.ReactNodeImage}>{ReactNodeImage}</div>
+        )}
         <div
           className={cn(stls.contentChild, {
             [stls.contentChildleftGapXl]: leftGapXl
