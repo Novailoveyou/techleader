@@ -8,6 +8,7 @@ import {
   TPropImgHeight,
   TPropImgSrc,
   TPropImgAlt,
+  TPropImgAltRequired,
   TPropTitle,
   TPropImgPriority,
   TPropImgUnoptimized
@@ -20,7 +21,7 @@ type TImageContainerProps = TPropClassNames &
   TPropImgWidth &
   TPropImgHeight &
   TPropImgSrc &
-  TPropImgAlt &
+  TPropImgAltRequired &
   TPropTitle &
   TPropImgPriority &
   TPropImgUnoptimized

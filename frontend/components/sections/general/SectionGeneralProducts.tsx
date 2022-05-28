@@ -84,7 +84,7 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
             <LiGeneralXScrollable
               key={`${title}-${idx}`}
               classNames={[stls.LiGeneralXScrollable]}>
-              <Img classNames={[stls.Img]} />
+              <Img classNames={[stls.Img]} alt={title || undefined} />
               <div className={stls.right}>
                 {title && (
                   <H3>
@@ -92,9 +92,9 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
                   </H3>
                 )}
                 {desc && <P>{desc}</P>}
-                <Ul classNames={[stls.Ul]}>
-                  {list &&
-                    list.map((str, idx, list) => (
+                {list && list.length > 0 && (
+                  <Ul classNames={[stls.Ul]}>
+                    {list.map((str, idx, list) => (
                       <Li
                         key={`ProductItem-${str}-${idx}`}
                         classNames={[stls.Li]}>
@@ -104,7 +104,8 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
                         </P>
                       </Li>
                     ))}
-                </Ul>
+                  </Ul>
+                )}
               </div>
             </LiGeneralXScrollable>
           ))}

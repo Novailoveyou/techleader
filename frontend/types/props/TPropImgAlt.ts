@@ -1,7 +1,7 @@
 import { TImgAlt } from '@/types/index'
 
 type TPropImgAlt = {
-  alt: TImgAlt
+  alt?: TImgAlt
 }
 
 export default TPropImgAlt

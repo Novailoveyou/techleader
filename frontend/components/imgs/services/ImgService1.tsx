@@ -1,4 +1,4 @@
-import stls from '@/styles/components/imgs/products/ImgProduct1.module.sass'
+import stls from '@/styles/components/imgs/services/ImgService1.module.sass'
 import {
   TPropClassNames,
   TPropImgAlt,
@@ -9,14 +9,14 @@ import { FC } from 'react'
 import cn from 'classnames'
 import { ImageContainer } from '@/components/layout'
 import { useAt } from '@/hooks/index'
-import src from '@/public/assets/imgs/products/product-1.png'
+import src from '@/public/assets/imgs/services/service-1.jpg'
 
 type TImgProduct1Props = TPropClassNames &
   TPropImgWidth &
   TPropImgHeight &
   TPropImgAlt
 
-const ImgProduct1: FC<TImgProduct1Props> = ({
+const ImgService1: FC<TImgProduct1Props> = ({
   classNames,
   width,
   height,
@@ -24,7 +24,7 @@ const ImgProduct1: FC<TImgProduct1Props> = ({
 }) => {
   const at = useAt()
 
-  const defaultAlt = at.en ? 'Product 1' : 'Продукт 1'
+  const defaultAlt = at.en ? 'Service 1' : 'Сервис 1'
   return (
     <>
       <ImageContainer
@@ -39,4 +39,4 @@ const ImgProduct1: FC<TImgProduct1Props> = ({
   )
 }
 
-export default ImgProduct1
+export default ImgService1
