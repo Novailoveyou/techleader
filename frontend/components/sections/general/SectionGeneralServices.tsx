@@ -2,8 +2,8 @@ import stls from '@/styles/components/sections/general/SectionGeneralServices.mo
 import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
-import { selectors, colors } from '@/config/index'
-import { useAt, useTitles } from '@/hooks/index'
+import { routes, selectors, colors } from '@/config/index'
+import { useAt, useTitles, useScrollNavigation } from '@/hooks/index'
 import {
   Section,
   MenuContentContainer,
@@ -36,6 +36,11 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
 
   const title = h1 || titles.services
 
+  useScrollNavigation({
+    fromRoute: routes.front.about,
+    toRoute: routes.front.products
+  })
+
   const list = [
     {
       Img: ImgService1,
@@ -60,7 +65,7 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
       id={selectors.ids.services}
       classNames={[cn(stls.container, classNames)]}>
       <MenuContentContainer
-        menuBgc={colors.beta}
+        menuBgc={colors.gamma}
         ReactNodeImage={
           <ImgServiceIllustration classNames={[stls.ImgServiceIllustration]} />
         }

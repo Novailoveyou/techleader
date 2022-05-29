@@ -20,9 +20,14 @@ type TMenuContentContainerProps = TPropClassNames &
     contentClassNames?: TGeneralClassNames
     contentChildClassNames?: TGeneralClassNames
     ReactNodeImage?: ReactNode
+    menuIconColor?: TGeneralColorHex
+    menuArrowColor?: TGeneralColorHex
+    menuPhoneColor?: TGeneralColorHex
+    menuIconBorderColor?: TGeneralColorHex
+    menuArrowLineColor?: TGeneralColorHex
     topGap?: 'l' | 'xl'
     bottomGap?: 'l' | 'xl'
-    leftGap?: 'xl'
+    leftGap?: 'xl' | 'm'
   }
 
 const MenuContentContainer: FC<TMenuContentContainerProps> = ({
@@ -35,7 +40,12 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   menuBgc,
   topGap,
   bottomGap,
-  leftGap
+  leftGap,
+  menuIconColor,
+  menuArrowColor,
+  menuPhoneColor,
+  menuIconBorderColor,
+  menuArrowLineColor
 }) => {
   const topGapL = topGap === 'l'
   const topGapXl = topGap === 'xl'
@@ -44,13 +54,23 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   const bottomGapXl = bottomGap === 'xl'
 
   const leftGapXl = leftGap === 'xl'
+  const leftGapM = leftGap === 'm'
 
   return (
     <div
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
-      <Menu classNames={[stls.menu]} menuBgc={menuBgc} close={close} />
+      <Menu
+        classNames={[stls.menu]}
+        menuBgc={menuBgc}
+        close={close}
+        menuIconColor={menuIconColor}
+        menuArrowColor={menuArrowColor}
+        menuPhoneColor={menuPhoneColor}
+        menuIconBorderColor={menuIconBorderColor}
+        menuArrowLineColor={menuArrowLineColor}
+      />
       <div
         className={cn(
           stls.content,
@@ -59,7 +79,8 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
             [stls.contentTopGapXl]: topGapXl,
             [stls.contentBottomGapL]: bottomGapL,
             [stls.contentBottomGapXl]: bottomGapXl,
-            [stls.contentLeftGapXl]: leftGapXl
+            [stls.contentLeftGapXl]: leftGapXl,
+            [stls.leftGapM]: leftGapM
           },
           getClassNames({ classNames: contentClassNames })
         )}>

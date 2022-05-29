@@ -1,3 +1,4 @@
+@use 'sass:math'
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
@@ -21,25 +22,29 @@
   display: flex
   align-items: flex-end
 
-$leftRight_padding: f.px(48)
+// $leftRight_padding: f.px(48)
+$leftRight_padding: 3.9%
+$leftRight_difference: 10%
 .left
-  flex-basis: 50%
+  flex-basis: math.div(100% - $leftRight_padding * 2, 2) + $leftRight_difference
   padding-right: $leftRight_padding
 
 .right
-  flex-basis: 50%
+  flex-basis: math.div(100% - $leftRight_padding * 2, 2) - $leftRight_difference
   padding-left: $leftRight_padding
 
 $link_padding: f.px(32)
 .li
+  display: flex
+  border-bottom: 1px solid
+  @include m.dye(border, c.$zeta)
   & + .li
-    border-top: 1px solid
-    @include m.dye(border, c.$zeta)
     & .link
       padding-top: $link_padding
 
 .link
   display: inline-block
+  flex-grow: 1
   padding-bottom: $link_padding
   font-family: NeutralFace, sans-serif
   font-size: f.px(32)

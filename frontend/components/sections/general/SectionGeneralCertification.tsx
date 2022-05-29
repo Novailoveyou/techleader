@@ -2,8 +2,8 @@ import stls from '@/styles/components/sections/general/SectionGeneralCertificati
 import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
-import { colors, selectors } from '@/config/index'
-import { useAt, useTitles } from '@/hooks/index'
+import { routes, colors, selectors } from '@/config/index'
+import { useAt, useTitles, useScrollNavigation } from '@/hooks/index'
 import {
   Section,
   Wrapper,
@@ -26,12 +26,17 @@ const SectionGeneralCertification: FC<TSectionGeneralCertificationProps> = ({
 
   const title = h1 || titles.certification
 
+  useScrollNavigation({
+    fromRoute: routes.front.products,
+    toRoute: routes.front.geography
+  })
+
   return (
     <Section
       id={selectors.ids.certification}
       classNames={[cn(stls.container, classNames)]}>
       <MenuContentContainer
-        menuBgc={colors.beta}
+        menuBgc={colors.gamma}
         leftGap='xl'
         topGap='l'
         bottomGap='l'>

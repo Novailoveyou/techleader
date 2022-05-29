@@ -29,13 +29,13 @@ const PageHome: NextPage = () => {
       />
       <SeoGeneralOrganizationJsonLd />
       <Header />
-      <SectionGeneralAbout />
+      {/* <SectionGeneralAbout />
       <SectionGeneralServices />
       <SectionGeneralProducts />
       <SectionGeneralCertification />
       <SectionGeneralGeography />
       <SectionGeneralClients />
-      <Footer />
+      <Footer /> */}
     </>
   )
 }

@@ -2,9 +2,14 @@ import stls from '@/styles/components/sections/general/SectionGeneralAbout.modul
 import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC, useEffect, useState } from 'react'
 import cn from 'classnames'
-import { colors, selectors } from '@/config/index'
+import { routes, colors, selectors } from '@/config/index'
 import { addSpacesToNumber, firstLetterToLowerCase } from '@/helpers/index'
-import { useAt, useCompanyInfo, useTitles } from '@/hooks/index'
+import {
+  useAt,
+  useCompanyInfo,
+  useTitles,
+  useScrollNavigation
+} from '@/hooks/index'
 import {
   Section,
   Wrapper,
@@ -33,6 +38,11 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
   const titles = useTitles()
 
   const [curListItemIdx, setCurListItemIdx] = useState(0)
+
+  useScrollNavigation({
+    fromRoute: routes.front.home,
+    toRoute: routes.front.services
+  })
 
   const title = h1 || titles.about
 
@@ -81,6 +91,7 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
         leftGap='xl'
         topGap='l'
         bottomGap='l'
+        contentChildClassNames={[stls.contentMenuContentContainer]}
         ReactNodeImage={
           <ImgGeneralAbout classNames={[stls.ImgGeneralAbout]} />
         }>

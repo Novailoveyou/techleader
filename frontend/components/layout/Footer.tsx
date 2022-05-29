@@ -2,9 +2,9 @@ import stls from '@/styles/components/layout/Footer.module.sass'
 import { FC } from 'react'
 import { TPropClassNames, TPropH1, TListContacts } from '@/types/index'
 import cn from 'classnames'
-import { selectors, colors } from '@/config/index'
+import { routes, selectors, colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { useAt, useCompanyInfo } from '@/hooks/index'
+import { useAt, useCompanyInfo, useScrollNavigation } from '@/hooks/index'
 import {
   MenuContentContainer,
   Wrapper,
@@ -26,6 +26,10 @@ const Footer: FC<TFooterProps> = ({ classNames, h1 }) => {
 
   const title = h1 || (at.en ? 'Contacts' : 'Контакты')
 
+  useScrollNavigation({
+    fromRoute: routes.front.clients
+  })
+
   const list: TListContacts = [
     {
       title: at.en ? 'Phone number' : 'Телефон',
@@ -45,7 +49,15 @@ const Footer: FC<TFooterProps> = ({ classNames, h1 }) => {
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
-      <MenuContentContainer menuBgc={colors.alpha} leftGap='xl' topGap='xl'>
+      <MenuContentContainer
+        menuBgc={colors.alpha}
+        leftGap='xl'
+        topGap='xl'
+        menuIconColor={colors.gamma}
+        menuIconBorderColor={colors.kappa}
+        menuArrowColor={colors.gamma}
+        menuArrowLineColor={colors.kappa}
+        menuPhoneColor={colors.gamma}>
         {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
         <Ul classNames={[stls.list]}>
           {list.map(({ title, href, val }, idx) => (

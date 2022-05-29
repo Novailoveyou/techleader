@@ -21,6 +21,11 @@
   display: grid
   grid-template-columns: 4fr 8fr
 
+$left_gap_m: f.px(104)
+$left_gap_xl: f.px(104)
+.leftGapM
+  margin-left: $left_gap_m
+
 $content_gap_l: f.px(112)
 $content_gap_xl: f.px(128)
 .contentTopGapL
@@ -34,6 +39,12 @@ $content_gap_xl: f.px(128)
 
 .contentBottomGapXl
   padding-bottom: $content_gap_xl
+
+.contentChildLeftGapM
+  padding-left: $left_gap_m
+
+.contentChildLeftGapXl
+  padding-left: $left_gap_xl
 
 .contentChild
   overflow: hidden

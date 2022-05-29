@@ -1,13 +1,13 @@
 import stls from '@/styles/components/layout/Header.module.sass'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { TPropClassNames } from '@/types/index'
+import { useRouter } from 'next/router'
 import cn from 'classnames'
-import { colors, selectors } from '@/config/index'
+import { routes, colors, selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { useAt, useCompanyInfo } from '@/hooks/index'
+import { useAt, useCompanyInfo, useScrollNavigation } from '@/hooks/index'
 import {
   MenuContentContainer,
-  Wrapper,
   Menu,
   H1,
   P,
@@ -26,6 +26,8 @@ const Header: FC<THeaderProps> = ({ classNames }) => {
   const at = useAt()
   const company = useCompanyInfo()
 
+  useScrollNavigation({ toRoute: routes.front.about })
+
   const CompanyName = () => <Highlight color>{company.name.default}</Highlight>
 
   return (
@@ -35,7 +37,7 @@ const Header: FC<THeaderProps> = ({ classNames }) => {
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <GeneralLocaleControls classNames={[stls.GeneralLocaleControls]} />
-      <MenuContentContainer menuBgc={colors.gamma}>
+      <MenuContentContainer leftGap='m' menuBgc={colors.gamma}>
         <div className={stls.top}>
           <BtnLogo classNames={[stls.BtnLogo]} />
         </div>

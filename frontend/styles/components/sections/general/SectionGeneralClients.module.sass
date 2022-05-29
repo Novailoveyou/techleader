@@ -3,6 +3,9 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
 
+.container
+  @include m.dye(bg, c.$gamma)
+
 .top
   display: flex
   align-items: center

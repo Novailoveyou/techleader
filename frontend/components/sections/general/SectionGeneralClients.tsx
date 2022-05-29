@@ -2,8 +2,8 @@ import stls from '@/styles/components/sections/general/SectionGeneralClients.mod
 import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
-import { colors, selectors } from '@/config/index'
-import { useAt, useTitles } from '@/hooks/index'
+import { routes, colors, selectors } from '@/config/index'
+import { useScrollNavigation, useAt, useTitles } from '@/hooks/index'
 import {
   Section,
   Wrapper,
@@ -34,6 +34,11 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
   const titles = useTitles()
 
   const title = h1 || titles.clients
+
+  useScrollNavigation({
+    fromRoute: routes.front.geography,
+    toRoute: routes.front.contact
+  })
 
   const list = [
     {

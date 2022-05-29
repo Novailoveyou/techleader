@@ -2,8 +2,8 @@ import stls from '@/styles/components/sections/general/SectionGeneralProducts.mo
 import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
-import { colors, selectors } from '@/config/index'
-import { useAt, useTitles } from '@/hooks/index'
+import { routes, colors, selectors } from '@/config/index'
+import { useAt, useTitles, useScrollNavigation } from '@/hooks/index'
 import {
   Section,
   Wrapper,
@@ -36,6 +36,11 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
   const titles = useTitles()
 
   const title = h1 || titles.products
+
+  useScrollNavigation({
+    fromRoute: routes.front.services,
+    toRoute: routes.front.certification
+  })
 
   const list = [
     {

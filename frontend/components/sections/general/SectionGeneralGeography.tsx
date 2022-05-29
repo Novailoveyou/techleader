@@ -2,8 +2,8 @@ import stls from '@/styles/components/sections/general/SectionGeneralGeography.m
 import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
-import { colors, selectors } from '@/config/index'
-import { useAt, useTitles } from '@/hooks/index'
+import { routes, colors, selectors } from '@/config/index'
+import { useAt, useTitles, useScrollNavigation } from '@/hooks/index'
 import {
   Section,
   Wrapper,
@@ -29,6 +29,11 @@ const SectionGeneralGeography: FC<TSectionGeneralGeographyProps> = ({
 
   const title = h1 || titles.geography
 
+  useScrollNavigation({
+    fromRoute: routes.front.certification,
+    toRoute: routes.front.clients
+  })
+
   const list = [
     <>
       <Highlight weight>8 разведочных скважин</Highlight> в Пермском и
@@ -49,7 +54,15 @@ const SectionGeneralGeography: FC<TSectionGeneralGeographyProps> = ({
     <Section
       id={selectors.ids.geography}
       classNames={[cn(stls.container, classNames)]}>
-      <MenuContentContainer menuBgc={colors.alpha} topGap='l' bottomGap='l'>
+      <MenuContentContainer
+        menuBgc={colors.alpha}
+        topGap='l'
+        bottomGap='l'
+        menuIconColor={colors.gamma}
+        menuIconBorderColor={colors.kappa}
+        menuArrowColor={colors.gamma}
+        menuArrowLineColor={colors.kappa}
+        menuPhoneColor={colors.gamma}>
         {h1 ? (
           <H1 styledAsH2 classNames={[stls.title]}>
             {title}
