@@ -101,7 +101,7 @@ const SectionMenu: FC<TSectionMenuProps> = ({ classNames, close }) => {
                   key={`SectionMenuContact-${title}-${idx}`}
                   classNames={[stls.liContact]}>
                   <P classNames={[stls.p]}>
-                    <Highlight weight>{title}</Highlight>
+                    <Highlight weight>{title}:</Highlight>
                   </P>
                   <P classNames={[stls.p]}>
                     <a href={href} className={stls.linkContact}>

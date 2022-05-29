@@ -51,7 +51,7 @@ const Footer: FC<TFooterProps> = ({ classNames, h1 }) => {
           {list.map(({ title, href, val }, idx) => (
             <Li key={`${title}-${idx}`} classNames={[stls.listItem]}>
               <P classNames={[stls.p]}>
-                <Highlight weight>{title}</Highlight>
+                <Highlight weight>{title}:</Highlight>
               </P>
               <P classNames={[stls.p]}>
                 <a href={href} className={stls.link}>
