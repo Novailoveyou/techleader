@@ -36,31 +36,29 @@ const Header: FC<THeaderProps> = ({ classNames }) => {
       }>
       <GeneralLocaleControls classNames={[stls.GeneralLocaleControls]} />
       <MenuContentContainer menuBgc={colors.gamma}>
-        <Wrapper classNames={[stls.wrapper]}>
-          <div className={stls.top}>
-            <BtnLogo classNames={[stls.BtnLogo]} />
-          </div>
-          <div className={stls.bottom}>
-            <H1 classNames={[stls.h1]}>
-              <span className={stls.titleTop}>
-                {at.en ? (
-                  <>
-                    <CompanyName /> Company
-                  </>
-                ) : (
-                  <>
-                    Компания <CompanyName />
-                  </>
-                )}
-              </span>{' '}
-              <span className={stls.titleBottom}>
-                {at.en ? <>creates solutions</> : <>создает решения</>}
-              </span>
-            </H1>
-            <P classNames={[stls.p]}>{company.desc}</P>
-            <ImgGeneralOilRig classNames={[stls.ImgGeneralOilRig]} />
-          </div>
-        </Wrapper>
+        <div className={stls.top}>
+          <BtnLogo classNames={[stls.BtnLogo]} />
+        </div>
+        <div className={stls.bottom}>
+          <H1 classNames={[stls.h1]}>
+            <span className={stls.titleTop}>
+              {at.en ? (
+                <>
+                  <CompanyName /> Company
+                </>
+              ) : (
+                <>
+                  Компания <CompanyName />
+                </>
+              )}
+            </span>{' '}
+            <span className={stls.titleBottom}>
+              {at.en ? <>creates solutions</> : <>создает решения</>}
+            </span>
+          </H1>
+          <P classNames={[stls.p]}>{company.desc}</P>
+          <ImgGeneralOilRig classNames={[stls.ImgGeneralOilRig]} />
+        </div>
       </MenuContentContainer>
     </header>
   )

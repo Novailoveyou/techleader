@@ -1,7 +1,7 @@
 import { MouseEventHandler } from 'react'
 
 type TPropClose = {
-  close: MouseEventHandler
+  close?: MouseEventHandler
 }
 
 export default TPropClose

@@ -10,6 +10,7 @@ const selectors = {
     geography: 'geography',
     clients: 'clients',
     contact: 'contact',
+    menu: 'menu',
     partners: 'partners'
   },
   classNames: {

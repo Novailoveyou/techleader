@@ -4,23 +4,46 @@ import {
   TPropClassNames,
   TPropChildren,
   TGeneralColorHex,
-  TPropBgc
+  TPropBgc,
+  TPropClose
 } from '@/types/index'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
-import { selectors } from '@/config/index'
+import { colors, selectors, routes } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { PopupGeneralBody } from '@/components/popups'
+import { useTitles } from '@/hooks/index'
+import { SectionMenu } from '@/components/sections'
 import { BtnMenu, BtnPhone } from '@/components/btns'
 
-type TMenuProps = TPropClassNames & TPropBgc
+type TMenuProps = TPropClassNames & TPropBgc & TPropClose
 
-const Menu: FC<TMenuProps> = ({ classNames, menuBgc }) => {
+const Menu: FC<TMenuProps> = ({ classNames, menuBgc, close }) => {
   return (
     <nav
+      id={selectors.ids.menu}
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       style={{ backgroundColor: menuBgc }}>
-      <Popup
+      {close ? (
+        <BtnMenu close={close} color={colors.alpha} />
+      ) : (
+        <Popup
+          trigger={open => (
+            <span>
+              <BtnMenu open={open} />
+            </span>
+          )}
+          position='center center'
+          modal
+          lockScroll
+          nested
+          closeOnDocumentClick
+          closeOnEscape
+          repositionOnResize
+          className='LayoutMenu_Popup'>
+          {(close: MouseEventHandler) => <SectionMenu close={close} />}
+        </Popup>
+      )}
+      {/* <Popup
         trigger={open => (
           <span>
             <BtnMenu open={open} />
@@ -32,11 +55,15 @@ const Menu: FC<TMenuProps> = ({ classNames, menuBgc }) => {
         nested
         closeOnDocumentClick
         closeOnEscape
-        repositionOnResize>
+        repositionOnResize
+        className='LayoutMenu_Popup'>
         {(close: MouseEventHandler) => (
-          <PopupGeneralBody close={close}>menu</PopupGeneralBody>
+          <>
+            <SectionMenu close={close} />
+          </>
         )}
-      </Popup>
+      </Popup> */}
+
       <BtnPhone classNames={[stls.btnPhone]} />
     </nav>
   )

@@ -1,11 +1,17 @@
 import stls from '@/styles/components/popups/general/PopupGeneralBody.module.sass'
-import { TPropClassNames, TPropChildren, TPropClose } from '@/types/index'
+import {
+  TPropClassNames,
+  TPropChildren,
+  TPropCloseRequired
+} from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 
-type TPopupGeneralBodyProps = TPropClassNames & TPropChildren & TPropClose
+type TPopupGeneralBodyProps = TPropClassNames &
+  TPropChildren &
+  TPropCloseRequired
 
 const PopupGeneralBody: FC<TPopupGeneralBodyProps> = ({
   classNames,
@@ -17,9 +23,7 @@ const PopupGeneralBody: FC<TPopupGeneralBodyProps> = ({
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <Wrapper classNames={[stls.wrapper]}>
-        <div className={stls.content}>{children}</div>
-      </Wrapper>
+      <div className={stls.content}>{children}</div>
     </div>
   )
 }

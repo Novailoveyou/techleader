@@ -4,15 +4,18 @@ import { TPropClassNames, TPropElId, TPropChildren } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 
-type TSectionProps = TPropClassNames & TPropElId & TPropChildren
+type TSectionProps = TPropClassNames &
+  TPropElId &
+  TPropChildren & {
+    onScroll?: (e: React.UIEvent<HTMLDivElement>) => void
+  }
 
-const Section: FC<TSectionProps> = ({ classNames, id, children }) => {
+const Section: FC<TSectionProps> = ({ classNames, id, children, onScroll }) => {
   return (
     <section
       id={id}
-      className={
-        cn(stls.container, getClassNames({ classNames })) || undefined
-      }>
+      className={cn(stls.container, getClassNames({ classNames })) || undefined}
+      onScroll={onScroll}>
       {children}
     </section>
   )

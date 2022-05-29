@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/general/SectionGeneralAbout.module.sass'
 import { TPropClassNames, TPropH1 } from '@/types/index'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import cn from 'classnames'
 import { colors, selectors } from '@/config/index'
 import { addSpacesToNumber, firstLetterToLowerCase } from '@/helpers/index'
@@ -32,6 +32,8 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
   const company = useCompanyInfo()
   const titles = useTitles()
 
+  const [curListItemIdx, setCurListItemIdx] = useState(0)
+
   const title = h1 || titles.about
 
   const list = [
@@ -61,10 +63,19 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
     }
   ]
 
+  // useEffect(() => {
+  //   document.addEventListener('scroll', () => {
+  //     setCurListItemIdx(curListItemIdx + 1)
+  //   })
+  // }, [curListItemIdx, setCurListItemIdx])
+
+  // console.log(curListItemIdx)
+
   return (
     <Section
       id={selectors.ids.about}
-      classNames={[cn(stls.container, classNames)]}>
+      classNames={[cn(stls.container, classNames)]}
+      onScroll={() => setCurListItemIdx(curListItemIdx + 1)}>
       <MenuContentContainer
         menuBgc={colors.beta}
         leftGap='xl'

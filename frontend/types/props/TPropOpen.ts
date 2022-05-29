@@ -1,7 +1,7 @@
 import { MouseEventHandler } from 'react'
 
 type TPropOpen = {
-  open: boolean
+  open?: boolean
 }
 
 export default TPropOpen

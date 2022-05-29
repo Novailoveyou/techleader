@@ -1,10 +1,10 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
+@use '@/styles/shared/general' as sg
 
 .container
   position: relative
-  overflow-x: hidden
 
 .wrapper
   padding-bottom: f.px(148)
@@ -20,9 +20,7 @@
   padding-top: f.px(48)
 
 .GeneralLocaleControls
-  position: absolute
-  top: f.px(48)
-  right: f.px(45)
+  @include sg.GeneralLocaleControls
 
 .bottom
   position: relative
