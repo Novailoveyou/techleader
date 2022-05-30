@@ -15,13 +15,24 @@ import {
   MenuContentContainer
 } from '@/components/layout'
 
-type TUlGeneralXScrollableProps = TPropClassNames & TPropH1
+type TUlGeneralXScrollableProps = TPropClassNames &
+  TPropH1 & {
+    isShown?: boolean
+  }
 
 const LiGeneralXScrollable: FC<TUlGeneralXScrollableProps> = ({
   classNames,
-  children
+  children,
+  isShown
 }) => {
-  return <Li classNames={[cn(stls.container, classNames)]}>{children}</Li>
+  return (
+    <Li
+      classNames={[
+        cn(stls.container, classNames, { [stls.isShown]: isShown })
+      ]}>
+      {children}
+    </Li>
+  )
 }
 
 export default LiGeneralXScrollable

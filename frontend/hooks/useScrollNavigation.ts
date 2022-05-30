@@ -6,9 +6,18 @@ import { routes, colors, selectors } from '@/config/index'
 type TUseScrollNavigation = {
   fromRoute?: string | Url
   toRoute?: string | Url
+  curListItemIdx?: number
+  setCurListItemIdx?: (idx: number) => void
+  listLength?: number
 }
 
-const useScrollNavigation = ({ fromRoute, toRoute }: TUseScrollNavigation) => {
+const useScrollNavigation = ({
+  fromRoute,
+  toRoute,
+  curListItemIdx,
+  setCurListItemIdx,
+  listLength
+}: TUseScrollNavigation) => {
   const router = useRouter()
   const [toRouterHasTriggered, setToRouterHasTriggered] = useState(false)
   const [fromRouterHasTriggered, setFromRouterHasTriggered] = useState(false)
@@ -16,25 +25,58 @@ const useScrollNavigation = ({ fromRoute, toRoute }: TUseScrollNavigation) => {
   useEffect(() => {
     const handleWheel = (e: any) => {
       // TODO: figure out better types
-      // console.log(e)
+      // scroll bottom
       if (
         window.innerHeight + window.pageYOffset >= document.body.offsetHeight &&
         toRoute &&
         !fromRouterHasTriggered &&
         e.wheelDelta < 0
       ) {
-        router.push(toRoute)
-        setToRouterHasTriggered(true)
+        if (
+          (!curListItemIdx && curListItemIdx !== 0) ||
+          (!listLength && listLength !== 0)
+        ) {
+          router.push(toRoute)
+          setToRouterHasTriggered(true)
+          return
+        }
+
+        if (Number(curListItemIdx) === Number(listLength) - 1) {
+          router.push(toRoute)
+          setToRouterHasTriggered(true)
+          return
+        } else {
+          setCurListItemIdx && setCurListItemIdx(Number(curListItemIdx) + 1)
+          return
+        }
         return
       }
+      // scroll top
       if (
         window.pageYOffset === 0 &&
         fromRoute &&
         !toRouterHasTriggered &&
         e.wheelDelta > 0
       ) {
-        router.push(fromRoute)
-        setFromRouterHasTriggered(true)
+        if (
+          (!curListItemIdx && curListItemIdx !== 0) ||
+          (!listLength && listLength !== 0)
+        ) {
+          router.push(fromRoute)
+          setFromRouterHasTriggered(true)
+          return
+        }
+
+        if (Number(curListItemIdx) === 0) {
+          router.push(fromRoute)
+          setFromRouterHasTriggered(true)
+          return
+        } else {
+          setCurListItemIdx && setCurListItemIdx(Number(curListItemIdx) - 1)
+          return
+        }
+        return
+
         return
       }
       return
@@ -51,7 +93,10 @@ const useScrollNavigation = ({ fromRoute, toRoute }: TUseScrollNavigation) => {
     toRouterHasTriggered,
     setToRouterHasTriggered,
     fromRouterHasTriggered,
-    setFromRouterHasTriggered
+    setFromRouterHasTriggered,
+    curListItemIdx,
+    setCurListItemIdx,
+    listLength
   ])
 
   return null

@@ -39,11 +39,6 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
 
   const [curListItemIdx, setCurListItemIdx] = useState(0)
 
-  useScrollNavigation({
-    fromRoute: routes.front.home,
-    toRoute: routes.front.services
-  })
-
   const title = h1 || titles.about
 
   const list = [
@@ -72,6 +67,14 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
         : 'отобрано изолированного керна'
     }
   ]
+
+  useScrollNavigation({
+    fromRoute: routes.front.home,
+    toRoute: routes.front.services,
+    curListItemIdx,
+    setCurListItemIdx,
+    listLength: list.length
+  })
 
   // useEffect(() => {
   //   document.addEventListener('scroll', () => {
@@ -106,7 +109,8 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
           {list.map(({ title, content }, idx) => (
             <LiGeneralXScrollable
               key={`SectionGeneralAbout-item-${title}-${idx}`}
-              classNames={[stls.listItem]}>
+              classNames={[stls.listItem]}
+              isShown={curListItemIdx === idx}>
               {h1 ? <H2 styledAsH3Alt>{title}</H2> : <H3 styledAlt>{title}</H3>}
               <P classNames={[stls.p]}>
                 <Highlight color>{content}</Highlight>
