@@ -49,7 +49,6 @@ const useScrollNavigation = ({
           setCurListItemIdx && setCurListItemIdx(Number(curListItemIdx) + 1)
           return
         }
-        return
       }
       // scroll top
       if (
@@ -75,9 +74,6 @@ const useScrollNavigation = ({
           setCurListItemIdx && setCurListItemIdx(Number(curListItemIdx) - 1)
           return
         }
-        return
-
-        return
       }
       return
     }

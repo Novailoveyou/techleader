@@ -76,14 +76,6 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
     listLength: list.length
   })
 
-  // useEffect(() => {
-  //   document.addEventListener('scroll', () => {
-  //     setCurListItemIdx(curListItemIdx + 1)
-  //   })
-  // }, [curListItemIdx, setCurListItemIdx])
-
-  // console.log(curListItemIdx)
-
   return (
     <Section
       id={selectors.ids.about}

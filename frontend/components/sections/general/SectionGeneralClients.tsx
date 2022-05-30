@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/general/SectionGeneralClients.module.sass'
 import { TPropClassNames, TPropH1 } from '@/types/index'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import cn from 'classnames'
 import { routes, colors, selectors } from '@/config/index'
 import { useScrollNavigation, useAt, useTitles } from '@/hooks/index'
@@ -35,10 +35,7 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
 
   const title = h1 || titles.clients
 
-  useScrollNavigation({
-    fromRoute: routes.front.geography,
-    toRoute: routes.front.contact
-  })
+  const [curListItemIdx, setCurListItemIdx] = useState(0)
 
   const list = [
     {
@@ -63,6 +60,14 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
     }
   ]
 
+  useScrollNavigation({
+    fromRoute: routes.front.geography,
+    toRoute: routes.front.contact,
+    curListItemIdx,
+    setCurListItemIdx,
+    listLength: list.length
+  })
+
   return (
     <Section
       id={selectors.ids.clients}
@@ -78,7 +83,8 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
           {list.map(({ Img, title, desc }, idx) => (
             <LiGeneralXScrollable
               key={`${title}-${idx}`}
-              classNames={[stls.item]}>
+              classNames={[stls.item]}
+              isShown={curListItemIdx === idx}>
               <div className={stls.top}>
                 <Img classNames={[stls.Img]} />{' '}
                 <P classNames={[stls.p]}>
