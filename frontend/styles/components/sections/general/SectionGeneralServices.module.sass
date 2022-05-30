@@ -2,8 +2,32 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
 
+.heading
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
+
+.counterP
+  position: relative
+  font-family: 'Montserrat', sans-serif
+  font-size: f.px(32)
+  font-weight: 600
+  line-height: 120%
+  letter-spacing: 0.09em
+  text-transform: uppercasew
+
+.GeneralProgressLine
+  position: absolute
+  bottom: f.px(-10)
+  left: 0
+
 .listItem
   flex-direction: column
+
+.p
+  margin-left: auto
+  max-width: 32ch
+  text-align: right
 
 .ImgServiceIllustration
   transform: translateX(f.px(-85))

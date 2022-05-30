@@ -22,6 +22,7 @@ import {
   MenuContentContainer,
   Highlight
 } from '@/components/layout'
+import { GeneralProgressLine } from '@/components/general'
 import { UlGeneralXScrollable } from '@/components/uls'
 import { LiGeneralXScrollable } from '@/components/lis'
 import {
@@ -131,6 +132,11 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
             </LiGeneralXScrollable>
           ))}
         </UlGeneralXScrollable>
+        <GeneralProgressLine
+          classNames={[stls.GeneralProgressLine]}
+          listLength={list.length}
+          curListItemIdx={curListItemIdx}
+        />
       </MenuContentContainer>
     </Section>
   )

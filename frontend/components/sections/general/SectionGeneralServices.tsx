@@ -2,6 +2,7 @@ import stls from '@/styles/components/sections/general/SectionGeneralServices.mo
 import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC, useState } from 'react'
 import cn from 'classnames'
+import truncate from 'truncate'
 import { routes, selectors, colors } from '@/config/index'
 import {
   useAt,
@@ -18,8 +19,10 @@ import {
   H1,
   H2,
   H3,
-  P
+  P,
+  Highlight
 } from '@/components/layout'
+import { GeneralProgressLine } from '@/components/general'
 import { UlGeneralXScrollable } from '@/components/uls'
 import { LiGeneralXScrollable } from '@/components/lis'
 import {
@@ -29,7 +32,6 @@ import {
   ImgService4,
   ImgServiceIllustration
 } from '@/components/imgs'
-import truncate from 'truncate'
 
 type TSectionGeneralServicesProps = TPropClassNames & TPropH1
 
@@ -88,11 +90,26 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
         leftGap='xl'
         topGap='l'
         bottomGap='l'>
-        {h1 ? (
-          <H1 styledAsH2>{title}</H1>
-        ) : (
-          <H2 classNames={[stls.h2]}>{title}</H2>
-        )}
+        <div className={stls.heading}>
+          {h1 ? (
+            <H1 styledAsH2>{title}</H1>
+          ) : (
+            <H2 classNames={[stls.h2]}>{title}</H2>
+          )}
+          <p className={stls.counterP}>
+            <Highlight color>
+              {curListItemIdx < 10
+                ? `0${curListItemIdx + 1}`
+                : curListItemIdx + 1}
+            </Highlight>
+            /{list.length < 10 ? `0${list.length}` : list.length}
+            <GeneralProgressLine
+              classNames={[stls.GeneralProgressLine]}
+              listLength={list.length}
+              curListItemIdx={curListItemIdx}
+            />
+          </p>
+        </div>
         <UlGeneralXScrollable classNames={[stls.list]}>
           {list &&
             list.length > 0 &&

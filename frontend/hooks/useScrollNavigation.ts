@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import { NextRouter, Router, useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { Url } from 'url'
 import { routes, colors, selectors } from '@/config/index'
@@ -9,6 +9,13 @@ type TUseScrollNavigation = {
   curListItemIdx?: number
   setCurListItemIdx?: (idx: number) => void
   listLength?: number
+}
+
+type TRouteToProps = {
+  navScrollDir: string
+  router: NextRouter
+  route: string | Url
+  setState: (state: boolean) => void
 }
 
 const useScrollNavigation = ({
@@ -22,70 +29,111 @@ const useScrollNavigation = ({
   const [toRouterHasTriggered, setToRouterHasTriggered] = useState(false)
   const [fromRouterHasTriggered, setFromRouterHasTriggered] = useState(false)
 
+  const [isThrottling, setIsThrottling] = useState(false)
+
   useEffect(() => {
+    const routeTo = ({
+      navScrollDir,
+      router,
+      route,
+      setState
+    }: TRouteToProps) => {
+      localStorage.setItem('navScrollDir', navScrollDir)
+      router.push(route)
+      setState(true)
+      return
+    }
+
     const handleWheel = (e: any) => {
+      console.log(e)
       // TODO: figure out better types
-      // scroll bottom
-      const wheelDelta = e.wheelDelta
-      if (
-        window.innerHeight + window.pageYOffset >= document.body.offsetHeight &&
-        toRoute &&
-        !fromRouterHasTriggered &&
-        wheelDelta < 0
-      ) {
+
+      setIsThrottling(true)
+
+      setTimeout(() => {
+        setIsThrottling(false)
+      }, 0)
+
+      if (!isThrottling) {
+        // scroll bottom
+        const wheelDelta = e.wheelDelta
         if (
-          (!curListItemIdx && curListItemIdx !== 0) ||
-          (!listLength && listLength !== 0)
+          window.innerHeight + window.pageYOffset >=
+            document.body.offsetHeight &&
+          toRoute &&
+          !fromRouterHasTriggered &&
+          wheelDelta < 0
         ) {
-          localStorage.setItem('navScrollDir', 'bottom')
-          router.push(toRoute)
-          setToRouterHasTriggered(true)
-          return
+          if (
+            (!curListItemIdx && curListItemIdx !== 0) ||
+            (!listLength && listLength !== 0)
+          ) {
+            routeTo({
+              navScrollDir: 'bottom',
+              router,
+              route: toRoute,
+              setState: setToRouterHasTriggered
+            })
+            return
+          }
+
+          if (Number(curListItemIdx) === Number(listLength) - 1) {
+            routeTo({
+              navScrollDir: 'bottom',
+              router,
+              route: toRoute,
+              setState: setToRouterHasTriggered
+            })
+            return
+          } else {
+            setCurListItemIdx && setCurListItemIdx(Number(curListItemIdx) + 1)
+            return
+          }
         }
 
-        if (Number(curListItemIdx) === Number(listLength) - 1) {
-          localStorage.setItem('navScrollDir', 'bottom')
-          router.push(toRoute)
-          setToRouterHasTriggered(true)
-          return
-        } else {
-          setCurListItemIdx && setCurListItemIdx(Number(curListItemIdx) + 1)
-          return
-        }
-      }
-      // scroll top
-      if (
-        window.pageYOffset === 0 &&
-        fromRoute &&
-        !toRouterHasTriggered &&
-        wheelDelta > 0
-      ) {
+        // scroll top
         if (
-          (!curListItemIdx && curListItemIdx !== 0) ||
-          (!listLength && listLength !== 0)
+          window.pageYOffset === 0 &&
+          fromRoute &&
+          !toRouterHasTriggered &&
+          wheelDelta > 0
         ) {
-          localStorage.setItem('navScrollDir', 'top')
-          router.push(fromRoute)
-          setFromRouterHasTriggered(true)
-          return
-        }
+          if (
+            (!curListItemIdx && curListItemIdx !== 0) ||
+            (!listLength && listLength !== 0)
+          ) {
+            routeTo({
+              navScrollDir: 'top',
+              router,
+              route: fromRoute,
+              setState: setFromRouterHasTriggered
+            })
+            return
+          }
 
-        if (Number(curListItemIdx) === 0) {
-          localStorage.setItem('navScrollDir', 'top')
-          router.push(fromRoute)
-          setFromRouterHasTriggered(true)
-          return
-        } else {
-          setCurListItemIdx && setCurListItemIdx(Number(curListItemIdx) - 1)
-          return
+          if (Number(curListItemIdx) === 0) {
+            routeTo({
+              navScrollDir: 'top',
+              router,
+              route: fromRoute,
+              setState: setFromRouterHasTriggered
+            })
+            return
+          } else {
+            setCurListItemIdx && setCurListItemIdx(Number(curListItemIdx) - 1)
+            return
+          }
         }
       }
+
       return
     }
     window.addEventListener('wheel', handleWheel)
+    // window.addEventListener('touchmove', handleWheel)
 
     return () => {
       window.removeEventListener('wheel', handleWheel)
+      // window.removeEventListener('touchmove', handleWheel)
     }
   }, [
     router,
@@ -97,7 +145,9 @@ const useScrollNavigation = ({
     setFromRouterHasTriggered,
     curListItemIdx,
     setCurListItemIdx,
-    listLength
+    listLength,
+    isThrottling,
+    setIsThrottling
   ])
 
   return null

@@ -15,7 +15,7 @@ const GeneralMultipleTransparentChildren: FC<
 > = ({ classNames, children }) => {
   const list = []
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 3; i++) {
     list.push(children)
   }
 
