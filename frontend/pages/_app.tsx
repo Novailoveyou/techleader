@@ -19,9 +19,9 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
     // handleUtms({ router })
     // handleReferer()
 
-    NProgress.configure({
-      showSpinner: false
-    })
+    // NProgress.configure({
+    //   showSpinner: false
+    // })
 
     const start = () => {
       NProgress.start()
@@ -32,13 +32,13 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
       setIsLoading(false)
       // pageview({ url })
     }
-    Router.events.on('routeChangeStart', start)
-    Router.events.on('routeChangeComplete', end)
-    Router.events.on('routeChangeError', end)
+    // Router.events.on('routeChangeStart', start)
+    // Router.events.on('routeChangeComplete', end)
+    // Router.events.on('routeChangeError', end)
     return () => {
-      Router.events.off('routeChangeStart', start)
-      Router.events.off('routeChangeComplete', end)
-      Router.events.off('routeChangeError', end)
+      // Router.events.off('routeChangeStart', start)
+      // Router.events.off('routeChangeComplete', end)
+      // Router.events.off('routeChangeError', end)
     }
   }, [router])
 

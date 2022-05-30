@@ -28,6 +28,8 @@ type TMenuContentContainerProps = TPropClassNames &
     topGap?: 'l' | 'xl'
     bottomGap?: 'l' | 'xl'
     leftGap?: 'xl' | 'm'
+    childTopGap?: 'l' | 'xl'
+    childBottomGap?: 'l' | 'xl'
   }
 
 const MenuContentContainer: FC<TMenuContentContainerProps> = ({
@@ -45,7 +47,9 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   menuArrowColor,
   menuPhoneColor,
   menuIconBorderColor,
-  menuArrowLineColor
+  menuArrowLineColor,
+  childTopGap,
+  childBottomGap
 }) => {
   const topGapL = topGap === 'l'
   const topGapXl = topGap === 'xl'
@@ -55,6 +59,12 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
 
   const leftGapXl = leftGap === 'xl'
   const leftGapM = leftGap === 'm'
+
+  const childTopGapL = childTopGap === 'l'
+  const childTopGapXl = childTopGap === 'xl'
+
+  const childBottomGapL = childBottomGap === 'l'
+  const childBottomGapXl = childBottomGap === 'xl'
 
   return (
     <div
@@ -91,7 +101,11 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
           className={cn(
             stls.contentChild,
             {
-              [stls.contentChildleftGapXl]: leftGapXl
+              [stls.contentChildleftGapXl]: leftGapXl,
+              [stls.contentChildTopGapL]: childTopGapL,
+              [stls.contentChildTopGapXl]: childTopGapXl,
+              [stls.contentChildBottomGapL]: childBottomGapL,
+              [stls.contentChildBottomGapXl]: childBottomGapXl
             },
             getClassNames({ classNames: contentChildClassNames })
           )}>

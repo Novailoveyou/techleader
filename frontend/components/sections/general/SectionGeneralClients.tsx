@@ -3,7 +3,12 @@ import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC, useState } from 'react'
 import cn from 'classnames'
 import { routes, colors, selectors } from '@/config/index'
-import { useScrollNavigation, useAt, useTitles } from '@/hooks/index'
+import {
+  useScrollNavigation,
+  useAt,
+  useTitles,
+  useSetCurListItemIdx
+} from '@/hooks/index'
 import {
   Section,
   Wrapper,
@@ -30,12 +35,12 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
   classNames,
   h1
 }) => {
+  const [curListItemIdx, setCurListItemIdx] = useState(0)
+
   const at = useAt()
   const titles = useTitles()
 
   const title = h1 || titles.clients
-
-  const [curListItemIdx, setCurListItemIdx] = useState(0)
 
   const list = [
     {
@@ -59,6 +64,11 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
       desc: '— поставка и ремонт долотенда долот'
     }
   ]
+
+  useSetCurListItemIdx({
+    listLength: list.length - 1,
+    setCurListItemIdx
+  })
 
   useScrollNavigation({
     fromRoute: routes.front.geography,

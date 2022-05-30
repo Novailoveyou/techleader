@@ -8,7 +8,8 @@ import {
   useAt,
   useCompanyInfo,
   useTitles,
-  useScrollNavigation
+  useScrollNavigation,
+  useSetCurListItemIdx
 } from '@/hooks/index'
 import {
   Section,
@@ -33,11 +34,11 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
   classNames,
   h1
 }) => {
+  const [curListItemIdx, setCurListItemIdx] = useState(0)
+
   const at = useAt()
   const company = useCompanyInfo()
   const titles = useTitles()
-
-  const [curListItemIdx, setCurListItemIdx] = useState(0)
 
   const title = h1 || titles.about
 
@@ -68,6 +69,11 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
     }
   ]
 
+  useSetCurListItemIdx({
+    listLength: list.length - 1,
+    setCurListItemIdx
+  })
+
   useScrollNavigation({
     fromRoute: routes.front.home,
     toRoute: routes.front.services,
@@ -79,13 +85,12 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
   return (
     <Section
       id={selectors.ids.about}
-      classNames={[cn(stls.container, classNames)]}
-      onScroll={() => setCurListItemIdx(curListItemIdx + 1)}>
+      classNames={[cn(stls.container, classNames)]}>
       <MenuContentContainer
         menuBgc={colors.beta}
         leftGap='xl'
-        topGap='l'
-        bottomGap='l'
+        childTopGap='l'
+        childBottomGap='l'
         contentChildClassNames={[stls.contentMenuContentContainer]}
         ReactNodeImage={
           <ImgGeneralAbout classNames={[stls.ImgGeneralAbout]} />

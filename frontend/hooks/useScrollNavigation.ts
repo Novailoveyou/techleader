@@ -26,22 +26,25 @@ const useScrollNavigation = ({
     const handleWheel = (e: any) => {
       // TODO: figure out better types
       // scroll bottom
+      const wheelDelta = e.wheelDelta
       if (
         window.innerHeight + window.pageYOffset >= document.body.offsetHeight &&
         toRoute &&
         !fromRouterHasTriggered &&
-        e.wheelDelta < 0
+        wheelDelta < 0
       ) {
         if (
           (!curListItemIdx && curListItemIdx !== 0) ||
           (!listLength && listLength !== 0)
         ) {
+          localStorage.setItem('navScrollDir', 'bottom')
           router.push(toRoute)
           setToRouterHasTriggered(true)
           return
         }
 
         if (Number(curListItemIdx) === Number(listLength) - 1) {
+          localStorage.setItem('navScrollDir', 'bottom')
           router.push(toRoute)
           setToRouterHasTriggered(true)
           return
@@ -55,18 +58,20 @@ const useScrollNavigation = ({
         window.pageYOffset === 0 &&
         fromRoute &&
         !toRouterHasTriggered &&
-        e.wheelDelta > 0
+        wheelDelta > 0
       ) {
         if (
           (!curListItemIdx && curListItemIdx !== 0) ||
           (!listLength && listLength !== 0)
         ) {
+          localStorage.setItem('navScrollDir', 'top')
           router.push(fromRoute)
           setFromRouterHasTriggered(true)
           return
         }
 
         if (Number(curListItemIdx) === 0) {
+          localStorage.setItem('navScrollDir', 'top')
           router.push(fromRoute)
           setFromRouterHasTriggered(true)
           return

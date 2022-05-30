@@ -3,7 +3,13 @@ import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC, useState } from 'react'
 import cn from 'classnames'
 import { routes, selectors, colors } from '@/config/index'
-import { useAt, useTitles, useScrollNavigation } from '@/hooks/index'
+import {
+  useAt,
+  useTitles,
+  useScrollNavigation,
+  useNavScrollDir,
+  useSetCurListItemIdx
+} from '@/hooks/index'
 import {
   Section,
   MenuContentContainer,
@@ -31,12 +37,12 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
   classNames,
   h1
 }) => {
+  const [curListItemIdx, setCurListItemIdx] = useState(0)
+
   const at = useAt()
   const titles = useTitles()
 
   const title = h1 || titles.services
-
-  const [curListItemIdx, setCurListItemIdx] = useState(0)
 
   const list = [
     {
@@ -56,6 +62,11 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
       desc: 'Сервис по отбору изолированного керна c возможностью подбора и поставок новых дизайнов КОС и бурголовок'
     }
   ]
+
+  useSetCurListItemIdx({
+    listLength: list.length - 1,
+    setCurListItemIdx
+  })
 
   useScrollNavigation({
     fromRoute: routes.front.about,

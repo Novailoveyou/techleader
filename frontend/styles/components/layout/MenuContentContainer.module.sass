@@ -23,25 +23,27 @@
 
 $left_gap_m: f.px(104)
 $left_gap_xl: f.px(104)
+
 .leftGapM
-  margin-left: $left_gap_m
+  padding-left: $left_gap_m
 
 $content_gap_l: f.px(112)
 $content_gap_xl: f.px(128)
-.contentTopGapL
+.contentTopGapL,
+.contentChildTopGapL
   padding-top: $content_gap_l
 
-.contentTopGapXl
+.contentTopGapXl,
+.contentChildTopGapXl
   padding-top: $content_gap_xl
 
-.contentBottomGapL
+.contentBottomGapL,
+.contentChildBottomGapL
   padding-bottom: $content_gap_l
 
-.contentBottomGapXl
+.contentBottomGapXl,
+.contentChildBottomGapXl
   padding-bottom: $content_gap_xl
-
-.contentChildLeftGapM
-  padding-left: $left_gap_m
 
 .contentChildLeftGapXl
   padding-left: $left_gap_xl
@@ -53,3 +55,8 @@ $content_gap_xl: f.px(128)
   grid-column-start: 2
   display: flex
   flex-direction: column
+
+
+
+
+
