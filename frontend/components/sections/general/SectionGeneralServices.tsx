@@ -49,19 +49,27 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
   const list = [
     {
       Img: ImgService1,
-      desc: 'Разработка программы строительства скважин с подбором технологий'
+      desc: at.en
+        ? 'A well construction program development using appropriate technologies'
+        : 'Разработка программы строительства скважин с подбором технологий'
     },
     {
       Img: ImgService2,
-      desc: 'Инженерный сервис при строительстве эксплуатационных, разведочных и параметрических скважин'
+      desc: at.en
+        ? 'Engineering service at the construction of operational, exploration and parametric wells'
+        : 'Инженерный сервис при строительстве эксплуатационных, разведочных и параметрических скважин'
     },
     {
       Img: ImgService3,
-      desc: 'Подбор и поставка оборудования и химии отечественного и импортного производства для нефтегазовой отрасли'
+      desc: at.en
+        ? "Equipment's and chemicals' assortment and supply for the oil and gas industry"
+        : 'Подбор и поставка оборудования и химии отечественного и импортного производства для нефтегазовой отрасли'
     },
     {
       Img: ImgService4,
-      desc: 'Сервис по отбору изолированного керна c возможностью подбора и поставок новых дизайнов КОС и бурголовок'
+      desc: at.en
+        ? 'Isolated core assortment service with optional CDD and drill heads design'
+        : 'Сервис по отбору изолированного керна c возможностью подбора и поставок новых дизайнов КОС и бурголовок'
     }
   ]
 
@@ -84,12 +92,14 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
       classNames={[cn(stls.container, classNames)]}>
       <MenuContentContainer
         menuBgc={colors.gamma}
+        progressBarContainerBgc={colors.gamma}
         ReactNodeImage={
           <ImgServiceIllustration classNames={[stls.ImgServiceIllustration]} />
         }
         leftGap='xl'
         topGap='l'
-        bottomGap='l'>
+        bottomGap='l'
+        curListItemIdx={2}>
         <div className={stls.heading}>
           {h1 ? (
             <H1 styledAsH2>{title}</H1>

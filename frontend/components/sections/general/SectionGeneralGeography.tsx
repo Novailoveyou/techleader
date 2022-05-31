@@ -56,13 +56,16 @@ const SectionGeneralGeography: FC<TSectionGeneralGeographyProps> = ({
       classNames={[cn(stls.container, classNames)]}>
       <MenuContentContainer
         menuBgc={colors.alpha}
+        progressBarContainerBgc={colors.alpha}
+        progressBarLineBgc={colors.omega}
         topGap='l'
         bottomGap='l'
         menuIconColor={colors.gamma}
         menuIconBorderColor={colors.kappa}
         menuArrowColor={colors.gamma}
         menuArrowLineColor={colors.kappa}
-        menuPhoneColor={colors.gamma}>
+        menuPhoneColor={colors.gamma}
+        curListItemIdx={5}>
         {h1 ? (
           <H1 styledAsH2 classNames={[stls.title]}>
             {title}

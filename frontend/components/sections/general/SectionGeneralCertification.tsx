@@ -37,9 +37,11 @@ const SectionGeneralCertification: FC<TSectionGeneralCertificationProps> = ({
       classNames={[cn(stls.container, classNames)]}>
       <MenuContentContainer
         menuBgc={colors.gamma}
+        progressBarContainerBgc={colors.gamma}
         leftGap='xl'
         topGap='l'
-        bottomGap='l'>
+        bottomGap='l'
+        curListItemIdx={4}>
         {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
         <GeneralMultipleTransparentChildren
           classNames={[stls.GeneralMultipleTransparentChildren]}>

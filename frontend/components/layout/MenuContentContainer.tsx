@@ -11,6 +11,7 @@ import {
 import cn from 'classnames'
 import { selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { GeneralProgressLine } from '@/components/general'
 import { Menu } from '@/components/layout'
 
 type TMenuContentContainerProps = TPropClassNames &
@@ -30,6 +31,9 @@ type TMenuContentContainerProps = TPropClassNames &
     leftGap?: 'xl' | 'm'
     childTopGap?: 'l' | 'xl'
     childBottomGap?: 'l' | 'xl'
+    curListItemIdx: number
+    progressBarContainerBgc?: TGeneralColorHex
+    progressBarLineBgc?: TGeneralColorHex
   }
 
 const MenuContentContainer: FC<TMenuContentContainerProps> = ({
@@ -49,8 +53,13 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   menuIconBorderColor,
   menuArrowLineColor,
   childTopGap,
-  childBottomGap
+  childBottomGap,
+  curListItemIdx,
+  progressBarContainerBgc,
+  progressBarLineBgc
 }) => {
+  const sectionsListLength = 8
+
   const topGapL = topGap === 'l'
   const topGapXl = topGap === 'xl'
 
@@ -94,6 +103,14 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
           },
           getClassNames({ classNames: contentClassNames })
         )}>
+        <GeneralProgressLine
+          classNames={[stls.GeneralProgressLine]}
+          listLength={sectionsListLength}
+          curListItemIdx={curListItemIdx}
+          isProgressivelyFilling
+          containerBgc={progressBarContainerBgc}
+          progressLineBgc={progressBarLineBgc}
+        />
         {ReactNodeImage && (
           <div className={stls.ReactNodeImage}>{ReactNodeImage}</div>
         )}

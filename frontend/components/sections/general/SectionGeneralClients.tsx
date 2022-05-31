@@ -86,9 +86,11 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
       <MenuContentContainer
         classNames={[stls.MenuContentContainer]}
         menuBgc={colors.beta}
+        progressBarContainerBgc={colors.beta}
         leftGap='xl'
         topGap='l'
-        bottomGap='l'>
+        bottomGap='l'
+        curListItemIdx={6}>
         {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
         <UlGeneralXScrollable classNames={[stls.list]}>
           {list.map(({ Img, title, desc }, idx) => (

@@ -51,13 +51,16 @@ const Footer: FC<TFooterProps> = ({ classNames, h1 }) => {
       }>
       <MenuContentContainer
         menuBgc={colors.alpha}
+        progressBarContainerBgc={colors.alpha}
+        progressBarLineBgc={colors.omega}
         leftGap='xl'
         topGap='xl'
         menuIconColor={colors.gamma}
         menuIconBorderColor={colors.kappa}
         menuArrowColor={colors.gamma}
         menuArrowLineColor={colors.kappa}
-        menuPhoneColor={colors.gamma}>
+        menuPhoneColor={colors.gamma}
+        curListItemIdx={7}>
         {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
         <Ul classNames={[stls.list]}>
           {list.map(({ title, href, val }, idx) => (

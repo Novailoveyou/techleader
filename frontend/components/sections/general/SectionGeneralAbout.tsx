@@ -88,13 +88,13 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
       classNames={[cn(stls.container, classNames)]}>
       <MenuContentContainer
         menuBgc={colors.beta}
+        progressBarContainerBgc={colors.beta}
         leftGap='xl'
         childTopGap='l'
         childBottomGap='l'
         contentChildClassNames={[stls.contentMenuContentContainer]}
-        ReactNodeImage={
-          <ImgGeneralAbout classNames={[stls.ImgGeneralAbout]} />
-        }>
+        ReactNodeImage={<ImgGeneralAbout classNames={[stls.ImgGeneralAbout]} />}
+        curListItemIdx={1}>
         {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
         <P classNames={[stls.p]}>
           <Highlight weight uppercase>

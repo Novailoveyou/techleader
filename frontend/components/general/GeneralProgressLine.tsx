@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/GeneralProgressLine.module.sass'
-import { TPropClassNames } from '@/types/index'
+import { TGeneralColorHex, TPropClassNames } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
 import { selectors } from '@/config/index'
@@ -10,21 +10,33 @@ import { GeneralNonBrakingSpace } from '@/components/general'
 type TGeneralProgressLineProps = TPropClassNames & {
   listLength: number
   curListItemIdx: number
+  isProgressivelyFilling?: boolean
+  containerBgc?: TGeneralColorHex
+  progressLineBgc?: TGeneralColorHex
 }
 
 const GeneralProgressLine: FC<TGeneralProgressLineProps> = ({
   classNames,
   listLength,
-  curListItemIdx
+  curListItemIdx,
+  isProgressivelyFilling,
+  containerBgc,
+  progressLineBgc
 }) => {
   return (
-    <span className={cn(stls.container, getClassNames({ classNames }))}>
+    <span
+      className={cn(stls.container, getClassNames({ classNames }))}
+      style={{ backgroundColor: containerBgc }}>
       <span
         className={stls.progressLine}
         style={{
-          // width: `${(100 / listLength) * (curListItemIdx + 1)}%`
-          width: `${100 / listLength}%`,
-          marginLeft: `${(100 / listLength) * curListItemIdx}%`
+          width: isProgressivelyFilling
+            ? `${(100 / (listLength - 1)) * curListItemIdx}%`
+            : `${100 / listLength}%`,
+          marginLeft: !isProgressivelyFilling
+            ? `${(100 / listLength) * curListItemIdx}%`
+            : undefined,
+          backgroundColor: progressLineBgc
         }}></span>
     </span>
   )
