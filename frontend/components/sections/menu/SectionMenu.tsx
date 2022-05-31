@@ -31,6 +31,10 @@ const SectionMenu: FC<TSectionMenuProps> = ({ classNames, close }) => {
 
   const links = [
     {
+      href: routes.front.home,
+      label: titles.home
+    },
+    {
       href: routes.front.about,
       label: titles.about
     },
@@ -49,6 +53,10 @@ const SectionMenu: FC<TSectionMenuProps> = ({ classNames, close }) => {
     {
       href: routes.front.clients,
       label: titles.clients
+    },
+    {
+      href: routes.front.contact,
+      label: titles.contact
     }
   ]
 
@@ -65,14 +73,19 @@ const SectionMenu: FC<TSectionMenuProps> = ({ classNames, close }) => {
     }
   ]
 
+  // TODO: fix vertical scroll when in the menu
   return (
     <Section
       id={selectors.ids.about}
       classNames={[cn(stls.container, classNames)]}>
       <GeneralLocaleControls classNames={[stls.GeneralLocaleControls]} />
       <MenuContentContainer
-        contentClassNames={[stls.contentClassNames]}
-        contentChildClassNames={[stls.contentChildClassNames]}
+        contentClassNames={[
+          cn(stls.contentClassNames1, stls.contentClassNames2)
+        ]}
+        contentChildClassNames={[
+          cn(stls.contentChildClassNames1, stls.contentChildClassNames2)
+        ]}
         menuBgc={colors.beta}
         progressBarContainerBgc={colors.beta}
         progressBarLineBgc={colors.beta}

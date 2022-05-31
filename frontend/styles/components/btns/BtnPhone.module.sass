@@ -3,13 +3,22 @@
 @use '@/styles/config/Colors.module.sass' as c
 
 .container
-  padding: f.px(18)
+  @include m.media(phone, tablet)
+    padding: f.px(11)
+  @include m.media(laptop, desktop)
+    padding: f.px(18)
   border: 1px solid
   @include m.dye(border, c.$zeta)
   border-radius: f.px(16)
 
 .SvgGeneralPhone
-  min-width: f.px(20)
-  max-width: f.px(20)
-  min-height: f.px(20)
-  max-height: f.px(20)
+  @include m.media(phone, tablet)
+    min-width: f.px(20 / 1.2)
+    max-width: f.px(20 / 1.2)
+    min-height: f.px(20 / 1.2)
+    max-height: f.px(20 / 1.2)    
+  @include m.media(laptop, desktop)
+    min-width: f.px(20)
+    max-width: f.px(20)
+    min-height: f.px(20)
+    max-height: f.px(20)

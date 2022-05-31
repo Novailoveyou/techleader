@@ -42,12 +42,20 @@ const Menu: FC<TMenuProps> = ({
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       style={{ backgroundColor: menuBgc }}>
       {close ? (
-        <BtnMenu close={close} color={colors.alpha} />
+        <BtnMenu
+          close={close}
+          color={colors.alpha}
+          classNames={[stls.btnMenu]}
+        />
       ) : (
         <Popup
           trigger={open => (
             <span>
-              <BtnMenu open={open} color={menuIconColor} />
+              <BtnMenu
+                open={open}
+                color={menuIconColor}
+                classNames={[stls.btnMenu]}
+              />
             </span>
           )}
           position='center center'

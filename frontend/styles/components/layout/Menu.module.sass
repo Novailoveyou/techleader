@@ -10,12 +10,18 @@
   flex-direction: column
   justify-content: space-between
   align-items: center
-  min-width: f.px(120)
-  max-width: f.px(120)
+  @include m.media(phone, tablet)
+    min-width: f.px(60)
+    max-width: f.px(60)
+    padding-top: f.px(36)
+    padding-bottom: f.px(36)
+  @include m.media(laptop, desktop)
+    min-width: f.px(120)
+    max-width: f.px(120)
+    padding-top: f.px(48)
+    padding-bottom: f.px(48)
   min-height: 100vh
   max-height: 100vh
-  padding-top: f.px(48)
-  padding-bottom: f.px(48)
   // @include m.dye(bg, c.$gamma)
 
 .decoration
@@ -35,7 +41,13 @@
   @include m.dye(bg, c.$zeta)
 
 .SvgGeneralArrow
-  min-width: f.px(24)
-  max-width: f.px(24)
-  min-height: f.px(24)
-  max-height: f.px(24)
+  @include m.media(phone, tablet)
+    min-width: f.px(24 / 1.2)
+    max-width: f.px(24 / 1.2)
+    min-height: f.px(24 / 1.2)
+    max-height: f.px(24 / 1.2)
+  @include m.media(laptop, desktop)
+    min-width: f.px(24)
+    max-width: f.px(24)
+    min-height: f.px(24)
+    max-height: f.px(24)

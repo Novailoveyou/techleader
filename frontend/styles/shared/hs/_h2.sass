@@ -4,10 +4,11 @@
 @use '@/styles/shared/margins/marginBottomH2.sass' as mb
 
 @mixin h2
-  margin-bottom: mb.$marginBottomH2
   @include m.media(phone, tablet)
-    font-size: f.px(36)
+    margin-bottom: mb.$marginBottomH2_pt
+    font-size: f.px(24)
   @include m.media(laptop, desktop)
+    margin-bottom: mb.$marginBottomH2_ld
     font-size: f.px(40)
   font-family: NeutralFace, sans-serif
   font-weight: 400

@@ -10,7 +10,13 @@
   background: none
 
 .SvgGeneralMenu
-  min-width: f.px(56)
-  max-width: f.px(56)
-  min-height: f.px(16)
-  max-height: f.px(16)
+  @include m.media(phone, tablet)
+    min-width: f.px(56 / 1.5)
+    max-width: f.px(56 / 1.5)
+    min-height: f.px(16 / 1.5)
+    max-height: f.px(16 / 1.5)
+  @include m.media(laptop, desktop)
+    min-width: f.px(56)
+    max-width: f.px(56)
+    min-height: f.px(16)
+    max-height: f.px(16)

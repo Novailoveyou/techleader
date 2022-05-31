@@ -7,6 +7,8 @@
   flex-grow: 1
   min-height: 100vh
   min-width: 100vw
+  @include m.media(phone, tablet)
+    padding-right: f.px(6)
 
 .menu
   z-index: 2
@@ -28,7 +30,10 @@
 .contentLeftGapXl
   flex-grow: 1
   display: grid
-  grid-template-columns: 4fr 5.7fr 2.3fr
+  @include m.media(phone, tablet)
+    grid-template-columns: 1fr 10fr 1fr
+  @include m.media(laptop, desktop)
+    grid-template-columns: 4fr 5.7fr 2.3fr
 
 $left_gap_m: f.px(104)
 $left_gap_xl: f.px(104)
@@ -36,29 +41,43 @@ $left_gap_xl: f.px(104)
 .leftGapM
   padding-left: $left_gap_m
 
-$content_gap_l: f.px(112)
-$content_gap_xl: f.px(128)
+$content_gap_pt_l: f.px(80)
+$content_gap_ld_l: f.px(112)
+$content_gap_pt_xl: f.px(80)
+$content_gap_ld_xl: f.px(128)
 .contentTopGapL,
 .contentChildTopGapL
-  padding-top: $content_gap_l
+  @include m.media(phone, tablet)
+    padding-top: $content_gap_pt_l
+  @include m.media(laptop, desktop)
+    padding-top: $content_gap_ld_l
 
 .contentTopGapXl,
 .contentChildTopGapXl
-  padding-top: $content_gap_xl
+  @include m.media(phone, tablet)
+    padding-top: $content_gap_pt_xl
+  @include m.media(laptop, desktop)
+    padding-top: $content_gap_ld_xl
 
 .contentBottomGapL,
 .contentChildBottomGapL
-  padding-bottom: $content_gap_l
+  @include m.media(phone, tablet)
+    padding-bottom: $content_gap_pt_l
+  @include m.media(laptop, desktop)
+    padding-bottom: $content_gap_ld_l
 
 .contentBottomGapXl,
 .contentChildBottomGapXl
-  padding-bottom: $content_gap_xl
+  @include m.media(phone, tablet)
+    padding-bottom: $content_gap_pt_xl
+  @include m.media(laptop, desktop)
+    padding-bottom: $content_gap_ld_xl
 
 .contentChildLeftGapXl
   padding-left: $left_gap_xl
 
-.contentChild
-  overflow: hidden
+// .contentChild
+//   overflow: hidden
 
 .contentChildleftGapXl
   grid-column-start: 2

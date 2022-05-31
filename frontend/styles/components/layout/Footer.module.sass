@@ -10,14 +10,21 @@
 
 ul.list
   display: flex
-  margin-bottom: mb.$marginBottomH2
   gap: 11.7%
+  @include m.media(phone, tablet)
+    margin-bottom: mb.$marginBottomH2_pt
+    flex-direction: column
+  @include m.media(laptop, desktop)
+    margin-bottom: mb.$marginBottomH2_ld
 
 .listItem
   display: flex
   flex-direction: column
-  // & + .listItem
-  //   margin-left: 11.7%
+  @include m.media(phone, tablet)
+    & + .listItem
+      margin-top: f.px(32)
+    // & + .listItem
+    //   margin-left: 11.7%
 
 .p
   @include m.dye(c, c.$beta)
@@ -35,9 +42,15 @@ ul.list
 
 .SvgGeneralLogoAlt
   position: absolute
-  top: 0
   left: 0
-  min-width: f.px(459)
-  max-width: f.px(459)
-  min-height: f.px(829)
-  max-height: f.px(829)
+  @include m.media(phone, tablet)
+    top: 100%
+    transform: translateY(-50%)
+    min-width: 100%
+    max-width: 100%
+  @include m.media(laptop, desktop)
+    top: 0
+    min-width: f.px(459)
+    max-width: f.px(459)
+    min-height: f.px(829)
+    max-height: f.px(829)

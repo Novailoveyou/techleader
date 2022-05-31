@@ -11,6 +11,7 @@ const useTitles = () => {
   const at = useAt()
 
   const output = {
+    home: at.en ? 'Home' : 'Главная',
     about: at.en ? 'About' : 'О компании',
     certification: at.en ? 'Certification' : 'Сертификация',
     clients: at.en ? 'Main clients' : 'Основные заказчики',

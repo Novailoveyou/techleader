@@ -8,11 +8,20 @@
 
 .top
   display: flex
-  align-items: center
+  @include m.media(phone, tablet)
+    flex-direction: column
+  @include m.media(laptop, desktop)
+    align-items: center
 
 .p
-  max-width: 24ch
-  margin-left: f.px(48)
+  @include m.media(phone, tablet)
+    margin-top: f.px(32)
+  @include m.media(laptop, desktop)
+    max-width: 24ch
+    margin-left: f.px(48)
 
 .GeneralProgressLine
-  margin-top: f.px(80)
+  @include m.media(phone, tablet)
+    margin-top: f.px(32)
+  @include m.media(laptop, desktop)
+    margin-top: f.px(80)
