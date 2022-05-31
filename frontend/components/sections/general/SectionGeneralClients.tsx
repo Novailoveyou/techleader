@@ -46,23 +46,31 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
   const list = [
     {
       Img: ImgPartnerRosgeologia,
-      title: 'АО «Росгеология»',
-      desc: '— сервис по отработке долот, ВЗД, ясов'
+      title: at.en ? 'JSC "Rosgeologia"' : 'АО «Росгеология»',
+      desc: at.en
+        ? '– bits, PDM, jars development service'
+        : '— сервис по отработке долот, ВЗД, ясов'
     },
     {
       Img: ImgPartnerArgos,
-      title: 'ООО «Аргос»-ЧУРС',
-      desc: '— сервис по отработке долот и отбору керна'
+      title: at.en ? 'LLC "Argos" -CHURS' : 'ООО «Аргос»-ЧУРС',
+      desc: at.en
+        ? '— bits and coring drilling service'
+        : '— сервис по отработке долот и отбору керна'
     },
     {
       Img: ImgPartnerBakerHughes,
-      title: 'АО «Бейкер Хьюз»',
-      desc: '— аренда долот'
+      title: at.en ? 'JSC Baker Hughes' : 'АО «Бейкер Хьюз»',
+      desc: at.en ? '- bits rental' : '— аренда долот'
     },
     {
       Img: ImgPartnerRosgeologia,
-      title: 'ООО «Смит Сайбириан Сервисез»',
-      desc: '— поставка и ремонт долотенда долот'
+      title: at.en
+        ? 'LLC Smith Siberian Services'
+        : 'ООО «Смит Сайбириан Сервисез»',
+      desc: at.en
+        ? '- supply and repair of bits'
+        : '— поставка и ремонт долотенда долот'
     }
   ]
 

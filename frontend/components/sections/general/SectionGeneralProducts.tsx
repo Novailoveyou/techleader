@@ -48,32 +48,50 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
   const list = [
     {
       Img: ImgProduct1,
-      list: [
-        'Производим собственные буровые долота PDC',
-        'Команда профессиональных конструкторов',
-        'Производство стальных и матричных корпусов',
-        'Резцы различной геометрии премиального класса для бурения твердых и крепких пород'
-      ]
+      list: at.en
+        ? [
+            'Own PDC drill bits production',
+            'Team of professional constructors',
+            'Steel and matrix cases manufacturing',
+            'Premium cutters in various shapes for drilling hard and tough rock'
+          ]
+        : [
+            'Производим собственные буровые долота PDC',
+            'Команда профессиональных конструкторов',
+            'Производство стальных и матричных корпусов',
+            'Резцы различной геометрии премиального класса для бурения твердых и крепких пород'
+          ]
     },
     {
       Img: ImgProduct2,
-      title: 'PDC Резцы',
-      desc: 'Возможность изготовления резцов сложной геометрии (3D и 4D), по разработанным чертежам'
+      title: at.en ? 'PDC Cutters' : 'PDC Резцы',
+      desc: at.en
+        ? 'Complex geometry cutters manufacturing (3D and 4D), according to the developed drawings'
+        : 'Возможность изготовления резцов сложной геометрии (3D и 4D), по разработанным чертежам'
     },
     {
       Img: ImgProduct3,
-      title: 'Резцы с двойной фаской',
-      desc: 'Усовершенствованная кромка резца обеспечивает лучшую ударную стойкость, увеличивая проходку долота в твердых и крепких породах'
+      title: at.en ? 'Double chamfered cutters' : 'Резцы с двойной фаской',
+      desc: at.en
+        ? 'Improved cutter edge provides better impact resistance, increasing penetration in hard and tough formations'
+        : 'Усовершенствованная кромка резца обеспечивает лучшую ударную стойкость, увеличивая проходку долота в твердых и крепких породах'
     },
     {
       Img: ImgProduct4,
-      title: '3D-4D Резцы',
-      list: [
-        'Улучшенное точечное воздействие на породу',
-        'Значительное снижение момента на долоте',
-        'Увеличенная стойкость',
-        'Увеличение МСП'
-      ]
+      title: at.en ? '3D-4D Cutters' : '3D-4D Резцы',
+      list: at.en
+        ? [
+            'Improved point impact on the rock',
+            'Significant reduction in bit momentum',
+            'Increased durability',
+            'Increase in SMEs'
+          ]
+        : [
+            'Улучшенное точечное воздействие на породу',
+            'Значительное снижение момента на долоте',
+            'Увеличенная стойкость',
+            'Увеличение МСП'
+          ]
     }
   ]
 

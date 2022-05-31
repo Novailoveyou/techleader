@@ -36,17 +36,44 @@ const SectionGeneralGeography: FC<TSectionGeneralGeographyProps> = ({
 
   const list = [
     <>
-      <Highlight weight>8 разведочных скважин</Highlight> в Пермском и
-      Оренбургском регионах
+      {at.en ? (
+        <>
+          <Highlight weight>8 exploration wells</Highlight> in Perm and Orenburg
+          regions
+        </>
+      ) : (
+        <>
+          <Highlight weight>8 разведочных скважин</Highlight> в Пермском и
+          Оренбургском регионах
+        </>
+      )}
     </>,
     <>
-      <Highlight weight>2 параметрические скважины</Highlight> в Забайкальском
-      крае и на п-ове Гыдан
+      {at.en ? (
+        <>
+          <Highlight weight>2 parametric wells</Highlight> in Trans-Baikal
+          Territory and on the Gydan Peninsula
+        </>
+      ) : (
+        <>
+          <Highlight weight>2 параметрические скважины</Highlight> в
+          Забайкальском крае и на п-ове Гыдан
+        </>
+      )}
     </>,
     <>
-      В Восточной Сибири успешно пробурено{' '}
-      <Highlight weight>8 000 метров</Highlight> с трапповой интрузией
-      протяженностью 500 метров
+      {at.en ? (
+        <>
+          <Highlight weight>8,000 meters</Highlight> of trap intrusion
+          successfully drilled in Eastern Siberia 500 meters long
+        </>
+      ) : (
+        <>
+          В Восточной Сибири успешно пробурено{' '}
+          <Highlight weight>8 000 метров</Highlight> с трапповой интрузией
+          протяженностью 500 метров
+        </>
+      )}
     </>
   ]
 
