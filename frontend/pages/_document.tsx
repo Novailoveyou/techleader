@@ -5,7 +5,7 @@ import Document, {
   NextScript,
   DocumentContext
 } from 'next/document'
-// import { themeColor, company, prod, gtm } from '@/config/index'
+import { colors, prod } from '@/config/index'
 // import { MetaIcons, MetaOg, MetaTwitter } from '@/components/meta'
 
 class MyDocument extends Document {
@@ -14,6 +14,7 @@ class MyDocument extends Document {
     return initialProps
   }
 
+  // TODO: Add apple touch icon
   render() {
     return (
       <Html>
@@ -42,10 +43,9 @@ class MyDocument extends Document {
       /> */}
           {/* <meta name='msapplication-TileColor' content={themeColor} /> */}
           <meta name='msapplication-tap-highlight' content='no' />
-          {/* <meta name='theme-color' content={themeColor} /> */}
+          <meta name='theme-color' content={colors.alpha} />
 
           {/* <MetaIcons /> */}
-
           <link rel='manifest' href='/manifest.json' />
 
           {/* <MetaTwitter /> */}

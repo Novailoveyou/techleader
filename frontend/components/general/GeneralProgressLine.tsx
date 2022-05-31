@@ -25,10 +25,14 @@ const GeneralProgressLine: FC<TGeneralProgressLineProps> = ({
 }) => {
   return (
     <span
-      className={cn(stls.container, getClassNames({ classNames }))}
+      className={cn(stls.container, getClassNames({ classNames }), {
+        [stls.fadeOutAfterDelay]: isProgressivelyFilling
+      })}
       style={{ backgroundColor: containerBgc }}>
       <span
-        className={stls.progressLine}
+        className={cn(stls.progressLine, {
+          [stls.fadeOutAfterDelay]: isProgressivelyFilling
+        })}
         style={{
           width: isProgressivelyFilling
             ? `${(100 / (listLength - 1)) * curListItemIdx}%`
