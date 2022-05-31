@@ -6,14 +6,18 @@
 .container
   position: relative
 
+.MenuContentContainerContentChild
+  display: flex
+  flex-direction: column
+  min-height: 100%
+
 .top,
 .bottom
   max-width: f.px(993)
 
 .top
   display: flex
-  justify-content: space-between
-  align-items: center
+  // align-items: center
   padding-top: f.px(48)
 
 .GeneralLocaleControls
@@ -21,6 +25,7 @@
 
 .bottom
   position: relative
+  max-height: f.px(350)
 
 .ImgGeneralOilRig
   position: absolute
@@ -36,7 +41,8 @@
   margin-top: f.px(128)
 
 .titleBottom
-  align-self: flex-end
+  margin-left: auto
+  // align-self: flex-end
 
 .p
   max-width: 13ch

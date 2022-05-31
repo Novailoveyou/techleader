@@ -40,6 +40,7 @@ const Header: FC<THeaderProps> = ({ classNames }) => {
       <MenuContentContainer
         leftGap='m'
         menuBgc={colors.gamma}
+        contentChildClassNames={[stls.MenuContentContainerContentChild]}
         progressBarContainerBgc={colors.gamma}
         progressBarLineBgc={colors.gamma}
         curListItemIdx={0}>

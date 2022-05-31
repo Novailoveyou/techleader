@@ -10,6 +10,20 @@
 html
   box-sizing: border-box
   scroll-behavior: smooth
+  &::-webkit-scrollbar
+    min-width: f.px(8)
+    width: f.px(8)
+    max-width: f.px(8)
+    min-height: f.px(8)
+    height: f.px(8)
+    max-height: f,px(8)
+  &::-webkit-scrollbar-track 
+    @include m.dye(bg, c.$eta)
+  //   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+  &::-webkit-scrollbar-thumb
+    // outline: 1px solid
+    // @include m.dye(outline, c.$gamma)
+    @include m.dye(bg, c.$zeta)
 
 body
   overflow-x: hidden
