@@ -8,7 +8,8 @@
   @include m.dye(c, c.$omega)
 
 .title
-  text-align: center
+  @include m.media(laptop, desktop)
+    text-align: center
 
 .content
   display: flex
@@ -18,16 +19,29 @@
 $ImgGeographyMap_ld_fb: 55.2%
 $list_ld_ml: 3.7%
 .ImgGeographyMap
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(32)
   @include m.media(laptop, desktop)
     flex-basis: $ImgGeographyMap_ld_fb
 
-.list
+ul.list
   @include m.media(laptop, desktop)
     flex-basis: 100% - $ImgGeographyMap_ld_fb - $list_ld_ml
     max-width: 35ch
     margin-left: $list_ld_ml
 
 .listItem
-  margin-left: f.px(10)
-  & + .listItem
-    margin-top: f.px(30)
+  @include m.media(phone, tablet)
+    position: relative
+    padding-left: f.px(12)
+    & + .listItem
+      margin-top: f.px(17)
+    &::after
+      content: '\2022'
+      position: absolute
+      top: f.px(2)
+      left: 0
+  @include m.media(laptop, desktop)
+    margin-left: f.px(10)
+    & + .listItem
+      margin-top: f.px(30)
