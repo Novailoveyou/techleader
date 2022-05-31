@@ -45,95 +45,101 @@ const useScrollNavigation = ({
     }
 
     const handleWheel = (e: any) => {
-      console.log(e)
       // TODO: figure out better types
 
-      setIsThrottling(true)
+      console.log(e)
 
-      setTimeout(() => {
-        setIsThrottling(false)
-      }, 0)
+      const isScrolling = setTimeout(() => {
+        console.log('scrolling has stopped')
+      }, 66)
 
-      if (!isThrottling) {
-        // scroll bottom
-        const wheelDelta = e.wheelDelta
-        if (
-          window.innerHeight + window.pageYOffset >=
-            document.body.offsetHeight &&
-          toRoute &&
-          !fromRouterHasTriggered &&
-          wheelDelta < 0
-        ) {
-          if (
-            (!curListItemIdx && curListItemIdx !== 0) ||
-            (!listLength && listLength !== 0)
-          ) {
-            routeTo({
-              navScrollDir: 'bottom',
-              router,
-              route: toRoute,
-              setState: setToRouterHasTriggered
-            })
-            return
-          }
+      window.clearTimeout(isScrolling)
 
-          if (Number(curListItemIdx) === Number(listLength) - 1) {
-            routeTo({
-              navScrollDir: 'bottom',
-              router,
-              route: toRoute,
-              setState: setToRouterHasTriggered
-            })
-            return
-          } else {
-            setCurListItemIdx && setCurListItemIdx(Number(curListItemIdx) + 1)
-            return
-          }
+      const wheelDelta = e.wheelDelta
+
+      const scrollBottom =
+        window.innerHeight + window.pageYOffset >= document.body.offsetHeight &&
+        toRoute &&
+        !fromRouterHasTriggered &&
+        ((wheelDelta && wheelDelta < 0) || e.keyCode === 40 || e.which === 40)
+
+      const scrollTop =
+        window.pageYOffset === 0 &&
+        fromRoute &&
+        !toRouterHasTriggered &&
+        ((wheelDelta && wheelDelta > 0) || e.keyCode === 38 || e.which === 38)
+
+      const isNotListItem =
+        (!curListItemIdx && curListItemIdx !== 0) ||
+        (!listLength && listLength !== 0)
+
+      const isEndOfListItems = Number(curListItemIdx) === Number(listLength) - 1
+
+      const isBegginingOfListItems = Number(curListItemIdx) === 0
+
+      if (scrollBottom) {
+        if (isNotListItem) {
+          routeTo({
+            navScrollDir: 'bottom',
+            router,
+            route: toRoute,
+            setState: setToRouterHasTriggered
+          })
         }
 
-        // scroll top
-        if (
-          window.pageYOffset === 0 &&
-          fromRoute &&
-          !toRouterHasTriggered &&
-          wheelDelta > 0
-        ) {
-          if (
-            (!curListItemIdx && curListItemIdx !== 0) ||
-            (!listLength && listLength !== 0)
-          ) {
-            routeTo({
-              navScrollDir: 'top',
-              router,
-              route: fromRoute,
-              setState: setFromRouterHasTriggered
-            })
-            return
-          }
-
-          if (Number(curListItemIdx) === 0) {
-            routeTo({
-              navScrollDir: 'top',
-              router,
-              route: fromRoute,
-              setState: setFromRouterHasTriggered
-            })
-            return
-          } else {
-            setCurListItemIdx && setCurListItemIdx(Number(curListItemIdx) - 1)
-            return
-          }
+        if (isEndOfListItems) {
+          routeTo({
+            navScrollDir: 'bottom',
+            router,
+            route: toRoute,
+            setState: setToRouterHasTriggered
+          })
+        } else {
+          setCurListItemIdx && setCurListItemIdx(Number(curListItemIdx) + 1)
         }
       }
 
+      if (scrollTop) {
+        if (isNotListItem) {
+          routeTo({
+            navScrollDir: 'top',
+            router,
+            route: fromRoute,
+            setState: setFromRouterHasTriggered
+          })
+        }
+
+        if (isBegginingOfListItems) {
+          routeTo({
+            navScrollDir: 'top',
+            router,
+            route: fromRoute,
+            setState: setFromRouterHasTriggered
+          })
+        } else {
+          setCurListItemIdx && setCurListItemIdx(Number(curListItemIdx) - 1)
+        }
+      }
+
+      // window.removeEventListener('wheel', handleWheel)
+      // setTimeout(() => {
+      //   window.addEventListener('wheel', handleWheel)
+      // }, 2000)
       return
     }
     window.addEventListener('wheel', handleWheel)
-    // window.addEventListener('touchmove', handleWheel)
+    window.addEventListener('keyup', handleWheel)
+
+    const test = (e: any) => {
+      console.log(e)
+    }
+
+    window.addEventListener('touchend', test)
 
     return () => {
       window.removeEventListener('wheel', handleWheel)
-      // window.removeEventListener('touchmove', handleWheel)
+      window.removeEventListener('keyup', handleWheel)
+      window.removeEventListener('touchend', test)
     }
   }, [
     router,

@@ -22,7 +22,9 @@ const GeneralProgressLine: FC<TGeneralProgressLineProps> = ({
       <span
         className={stls.progressLine}
         style={{
-          width: `${(100 / listLength) * (curListItemIdx + 1)}%`
+          // width: `${(100 / listLength) * (curListItemIdx + 1)}%`
+          width: `${100 / listLength}%`,
+          marginLeft: `${(100 / listLength) * curListItemIdx}%`
         }}></span>
     </span>
   )
