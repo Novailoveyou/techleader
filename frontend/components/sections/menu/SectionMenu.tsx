@@ -74,6 +74,8 @@ const SectionMenu: FC<TSectionMenuProps> = ({ classNames, close }) => {
         contentClassNames={[stls.contentClassNames]}
         contentChildClassNames={[stls.contentChildClassNames]}
         menuBgc={colors.beta}
+        progressBarContainerBgc={colors.beta}
+        progressBarLineBgc={colors.beta}
         // leftGap='xl'
         topGap='l'
         bottomGap='l'

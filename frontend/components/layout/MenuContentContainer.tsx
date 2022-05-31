@@ -31,7 +31,7 @@ type TMenuContentContainerProps = TPropClassNames &
     leftGap?: 'xl' | 'm'
     childTopGap?: 'l' | 'xl'
     childBottomGap?: 'l' | 'xl'
-    curListItemIdx: number
+    curListItemIdx?: number
     progressBarContainerBgc?: TGeneralColorHex
     progressBarLineBgc?: TGeneralColorHex
   }
@@ -106,7 +106,7 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
         <GeneralProgressLine
           classNames={[stls.GeneralProgressLine]}
           listLength={sectionsListLength}
-          curListItemIdx={curListItemIdx}
+          curListItemIdx={curListItemIdx || 0}
           isProgressivelyFilling
           containerBgc={progressBarContainerBgc}
           progressLineBgc={progressBarLineBgc}
