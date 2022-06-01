@@ -6,9 +6,14 @@
 .container
   @include m.dye(bg, c.$gamma)
 
+.LiGeneralXScrollable
+  @include m.media(phone, tablet)
+    flex-direction: column
+
 .right
-  max-width: 35ch
-  margin-left: f.px(48)
+  @include m.media(laptop, desktop)
+    max-width: 35ch
+    margin-left: f.px(48)
 
 .Li
   position: relative

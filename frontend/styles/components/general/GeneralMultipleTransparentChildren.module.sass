@@ -10,7 +10,10 @@
   min-width: f.px(261)
   max-width: f.px(261)
   & + .Li
-    margin-left: f.px(64)
+    @include m.media(phone, tablet)
+      margin-left: f.px(20)
+    @include m.media(laptop, desktop)
+      margin-left: f.px(64)
 
 .opacity10
   opacity: .1
