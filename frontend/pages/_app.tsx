@@ -22,6 +22,7 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
     // NProgress.configure({
     //   showSpinner: false
     // })
+    //
 
     const start = () => {
       NProgress.start()
