@@ -5,4 +5,7 @@
 @mixin GeneralLocaleControls
   position: absolute
   top: f.px(48)
-  right: f.px(45)
+  @include m.media(phone, tablet)
+    right: f.px(10)
+  @include m.media(laptop, desktop)
+    right: f.px(45)

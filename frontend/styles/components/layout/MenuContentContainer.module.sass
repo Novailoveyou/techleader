@@ -6,7 +6,7 @@
   display: flex
   flex-grow: 1
   min-height: 100vh
-  min-width: 100vw
+  min-width: 100%
   @include m.media(phone, tablet)
     flex-direction: column
 
@@ -22,6 +22,8 @@
   padding-top: f.px(2)
   @include m.media(phone, tablet)
     order: 1
+    padding-left: f.px(10)
+    padding-right: f.px(10)
 
 .GeneralProgressLine
   position: absolute
@@ -35,7 +37,7 @@
   flex-grow: 1
   display: grid
   @include m.media(phone, tablet)
-    grid-template-columns: .5fr 11fr .5fr
+    grid-template-columns: 0 12fr 0
   @include m.media(laptop, desktop)
     grid-template-columns: 4fr 5.7fr 2.3fr
 

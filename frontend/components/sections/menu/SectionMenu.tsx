@@ -29,6 +29,7 @@ const SectionMenu: FC<TSectionMenuProps> = ({ classNames, close }) => {
 
   const titles = useTitles()
 
+  // TODO: prevent sections nav on scroll when menu is open
   const links = [
     {
       href: routes.front.home,
@@ -92,7 +93,8 @@ const SectionMenu: FC<TSectionMenuProps> = ({ classNames, close }) => {
         // leftGap='xl'
         topGap='l'
         bottomGap='l'
-        close={close}>
+        close={close}
+        noMenuLineDecoration>
         <div className={stls.content}>
           <div className={stls.left}>
             <Ul classNames={[stls.ul]}>

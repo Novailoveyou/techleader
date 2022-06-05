@@ -34,6 +34,7 @@ type TMenuContentContainerProps = TPropClassNames &
     curListItemIdx?: number
     progressBarContainerBgc?: TGeneralColorHex
     progressBarLineBgc?: TGeneralColorHex
+    noMenuLineDecoration?: boolean
   }
 
 const MenuContentContainer: FC<TMenuContentContainerProps> = ({
@@ -56,7 +57,8 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   childBottomGap,
   curListItemIdx,
   progressBarContainerBgc,
-  progressBarLineBgc
+  progressBarLineBgc,
+  noMenuLineDecoration
 }) => {
   const sectionsListLength = 8
 
@@ -89,6 +91,7 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
         menuPhoneColor={menuPhoneColor}
         menuIconBorderColor={menuIconBorderColor}
         menuArrowLineColor={menuArrowLineColor}
+        noMenuLineDecoration={noMenuLineDecoration}
       />
       <div
         className={cn(

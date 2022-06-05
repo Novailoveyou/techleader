@@ -27,6 +27,7 @@ import { LiGeneralXScrollable } from '@/components/lis'
 import {
   ImgPartnerArgos,
   ImgPartnerBakerHughes,
+  ImgPartnerIntegra,
   ImgPartnerRosgeologia
 } from '@/components/imgs'
 
@@ -64,7 +65,7 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
       desc: at.en ? '- bits rental' : '— аренда долот'
     },
     {
-      Img: ImgPartnerRosgeologia,
+      Img: ImgPartnerIntegra,
       title: at.en
         ? 'LLC Smith Siberian Services'
         : 'ООО «Смит Сайбириан Сервисез»',

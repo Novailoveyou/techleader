@@ -5,7 +5,7 @@
 @use '@/styles/shared/general' as sg
 
 .container
-  min-width: 100vh
+  min-width: 100%
   @include m.dye(bg, c.$beta)
 
 .GeneralLocaleControls
@@ -14,6 +14,8 @@
 .contentClassNames1
   &.contentClassNames2
     overflow: auto
+    @include m.media(phone, tablet)
+      padding-top: 0
   //   display: flex
   //   align-items: center
 
@@ -24,34 +26,47 @@
 
 .content
   display: flex
-  align-items: flex-end
+  @include m.media(phone, tablet)
+    padding-top: f.px(48 + 60 + 48 / 1.5)
+    flex-direction: column
+  @include m.media(laptop, desktop)
+    align-items: flex-end
 
 // $leftRight_padding: f.px(48)
 $leftRight_padding: 3.9%
 $leftRight_difference: 10%
 .left
-  flex-basis: math.div(100% - $leftRight_padding * 2, 2) + $leftRight_difference
-  padding-right: $leftRight_padding
+  @include m.media(laptop, desktop)
+    flex-basis: math.div(100% - $leftRight_padding * 2, 2) + $leftRight_difference
+    padding-right: $leftRight_padding
 
 .right
-  flex-basis: math.div(100% - $leftRight_padding * 2, 2) - $leftRight_difference
-  padding-left: $leftRight_padding
+  @include m.media(phone, tablet)
+    margin-top: f.px(64)
+  @include m.media(laptop, desktop)
+    flex-basis: math.div(100% - $leftRight_padding * 2, 2) - $leftRight_difference
+    padding-left: $leftRight_padding
 
 $link_padding: f.px(32)
 .li
   display: flex
   border-bottom: 1px solid
   @include m.dye(border, c.$zeta)
-  & + .li
-    & .link
-      padding-top: $link_padding
+  @include m.media(laptop, desktop)
+    & + .li
+      & .link
+        padding-top: $link_padding
 
 .link
   display: inline-block
   flex-grow: 1
   padding-bottom: $link_padding
   font-family: NeutralFace, sans-serif
-  font-size: f.px(32)
+  @include m.media(phone, tablet)
+    padding-top: $link_padding
+    font-size: f.px(24)
+  @include m.media(laptop, desktop)
+    font-size: f.px(32)
   font-weight: 400
   line-height: 120%
   letter-spacing: .04em

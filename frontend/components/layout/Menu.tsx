@@ -24,6 +24,7 @@ type TMenuProps = TPropClassNames &
     menuPhoneColor?: TGeneralColorHex
     menuIconBorderColor?: TGeneralColorHex
     menuArrowLineColor?: TGeneralColorHex
+    noMenuLineDecoration?: boolean
   }
 
 const Menu: FC<TMenuProps> = ({
@@ -34,7 +35,8 @@ const Menu: FC<TMenuProps> = ({
   menuArrowColor,
   menuPhoneColor,
   menuIconBorderColor,
-  menuArrowLineColor
+  menuArrowLineColor,
+  noMenuLineDecoration
 }) => {
   return (
     <nav
@@ -70,15 +72,17 @@ const Menu: FC<TMenuProps> = ({
         </Popup>
       )}
 
-      <div className={stls.decoration}>
-        <span
-          className={stls.line}
-          style={{ backgroundColor: menuArrowLineColor }}></span>
-        <SvgGeneralArrow
-          classNames={[stls.SvgGeneralArrow]}
-          color={menuArrowColor}
-        />
-      </div>
+      {!noMenuLineDecoration && (
+        <div className={stls.decoration}>
+          <span
+            className={stls.line}
+            style={{ backgroundColor: menuArrowLineColor }}></span>
+          <SvgGeneralArrow
+            classNames={[stls.SvgGeneralArrow]}
+            color={menuArrowColor}
+          />
+        </div>
+      )}
 
       <BtnPhone
         classNames={[stls.btnPhone]}

@@ -4,12 +4,12 @@
 
 .container
   position: sticky
-  top: 0
   left: 0
   display: flex
   justify-content: space-between
   align-items: center
   @include m.media(phone, tablet)
+    bottom: 0
     min-width: 100%
     max-width: 100%
     padding-top: f.px(10)
@@ -17,6 +17,7 @@
     padding-bottom: f.px(10)
     padding-left: f.px(10)
   @include m.media(laptop, desktop)
+    top: 0
     flex-direction: column
     min-width: f.px(120)
     max-width: f.px(120)
