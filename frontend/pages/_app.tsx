@@ -7,6 +7,7 @@ import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import { DefaultSeo } from 'next-seo'
+import { motion } from 'framer-motion'
 import SEO from '../seo.config'
 import { prod } from '@/config/index'
 import { Main } from '@/components/layout'
@@ -52,7 +53,22 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
       <DefaultSeo {...SEO} />
       <SeoGeneralLogoJsonLd />
       <Main>
-        <Component {...pageProps} />
+        <motion.div
+          key={router.route}
+          initial='pageInitial'
+          animate='pageAnimate'
+          variants={{
+            pageInitial: {
+              opacity: 0
+              // scale: 0.8
+            },
+            pageAnimate: {
+              opacity: 1
+              // scale: 1
+            }
+          }}>
+          <Component {...pageProps} />
+        </motion.div>
       </Main>
     </>
   )
