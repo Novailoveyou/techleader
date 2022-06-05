@@ -4,6 +4,7 @@
 
 .container
   position: relative
+  overflow: hidden
   min-width: 100%
   max-width: 100%
   min-height: f.px(2)
@@ -16,6 +17,8 @@
   left: 0
   min-height: f.px(2)
   max-height: f.px(2)
+  transition: width .15s ease-in-out, margin-left .15s ease-in-out
+  // transition-delay: .15s
   @include m.dye(bg, c.$alpha)
 
 .fadeOutAfterDelay
@@ -26,7 +29,7 @@
   animation-fill-mode: forwards
 
 @keyframes fadeOutAfterDelay
-  from
+  0%
     opacity: 1
-  to
+  100%
     opacity: 0
