@@ -20,6 +20,7 @@ type TMenuContentContainerProps = TPropClassNames &
   TPropClose & {
     contentClassNames?: TGeneralClassNames
     contentChildClassNames?: TGeneralClassNames
+    ReactNodeImageClassNames?: TGeneralClassNames
     ReactNodeImage?: ReactNode
     menuIconColor?: TGeneralColorHex
     menuArrowColor?: TGeneralColorHex
@@ -41,6 +42,7 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   classNames,
   contentClassNames,
   contentChildClassNames,
+  ReactNodeImageClassNames,
   children,
   close,
   ReactNodeImage,
@@ -115,7 +117,13 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
           progressLineBgc={progressBarLineBgc}
         />
         {ReactNodeImage && (
-          <div className={stls.ReactNodeImage}>{ReactNodeImage}</div>
+          <div
+            className={cn(
+              stls.ReactNodeImage,
+              getClassNames({ classNames: ReactNodeImageClassNames })
+            )}>
+            {ReactNodeImage}
+          </div>
         )}
         <div
           className={cn(

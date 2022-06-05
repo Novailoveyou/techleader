@@ -58,24 +58,31 @@ const useScrollNavigation = ({
       const wheelDelta = e.wheelDelta
 
       const scrollBottom =
-        window.innerHeight + window.pageYOffset >= document.body.offsetHeight &&
-        toRoute &&
-        !fromRouterHasTriggered &&
-        ((wheelDelta && wheelDelta < 0) ||
-          e.keyCode === 40 ||
-          e.which === 40 ||
-          e.keyCode === 39 ||
-          e.which === 39)
+        (window.innerHeight + window.pageYOffset >=
+          document.body.offsetHeight &&
+          toRoute &&
+          !fromRouterHasTriggered &&
+          ((wheelDelta && wheelDelta < 0) ||
+            e.keyCode === 40 ||
+            e.which === 40 ||
+            e.keyCode === 39 ||
+            e.which === 39)) ||
+        (toRoute &&
+          !fromRouterHasTriggered &&
+          (e.keyCode === 39 || e.which === 39))
 
       const scrollTop =
-        window.pageYOffset === 0 &&
-        fromRoute &&
-        !toRouterHasTriggered &&
-        ((wheelDelta && wheelDelta > 0) ||
-          e.keyCode === 38 ||
-          e.which === 38 ||
-          e.keyCode === 37 ||
-          e.which === 37)
+        (window.pageYOffset === 0 &&
+          fromRoute &&
+          !toRouterHasTriggered &&
+          ((wheelDelta && wheelDelta > 0) ||
+            e.keyCode === 38 ||
+            e.which === 38 ||
+            e.keyCode === 37 ||
+            e.which === 37)) ||
+        (fromRoute &&
+          !toRouterHasTriggered &&
+          (e.keyCode === 37 || e.which === 37))
 
       const isNotListItem =
         (!curListItemIdx && curListItemIdx !== 0) ||

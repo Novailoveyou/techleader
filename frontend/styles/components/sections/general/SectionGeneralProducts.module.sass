@@ -11,6 +11,8 @@
     flex-direction: column
 
 .right
+  @include m.media(phone, tablet)
+    margin-top: f.px(32)
   @include m.media(laptop, desktop)
     max-width: 35ch
     margin-left: f.px(48)

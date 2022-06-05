@@ -2,15 +2,26 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
 
+.contentClassNames
+  @include m.media(phone, tablet)
+    padding-bottom: 0
+
 .heading
   display: flex
   align-items: flex-start
   justify-content: space-between
 
+.title
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(36)
+
 .counterP
   position: relative
   font-family: 'Montserrat', sans-serif
-  font-size: f.px(32)
+  @include m.media(phone, tablet)
+    font-size: f.px(24)
+  @include m.media(laptop, desktop)
+    font-size: f.px(32)
   font-weight: 600
   line-height: 120%
   letter-spacing: 0.09em
@@ -25,12 +36,25 @@
   flex-direction: column
 
 .p
-  margin-left: auto
-  max-width: 32ch
-  text-align: right
+  @include m.media(laptop, desktop)
+    max-width: 32ch
+    margin-left: auto
+    text-align: right
 
 .ImgServiceIllustration
-  transform: translateX(f.px(-85))
+  @include m.media(phone, tablet)
+    margin-top: -25%
+    transform: translateY(25%)
+  @include m.media(laptop, desktop)
+    transform: translateX(f.px(-85))
+
+.ReactNodeImage
+  @include m.media(phone, tablet)
+    order: 2
 
 .img
-  margin-top: f.px(80)
+  @include m.media(phone, tablet)
+    margin-top: f.px(32)
+    margin-bottom: f.px(32)
+  @include m.media(laptop, desktop)
+    margin-top: f.px(80)

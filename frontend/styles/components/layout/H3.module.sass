@@ -4,8 +4,12 @@
 @use '@/styles/shared/hs' as hs
 
 .default
-  margin-bottom: f.px(32)
-  font-size: f.px(32)
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(24)
+    font-size: f.px(24)
+  @include m.media(laptop, desktop)
+    margin-bottom: f.px(32)
+    font-size: f.px(32)
   font-weight: 600
   line-height: 120%
   overflow-wrap: break-word

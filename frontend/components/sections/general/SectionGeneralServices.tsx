@@ -93,18 +93,22 @@ const SectionGeneralServices: FC<TSectionGeneralServicesProps> = ({
       <MenuContentContainer
         menuBgc={colors.gamma}
         progressBarContainerBgc={colors.gamma}
+        contentClassNames={[stls.contentClassNames]}
         ReactNodeImage={
           <ImgServiceIllustration classNames={[stls.ImgServiceIllustration]} />
         }
+        ReactNodeImageClassNames={[stls.ReactNodeImage]}
         leftGap='xl'
         topGap='l'
         bottomGap='l'
         curListItemIdx={2}>
         <div className={stls.heading}>
           {h1 ? (
-            <H1 styledAsH2>{title}</H1>
+            <H1 styledAsH2 classNames={[stls.title]}>
+              {title}
+            </H1>
           ) : (
-            <H2 classNames={[stls.h2]}>{title}</H2>
+            <H2 classNames={[stls.title]}>{title}</H2>
           )}
           <p className={stls.counterP}>
             <Highlight color>

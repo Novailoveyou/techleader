@@ -35,10 +35,12 @@
 // TODO: add @supports for older browsers
 .contentLeftGapXl
   flex-grow: 1
-  display: grid
   @include m.media(phone, tablet)
-    grid-template-columns: 0 12fr 0
+    display: flex
+    flex-direction: column
+    // grid-template-columns: 0 12fr 0
   @include m.media(laptop, desktop)
+    display: grid
     grid-template-columns: 4fr 5.7fr 2.3fr
 
 $left_gap_m: f.px(104)
