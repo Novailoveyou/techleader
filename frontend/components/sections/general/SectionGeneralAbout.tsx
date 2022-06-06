@@ -102,6 +102,7 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
           </Highlight>{' '}
           — {firstLetterToLowerCase(company.about)}
         </P>
+        <ImgGeneralAbout classNames={[stls.ImgGeneralAboutPhoneTablet]} />
         <UlGeneralXScrollable classNames={[stls.list]}>
           {list.map(({ title, content }, idx) => (
             <LiGeneralXScrollable
@@ -109,7 +110,7 @@ const SectionGeneralAbout: FC<TSectionGeneralAboutProps> = ({
               classNames={[stls.listItem]}
               isShown={curListItemIdx === idx}>
               {h1 ? <H2 styledAsH3Alt>{title}</H2> : <H3 styledAlt>{title}</H3>}
-              <P classNames={[stls.p]}>
+              <P classNames={[stls.p, stls.listItemP]}>
                 <Highlight color>{content}</Highlight>
               </P>
             </LiGeneralXScrollable>

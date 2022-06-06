@@ -5,7 +5,10 @@
 @mixin h3Alt
   margin-bottom: f.px(8)
   font-family: 'Montserrat', sans-serif
-  font-size: f.px(64)
+  @include m.media(phone, tablet)
+    font-size: f.px(30)
+  @include m.media(laptop, desktop)
+    font-size: f.px(64)
   font-weight: 600
   line-height: 120%
   text-transform: uppercase

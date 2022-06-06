@@ -7,16 +7,38 @@
   @include m.dye(bg, c.$gamma)
 
 .ImgGeneralAbout
-  padding-left: 23.7%
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    padding-left: 23.7%
 //   min-width: 24.2%
 //   max-width: 24.2%
 //   margin-right: 14%
 
+.ImgGeneralAboutPhoneTablet
+  @include m.media(phone, tablet)
+    position: relative
+    overflow: hidden
+    margin-left: auto
+    margin-top: f.px(64)
+    min-width: f.px(140)
+    max-width: f.px(140)
+    min-height: f.px(140)
+    max-height: f.px(140)
+    & > *
+      position: absolute !important
+      top: -160%
+      left: 0
+  @include m.media(laptop, desktop)
+    display: none
+
 .contentMenuContentContainer
-  padding-left: 4%
+  @include m.media(laptop, desktop)
+    padding-left: 4%
 
 .p
-  max-width: 51ch
+  @include m.media(laptop, desktop)
+    max-width: 51ch
 
 ul.list
   margin-top: f.px(64)
@@ -24,6 +46,7 @@ ul.list
 
 .listItem
   position: relative
+  flex-grow: 1
   flex-direction: column
   padding: f.px(48)
   @include m.dye(bg, c.$beta)
@@ -48,3 +71,7 @@ ul.list
     min-width: f.px(1)
     max-width: f.px(1)
     @include m.dye(bg, c.$theta)
+
+.listItemP
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
