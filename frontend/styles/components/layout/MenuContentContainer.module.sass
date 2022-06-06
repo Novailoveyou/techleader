@@ -47,7 +47,8 @@ $left_gap_m: f.px(104)
 $left_gap_xl: f.px(104)
 
 .leftGapM
-  padding-left: $left_gap_m
+  @include m.media(laptop, desktop)
+    padding-left: $left_gap_m
 
 $content_gap_pt_l: f.px(80)
 $content_gap_ld_l: f.px(112)

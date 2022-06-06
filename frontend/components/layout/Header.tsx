@@ -39,6 +39,7 @@ const Header: FC<THeaderProps> = ({ classNames }) => {
       <GeneralLocaleControls classNames={[stls.GeneralLocaleControls]} />
       <MenuContentContainer
         leftGap='m'
+        childBottomGap='l'
         menuBgc={colors.gamma}
         contentChildClassNames={[stls.MenuContentContainerContentChild]}
         progressBarContainerBgc={colors.gamma}
