@@ -56,11 +56,14 @@ const useScrollNavigation = ({
       window.clearTimeout(isScrolling)
 
       const wheelDelta = e.wheelDelta
+      const menuIsOpen =
+        sessionStorage.getItem('menuIsOpen') === 'true' ? true : false
 
       const scrollBottom =
         (window.innerHeight + window.pageYOffset >=
           document.body.offsetHeight &&
           toRoute &&
+          !menuIsOpen &&
           !fromRouterHasTriggered &&
           ((wheelDelta && wheelDelta < 0) ||
             e.keyCode === 40 ||
@@ -74,6 +77,7 @@ const useScrollNavigation = ({
       const scrollTop =
         (window.pageYOffset === 0 &&
           fromRoute &&
+          !menuIsOpen &&
           !toRouterHasTriggered &&
           ((wheelDelta && wheelDelta > 0) ||
             e.keyCode === 38 ||

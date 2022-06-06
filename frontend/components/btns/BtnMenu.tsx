@@ -5,7 +5,7 @@ import {
   TPropColor,
   TPropOpen
 } from '@/types/index'
-import { forwardRef } from 'react'
+import { forwardRef, useEffect } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
@@ -16,6 +16,15 @@ type TBtnMenuProps = TPropClassNames & TPropOpen & TPropClose & TPropColor
 const BtnMenu = forwardRef<HTMLButtonElement, TBtnMenuProps>(
   ({ classNames, open, close, color }, ref) => {
     const at = useAt()
+
+    useEffect(() => {
+      if (open === true) {
+        sessionStorage.setItem('menuIsOpen', 'true')
+      }
+      if (open === false) {
+        sessionStorage.setItem('menuIsOpen', 'false')
+      }
+    }, [open])
     return (
       <button
         className={
