@@ -2,6 +2,7 @@ import stls from '@/styles/components/lis/general/LiGeneralXScrollable.module.sa
 import { TPropClassNames, TPropH1 } from '@/types/index'
 import { FC } from 'react'
 import cn from 'classnames'
+import { motion } from 'framer-motion'
 import { colors, selectors } from '@/config/index'
 import { useAt, useTitles } from '@/hooks/index'
 import {
@@ -26,12 +27,15 @@ const LiGeneralXScrollable: FC<TUlGeneralXScrollableProps> = ({
   isShown
 }) => {
   return (
-    <Li
-      classNames={[
-        cn(stls.container, classNames, { [stls.isShown]: isShown })
-      ]}>
-      {children}
-    </Li>
+    <>
+      <Li
+        classNames={[
+          cn(stls.container, classNames, { [stls.isShown]: isShown })
+        ]}
+        LiGeneralXScrollable>
+        {children}
+      </Li>
+    </>
   )
 }
 

@@ -20,7 +20,11 @@ const UlGeneralXScrollable: FC<TUlGeneralXScrollableProps> = ({
   classNames,
   children
 }) => {
-  return <Ul classNames={[cn(stls.container, classNames)]}>{children}</Ul>
+  return (
+    <Ul classNames={[cn(stls.container, classNames)]} UlGeneralXScrollable>
+      {children}
+    </Ul>
+  )
 }
 
 export default UlGeneralXScrollable
