@@ -126,14 +126,14 @@ const useScrollNavigation = ({
 
       // console.log(e)
       if (e.type === 'touchend' && e.changedTouches?.length === 1) {
-        console.log('touchend')
-        console.log(Math.round(e.changedTouches?.[0]?.screenX))
+        // console.log('touchend')
+        // console.log(Math.round(e.changedTouches?.[0]?.screenX))
         setTouchParams({
           ...touchParams,
           touchEndX: Math.round(e.changedTouches?.[0]?.screenX),
           touchEndY: Math.round(e.changedTouches?.[0]?.screenY)
         })
-        console.log(touchParams)
+        // console.log(touchParams)
       }
 
       // const isScrolling = setTimeout(() => {
@@ -148,22 +148,33 @@ const useScrollNavigation = ({
       const menuIsOpen =
         sessionStorage.getItem('menuIsOpen') === 'true' ? true : false
 
+      const touchEndY = Math.round(e.changedTouches?.[0]?.screenY)
+      const touchEndX = Math.round(e.changedTouches?.[0]?.screenX)
+
       const swipedTop =
-        e.type === 'touchend' && touchParams.touchEndY < touchParams.touchStartY
+        e.type === 'touchend' &&
+        e.changedTouches?.length === 1 &&
+        touchEndY < touchParams.touchStartY
 
       const swipedRight =
-        e.type === 'touchend' && touchParams.touchEndX > touchParams.touchStartX
+        e.type === 'touchend' &&
+        e.changedTouches?.length === 1 &&
+        touchEndX > touchParams.touchStartX
 
       const swipedBottom =
-        e.type === 'touchend' && touchParams.touchEndY > touchParams.touchStartY
+        e.type === 'touchend' &&
+        e.changedTouches?.length === 1 &&
+        touchEndY > touchParams.touchStartY
 
       const swipedLeft =
-        e.type === 'touchend' && touchParams.touchEndX < touchParams.touchStartX
+        e.type === 'touchend' &&
+        e.changedTouches?.length === 1 &&
+        touchEndX < touchParams.touchStartX
 
-      swipedLeft && console.log('swipedLeft')
-      swipedRight && console.log('swipedRight')
-      swipedTop && console.log('swipedTop')
-      swipedBottom && console.log('swipedBottom')
+      // swipedLeft && console.log('swipedLeft')
+      // swipedRight && console.log('swipedRight')
+      // swipedTop && console.log('swipedTop')
+      // swipedBottom && console.log('swipedBottom')
 
       const scrollBottom =
         (!e.ctrlKey &&
