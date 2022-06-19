@@ -176,8 +176,7 @@ const useScrollNavigation = ({
             e.keyCode === 40 ||
             e.which === 40 ||
             e.keyCode === 39 ||
-            e.which === 39 ||
-            swipedTop)) ||
+            e.which === 39)) ||
         (toRoute &&
           !fromRouterHasTriggered &&
           !menuIsOpen &&
@@ -194,8 +193,7 @@ const useScrollNavigation = ({
             e.keyCode === 38 ||
             e.which === 38 ||
             e.keyCode === 37 ||
-            e.which === 37 ||
-            swipedBottom)) ||
+            e.which === 37)) ||
         (fromRoute &&
           !toRouterHasTriggered &&
           !menuIsOpen &&
