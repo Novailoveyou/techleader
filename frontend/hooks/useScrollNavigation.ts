@@ -31,6 +31,75 @@ const useScrollNavigation = ({
 
   const [isThrottling, setIsThrottling] = useState(false)
 
+  const [windowParams, setWindowParams] = useState({
+    innerHeight: 0,
+    pageYOffest: 0,
+    bodyOffsetHeight: 0
+  })
+
+  const [touchParams, setTouchParams] = useState({
+    touchStartX: 0,
+    touchStartY: 0,
+    touchEndX: 0,
+    touchEndY: 0
+  })
+
+  // handle resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowParams({
+        innerHeight: Math.ceil(window.innerHeight),
+        pageYOffest: Math.ceil(window.pageYOffset),
+        bodyOffsetHeight: Math.ceil(document.body.offsetHeight)
+      })
+    }
+
+    handleResize()
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [setWindowParams])
+
+  // handle scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setWindowParams({
+        innerHeight: Math.ceil(window.innerHeight),
+        pageYOffest: Math.ceil(window.pageYOffset),
+        bodyOffsetHeight: Math.ceil(document.body.offsetHeight)
+      })
+    }
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [setWindowParams])
+
+  // handle touch
+  useEffect(() => {
+    const handleTouchStart = (e: any) => {
+      // TODO: improve types
+
+      if (e.type === 'touchstart' && e.touches?.length === 1) {
+        setTouchParams({
+          ...touchParams,
+          touchStartX: Math.round(e.touches?.[0]?.screenX),
+          touchStartY: Math.round(e.touches?.[0]?.screenY)
+        })
+      }
+    }
+    window.addEventListener('touchstart', handleTouchStart)
+
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart)
+    }
+  }, [touchParams])
+
+  // handle nav
   useEffect(() => {
     const routeTo = ({
       navScrollDir,
@@ -44,24 +113,62 @@ const useScrollNavigation = ({
       return
     }
 
-    const handleWheel = (e: any) => {
+    const handleNav = (e: any) => {
       // TODO: figure out better types
 
-      console.log(e)
+      // console.log(windowParams)
 
-      const isScrolling = setTimeout(() => {
-        console.log('scrolling has stopped')
-      }, 66)
+      setWindowParams({
+        innerHeight: Math.ceil(window.innerHeight),
+        pageYOffest: Math.ceil(window.pageYOffset),
+        bodyOffsetHeight: Math.ceil(document.body.offsetHeight)
+      })
 
-      window.clearTimeout(isScrolling)
+      // console.log(e)
+      if (e.type === 'touchend' && e.changedTouches?.length === 1) {
+        console.log('touchend')
+        console.log(Math.round(e.changedTouches?.[0]?.screenX))
+        setTouchParams({
+          ...touchParams,
+          touchEndX: Math.round(e.changedTouches?.[0]?.screenX),
+          touchEndY: Math.round(e.changedTouches?.[0]?.screenY)
+        })
+        console.log(touchParams)
+      }
+
+      // const isScrolling = setTimeout(() => {
+      //   console.log('scrolling has stopped')
+      // }, 66)
+
+      // window.clearTimeout(isScrolling)
+
+      // console.log(touchParams)
 
       const wheelDelta = e.wheelDelta
       const menuIsOpen =
         sessionStorage.getItem('menuIsOpen') === 'true' ? true : false
 
+      const swipedTop =
+        e.type === 'touchend' && touchParams.touchEndY < touchParams.touchStartY
+
+      const swipedRight =
+        e.type === 'touchend' && touchParams.touchEndX > touchParams.touchStartX
+
+      const swipedBottom =
+        e.type === 'touchend' && touchParams.touchEndY > touchParams.touchStartY
+
+      const swipedLeft =
+        e.type === 'touchend' && touchParams.touchEndX < touchParams.touchStartX
+
+      swipedLeft && console.log('swipedLeft')
+      swipedRight && console.log('swipedRight')
+      swipedTop && console.log('swipedTop')
+      swipedBottom && console.log('swipedBottom')
+
       const scrollBottom =
-        (window.innerHeight + window.pageYOffset >=
-          document.body.offsetHeight &&
+        (!e.ctrlKey &&
+          windowParams.innerHeight + windowParams.pageYOffest + 1 >=
+            windowParams.bodyOffsetHeight &&
           toRoute &&
           !menuIsOpen &&
           !fromRouterHasTriggered &&
@@ -69,13 +176,17 @@ const useScrollNavigation = ({
             e.keyCode === 40 ||
             e.which === 40 ||
             e.keyCode === 39 ||
-            e.which === 39)) ||
+            e.which === 39 ||
+            swipedTop)) ||
         (toRoute &&
           !fromRouterHasTriggered &&
-          (e.keyCode === 39 || e.which === 39))
+          !menuIsOpen &&
+          (e.keyCode === 39 || e.which === 39)) ||
+        (toRoute && !fromRouterHasTriggered && !menuIsOpen && swipedLeft)
 
       const scrollTop =
-        (window.pageYOffset === 0 &&
+        (!e.ctrlKey &&
+          windowParams.pageYOffest - 1 <= 0 &&
           fromRoute &&
           !menuIsOpen &&
           !toRouterHasTriggered &&
@@ -83,10 +194,13 @@ const useScrollNavigation = ({
             e.keyCode === 38 ||
             e.which === 38 ||
             e.keyCode === 37 ||
-            e.which === 37)) ||
+            e.which === 37 ||
+            swipedBottom)) ||
         (fromRoute &&
           !toRouterHasTriggered &&
-          (e.keyCode === 37 || e.which === 37))
+          !menuIsOpen &&
+          (e.keyCode === 37 || e.which === 37)) ||
+        (fromRoute && !toRouterHasTriggered && !menuIsOpen && swipedRight)
 
       const isNotListItem =
         (!curListItemIdx && curListItemIdx !== 0) ||
@@ -146,19 +260,15 @@ const useScrollNavigation = ({
       // }, 2000)
       return
     }
-    window.addEventListener('wheel', handleWheel)
-    window.addEventListener('keyup', handleWheel)
 
-    const test = (e: any) => {
-      console.log(e)
-    }
-
-    window.addEventListener('touchend', test)
+    window.addEventListener('wheel', handleNav)
+    window.addEventListener('keyup', handleNav)
+    window.addEventListener('touchend', handleNav)
 
     return () => {
-      window.removeEventListener('wheel', handleWheel)
-      window.removeEventListener('keyup', handleWheel)
-      window.removeEventListener('touchend', test)
+      window.removeEventListener('wheel', handleNav)
+      window.removeEventListener('keyup', handleNav)
+      window.removeEventListener('touchend', handleNav)
     }
   }, [
     router,
@@ -172,7 +282,11 @@ const useScrollNavigation = ({
     setCurListItemIdx,
     listLength,
     isThrottling,
-    setIsThrottling
+    setIsThrottling,
+    windowParams,
+    setWindowParams,
+    touchParams,
+    setTouchParams
   ])
 
   return null
