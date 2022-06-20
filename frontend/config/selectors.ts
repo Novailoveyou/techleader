@@ -11,7 +11,8 @@ const selectors = {
     clients: 'clients',
     contact: 'contact',
     menu: 'menu',
-    partners: 'partners'
+    partners: 'partners',
+    toastScrollInfo: 'toastScrollInfo'
   },
   classNames: {
     locality: 'locality',

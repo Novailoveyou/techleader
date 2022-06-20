@@ -27,6 +27,7 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-hook-form": "^7.22.1",
+    "react-nextjs-toast": "^1.2.5",
     "reactjs-popup": "^2.0.5",
     "truncate": "^3.0.0",
     "uuid": "^8.3.2"

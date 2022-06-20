@@ -1,0 +1,11 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/config/Colors.module.sass' as c
+
+@mixin container
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+  @include m.media(laptop, desktop)
+    font-size: f.px(20)
+  font-weight: 400
+  line-height: 120%

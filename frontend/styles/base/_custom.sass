@@ -2,6 +2,7 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/config/Colors.module.sass' as c
 @use '@/styles/config/Breakpoints.module.sass' as bp
+@use '@/styles/shared/p' as p
 
 // npm package: nprogress
 html #nprogress .bar 
@@ -46,3 +47,17 @@ div.popup-overlay
   border: none
   background-color: transparent
   animation: anvil 0.15s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards
+
+// react-nextjs-toast
+.toast-container
+  z-index: 99
+  opacity: 0
+  animation: anvil 0.15s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards
+  animation-delay: 3s
+  & .toast-message
+    & .title
+      @include p.container
+      @include m.dye(c, c.$omega)
+    & .title + *
+      @include p.container
+      @include m.dye(c, c.$omega)
