@@ -4,6 +4,7 @@ import '@/styles/app.sass'
 import { TGeneralRoute } from '@/types/index'
 import { useState, useEffect } from 'react'
 import type { AppProps, NextWebVitalsMetric } from 'next/app'
+import Script from 'next/script'
 // @ts-ignore
 import { toast, ToastContainer } from 'react-nextjs-toast'
 import Router from 'next/router'
@@ -143,6 +144,7 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
           />
         </motion.div>
       </Main>
+      <Script src='/assets/js/swiped-events.min.js' />
     </>
   )
 }

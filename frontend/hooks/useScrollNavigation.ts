@@ -117,6 +117,7 @@ const useScrollNavigation = ({
       // TODO: figure out better types
 
       // console.log(windowParams)
+      console.log(e)
 
       setWindowParams({
         innerHeight: Math.ceil(window.innerHeight),
@@ -151,25 +152,30 @@ const useScrollNavigation = ({
       const touchEndY = Math.round(e.changedTouches?.[0]?.screenY)
       const touchEndX = Math.round(e.changedTouches?.[0]?.screenX)
 
-      const swipedTop =
-        e.type === 'touchend' &&
-        e.changedTouches?.length === 1 &&
-        touchEndY < touchParams.touchStartY
+      // const swipedTop =
+      //   e.type === 'touchend' &&
+      //   e.changedTouches?.length === 1 &&
+      //   touchEndY < touchParams.touchStartY
 
-      const swipedRight =
-        e.type === 'touchend' &&
-        e.changedTouches?.length === 1 &&
-        touchEndX > touchParams.touchStartX
+      // const swipedRight =
+      //   e.type === 'touchend' &&
+      //   e.changedTouches?.length === 1 &&
+      //   touchEndX > touchParams.touchStartX
 
-      const swipedBottom =
-        e.type === 'touchend' &&
-        e.changedTouches?.length === 1 &&
-        touchEndY > touchParams.touchStartY
+      // const swipedBottom =
+      //   e.type === 'touchend' &&
+      //   e.changedTouches?.length === 1 &&
+      //   touchEndY > touchParams.touchStartY
 
-      const swipedLeft =
-        e.type === 'touchend' &&
-        e.changedTouches?.length === 1 &&
-        touchEndX < touchParams.touchStartX
+      // const swipedLeft =
+      //   e.type === 'touchend' &&
+      //   e.changedTouches?.length === 1 &&
+      //   touchEndX < touchParams.touchStartX
+
+      const swipedTop = e.type === 'swiped' && e.detail.dir === 'up'
+      const swipedRight = e.type === 'swiped' && e.detail.dir === 'right'
+      const swipedBottom = e.type === 'swiped' && e.detail.dir === 'down'
+      const swipedLeft = e.type === 'swiped' && e.detail.dir === 'left'
 
       // swipedLeft && console.log('swipedLeft')
       // swipedRight && console.log('swipedRight')
@@ -187,7 +193,8 @@ const useScrollNavigation = ({
             e.keyCode === 40 ||
             e.which === 40 ||
             e.keyCode === 39 ||
-            e.which === 39)) ||
+            e.which === 39 ||
+            swipedTop)) ||
         (toRoute &&
           !fromRouterHasTriggered &&
           !menuIsOpen &&
@@ -204,7 +211,8 @@ const useScrollNavigation = ({
             e.keyCode === 38 ||
             e.which === 38 ||
             e.keyCode === 37 ||
-            e.which === 37)) ||
+            e.which === 37 ||
+            swipedBottom)) ||
         (fromRoute &&
           !toRouterHasTriggered &&
           !menuIsOpen &&
@@ -273,11 +281,12 @@ const useScrollNavigation = ({
     window.addEventListener('wheel', handleNav)
     window.addEventListener('keyup', handleNav)
     window.addEventListener('touchend', handleNav)
-
+    window.addEventListener('swiped', handleNav)
     return () => {
       window.removeEventListener('wheel', handleNav)
       window.removeEventListener('keyup', handleNav)
       window.removeEventListener('touchend', handleNav)
+      window.addEventListener('swiped', handleNav)
     }
   }, [
     router,
