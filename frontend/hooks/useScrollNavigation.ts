@@ -171,6 +171,7 @@ const useScrollNavigation = ({
       //   e.type === 'touchend' &&
       //   e.changedTouches?.length === 1 &&
       //   touchEndX < touchParams.touchStartX
+      //
 
       const swipedTop = e.type === 'swiped' && e.detail.dir === 'up'
       const swipedRight = e.type === 'swiped' && e.detail.dir === 'right'
