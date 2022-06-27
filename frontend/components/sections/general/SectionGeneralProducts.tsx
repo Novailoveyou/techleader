@@ -48,6 +48,7 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
   const list = [
     {
       Img: ImgProduct1,
+      isImgFiltered: false,
       list: at.en
         ? [
             'Own PDC drill bits production',
@@ -64,6 +65,7 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
     },
     {
       Img: ImgProduct2,
+      isImgFiltered: true,
       title: at.en ? 'PDC Cutters' : 'PDC Резцы',
       desc: at.en
         ? 'Complex geometry cutters manufacturing (3D and 4D), according to the developed drawings'
@@ -71,6 +73,7 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
     },
     {
       Img: ImgProduct3,
+      isImgFiltered: true,
       title: at.en ? 'Double chamfered cutters' : 'Резцы с двойной фаской',
       desc: at.en
         ? 'Improved cutter edge provides better impact resistance, increasing penetration in hard and tough formations'
@@ -78,6 +81,7 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
     },
     {
       Img: ImgProduct4,
+      isImgFiltered: true,
       title: at.en ? '3D-4D Cutters' : '3D-4D Резцы',
       list: at.en
         ? [
@@ -121,12 +125,17 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
         curListItemIdx={3}>
         {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
         <UlGeneralXScrollable classNames={[stls.list]}>
-          {list.map(({ Img, title, desc, list }, idx) => (
+          {list.map(({ Img, title, desc, list, isImgFiltered }, idx) => (
             <LiGeneralXScrollable
               key={`${title}-${idx}`}
               classNames={[stls.LiGeneralXScrollable]}
               isShown={curListItemIdx === idx}>
-              <Img classNames={[stls.Img]} alt={title || undefined} />
+              <Img
+                classNames={[
+                  cn(stls.Img, { [stls.isImgFiltered]: isImgFiltered })
+                ]}
+                alt={title || undefined}
+              />
               <div className={stls.right}>
                 {title && (
                   <H3>

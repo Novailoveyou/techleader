@@ -31,3 +31,17 @@
 
 .GeneralProgressLine
   margin-top: f.px(80)
+
+.Img
+  position: relative
+  &.isImgFiltered
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      min-width: 100%
+      max-width: 100%
+      min-height: 100%
+      max-height: 100%
+      @include m.dye(bg, rgba(c.$iota, .3))
