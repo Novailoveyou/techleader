@@ -229,6 +229,7 @@ const useScrollNavigation = ({
       const isBegginingOfListItems = Number(curListItemIdx) === 0
 
       if (scrollBottom) {
+        localStorage.setItem('scrollDir', 'bottom')
         if (isNotListItem) {
           routeTo({
             navScrollDir: 'bottom',
@@ -251,6 +252,7 @@ const useScrollNavigation = ({
       }
 
       if (scrollTop) {
+        localStorage.setItem('scrollDir', 'top')
         if (isNotListItem) {
           routeTo({
             navScrollDir: 'top',

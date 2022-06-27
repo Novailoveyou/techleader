@@ -32,7 +32,8 @@ const LiGeneralXScrollable: FC<TUlGeneralXScrollableProps> = ({
         classNames={[
           cn(stls.container, classNames, { [stls.isShown]: isShown })
         ]}
-        LiGeneralXScrollable>
+        LiGeneralXScrollable
+        isShown={isShown}>
         {children}
       </Li>
     </>
