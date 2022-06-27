@@ -5,17 +5,29 @@
 
 .container
   position: relative
+  &::after
+    content: ''
+    position: absolute
+    z-index: -1
+    top: 0
+    left: 0
+    min-width: 50%
+    max-width: 50%
+    min-height: 100%
+    max-height: 100%
+    filter: blur(366px)
+    @include m.dye(bg, c.$beta)
 
 .MenuContentContainerContentChild
   display: flex
   flex-direction: column
   min-height: 100%
 
-.top,
 .bottom
   max-width: f.px(993)
 
 .top
+  position: relative
   display: flex
   // align-items: center
   padding-top: f.px(48)
@@ -24,15 +36,28 @@
   @include sg.GeneralLocaleControls
 
 .bottom
-  position: relative
   max-height: f.px(350)
 
 .ImgGeneralOilRig
-  position: absolute
-  z-index: -1
-  top: 50%
-  right: 0
-  transform: translate(35%, -50%)
+  &.specificity
+    position: absolute
+    z-index: -1
+    top: 0
+    right: 0
+    // transform: translate(35%, -50%)
+  &::after
+    content: ''
+    position: absolute
+    z-index: -1
+    top: 17.2%
+    right: 9.5%
+    min-width: f.px(472)
+    max-width: f.px(472)
+    min-height: f.px(474)
+    max-height: f.px(474)
+    border-radius: 50%
+    filter: blur(200px)
+    @include m.dye(bg, rgba(c.$epsilon, .3))
 
 .h1
   display: flex

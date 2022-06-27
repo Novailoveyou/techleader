@@ -47,6 +47,9 @@ const Header: FC<THeaderProps> = ({ classNames }) => {
         curListItemIdx={0}>
         <div className={stls.top}>
           <BtnLogo classNames={[stls.BtnLogo]} />
+          <ImgGeneralOilRig
+            classNames={[stls.ImgGeneralOilRig, stls.specificity]}
+          />
         </div>
         <div className={stls.bottom}>
           <H1 classNames={[stls.h1]}>
@@ -66,7 +69,6 @@ const Header: FC<THeaderProps> = ({ classNames }) => {
             </span>
           </H1>
           <P classNames={[stls.p]}>{company.desc}</P>
-          <ImgGeneralOilRig classNames={[stls.ImgGeneralOilRig]} />
         </div>
       </MenuContentContainer>
     </header>

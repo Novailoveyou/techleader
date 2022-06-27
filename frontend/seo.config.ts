@@ -32,11 +32,11 @@ const seo = {
   // },
   defaultTitle: seoParams.title,
   description: seoParams.desc,
-  canonical: routes.front.root
-  // dangerouslySetAllPagesToNoIndex: true,
-  // dangerouslySetAllPagesToNoFollow: true,
-  // noindex: true,
-  // nofollow: true
+  canonical: routes.front.root,
+  dangerouslySetAllPagesToNoIndex: true,
+  dangerouslySetAllPagesToNoFollow: true,
+  noindex: true,
+  nofollow: true
 }
 
 export default seo
