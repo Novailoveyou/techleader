@@ -92,7 +92,8 @@ const SectionGeneralGeography: FC<TSectionGeneralGeographyProps> = ({
         menuArrowColor={colors.gamma}
         menuArrowLineColor={colors.kappa}
         menuPhoneColor={colors.gamma}
-        curListItemIdx={5}>
+        curListItemIdx={5}
+        decorativeLinesColor={colors.theta}>
         {h1 ? (
           <H1 styledAsH2 classNames={[stls.title]}>
             {title}

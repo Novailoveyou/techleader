@@ -80,8 +80,10 @@ const useCompanyInfo = () => {
     emails: {
       default: {
         city: at.en ? 'Moscow' : 'Москва',
-        href: `mailto:contact@${domainNames.default}`,
-        val: `contact@${domainNames.default}`,
+        // href: `mailto:contact@${domainNames.default}`,
+        href: 'mailto:administrator@tehlid.ru',
+        val: 'administrator@tehlid.ru',
+        // val: `contact@${domainNames.default}`,
         contactType: at.en ? 'Sales team' : 'Отдел продаж',
         areaServed: ['EN', 'RU'],
         languages: ['English', 'Russian']

@@ -1,10 +1,10 @@
 type TDomainNames = {
-  default: 'technoleader.ru'
+  default: 'tldrill.com'
   dev: 'localhost'
 }
 
 const domainNames: TDomainNames = {
-  default: 'technoleader.ru',
+  default: 'tldrill.com',
   dev: 'localhost'
 }
 

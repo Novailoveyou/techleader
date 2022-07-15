@@ -65,7 +65,7 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
     },
     {
       Img: ImgProduct2,
-      isImgFiltered: true,
+      isImgFiltered: false,
       title: at.en ? 'PDC Cutters' : 'PDC Резцы',
       desc: at.en
         ? 'Complex geometry cutters manufacturing (3D and 4D), according to the developed drawings'
@@ -73,7 +73,7 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
     },
     {
       Img: ImgProduct3,
-      isImgFiltered: true,
+      isImgFiltered: false,
       title: at.en ? 'Double chamfered cutters' : 'Резцы с двойной фаской',
       desc: at.en
         ? 'Improved cutter edge provides better impact resistance, increasing penetration in hard and tough formations'
@@ -81,7 +81,7 @@ const SectionGeneralProducts: FC<TSectionGeneralProductsProps> = ({
     },
     {
       Img: ImgProduct4,
-      isImgFiltered: true,
+      isImgFiltered: false,
       title: at.en ? '3D-4D Cutters' : '3D-4D Резцы',
       list: at.en
         ? [

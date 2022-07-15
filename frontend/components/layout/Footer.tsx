@@ -60,7 +60,8 @@ const Footer: FC<TFooterProps> = ({ classNames, h1 }) => {
         menuArrowColor={colors.gamma}
         menuArrowLineColor={colors.kappa}
         menuPhoneColor={colors.gamma}
-        curListItemIdx={7}>
+        curListItemIdx={7}
+        decorativeLinesColor={colors.theta}>
         {h1 ? <H1 styledAsH2>{title}</H1> : <H2>{title}</H2>}
         <Ul classNames={[stls.list]}>
           {list.map(({ title, href, val }, idx) => (

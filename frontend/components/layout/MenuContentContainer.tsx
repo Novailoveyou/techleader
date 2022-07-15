@@ -11,7 +11,10 @@ import {
 import cn from 'classnames'
 import { selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { GeneralProgressLine } from '@/components/general'
+import {
+  GeneralProgressLine,
+  GeneralDecorativeLines
+} from '@/components/general'
 import { Menu } from '@/components/layout'
 
 type TMenuContentContainerProps = TPropClassNames &
@@ -36,6 +39,7 @@ type TMenuContentContainerProps = TPropClassNames &
     progressBarContainerBgc?: TGeneralColorHex
     progressBarLineBgc?: TGeneralColorHex
     noMenuLineDecoration?: boolean
+    decorativeLinesColor?: TGeneralColorHex
   }
 
 const MenuContentContainer: FC<TMenuContentContainerProps> = ({
@@ -60,7 +64,8 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   curListItemIdx,
   progressBarContainerBgc,
   progressBarLineBgc,
-  noMenuLineDecoration
+  noMenuLineDecoration,
+  decorativeLinesColor
 }) => {
   const sectionsListLength = 8
 
@@ -95,6 +100,7 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
         menuArrowLineColor={menuArrowLineColor}
         noMenuLineDecoration={noMenuLineDecoration}
       />
+      <GeneralDecorativeLines decorativeLinesColor={decorativeLinesColor} />
       <div
         className={cn(
           stls.content,
