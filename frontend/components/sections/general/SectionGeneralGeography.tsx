@@ -89,8 +89,8 @@ const SectionGeneralGeography: FC<TSectionGeneralGeographyProps> = ({
     usinsk: { name: at.en ? 'Usinsk' : 'Усинск' },
     gydan: { name: at.en ? 'Gydan' : 'Гыдан' },
     krasnoyarsk: { name: at.en ? 'Krasnoyarsk' : 'Красноярск' },
-    irkutsk: { name: at.en ? 'irkutsk' : 'Иркутск' },
-    zabaikalsk: { name: at.en ? 'zabaikalsk' : 'Забайкальск' }
+    irkutsk: { name: at.en ? 'Irkutsk' : 'Иркутск' },
+    zabaikalsk: { name: at.en ? 'Zabaikalsk' : 'Забайкальск' }
   } as const
 
   return (
@@ -98,9 +98,9 @@ const SectionGeneralGeography: FC<TSectionGeneralGeographyProps> = ({
       id={selectors.ids.geography}
       classNames={[cn(stls.container, classNames)]}>
       <MenuContentContainer
-        menuBgc={colors.alpha}
+        menuBgc={colors.iota}
         contentChildClassNames={[cn(stls.contentChild)]}
-        progressBarContainerBgc={colors.alpha}
+        progressBarContainerBgc={colors.iota}
         progressBarLineBgc={colors.omega}
         topGap='l'
         bottomGap='l'

@@ -72,6 +72,7 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
       desc: at.en ? '- supply and repair of bits' : '— поставка и ремонт долот'
     }
   ]
+  // NOV - инж.сопровождение при отработке долот)
 
   useSetCurListItemIdx({
     listLength: list.length - 1,
