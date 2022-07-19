@@ -9,7 +9,7 @@ import { FC } from 'react'
 import cn from 'classnames'
 import { ImageContainer } from '@/components/layout'
 import { useAt } from '@/hooks/index'
-import src from '@/public/assets/imgs/products/product-4.jpg'
+import src from '@/public/assets/imgs/products/product-4.png'
 
 type TImgProduct4Props = TPropClassNames &
   TPropImgWidth &

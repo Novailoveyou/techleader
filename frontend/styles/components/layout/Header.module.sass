@@ -27,6 +27,8 @@
 
 .bottom
   max-width: f.px(993)
+  @include m.media(laptop, desktop)
+    margin-right: 7.23% // 104, root: 1rem = 1px
 
 .top
   position: relative
@@ -41,25 +43,29 @@
   max-height: f.px(350)
 
 .ImgGeneralOilRig
-  &.specificity
-    position: absolute
-    z-index: -1
-    top: 0
-    right: 0
-    // transform: translate(35%, -50%)
-  &::after
-    content: ''
-    position: absolute
-    z-index: -1
-    top: 17.2%
-    right: 9.5%
-    min-width: f.px(472)
-    max-width: f.px(472)
-    min-height: f.px(474)
-    max-height: f.px(474)
-    border-radius: 50%
-    filter: blur(180px)
-    @include m.dye(bg, rgba(c.$epsilon, .3))
+  @include m.media(phone, tablet)
+    &.specificity
+      display: none
+  @include m.media(laptop, desktop)
+    &.specificity
+      position: absolute
+      z-index: -1
+      top: 0
+      right: 0
+      // transform: translate(35%, -50%)
+    &::after
+      content: ''
+      position: absolute
+      z-index: -1
+      top: 17.2%
+      right: 9.5%
+      min-width: f.px(472)
+      max-width: f.px(472)
+      min-height: f.px(474)
+      max-height: f.px(474)
+      border-radius: 50%
+      filter: blur(180px)
+      @include m.dye(bg, rgba(c.$epsilon, .3))
 
 .h1
   display: flex

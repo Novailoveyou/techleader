@@ -10,6 +10,14 @@
 html
   box-sizing: border-box
   scroll-behavior: smooth
+  @include m.media(phone)
+    font-size: 1rem
+  @include m.media(tablet)
+    font-size: 1.2rem
+  @include m.media(laptop)
+    font-size: 0.9rem
+  @include m.media(desktop)
+    font-size: 1rem
   &::-webkit-scrollbar
     min-width: f.px(8)
     width: f.px(8)

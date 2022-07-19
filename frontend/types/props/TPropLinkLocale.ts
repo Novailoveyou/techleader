@@ -1,5 +1,7 @@
+import { TGeneralLocale } from '@/types/index'
+
 type TPropLinkLocale = {
-  locale: string
+  locale: TGeneralLocale
 }
 
 export default TPropLinkLocale

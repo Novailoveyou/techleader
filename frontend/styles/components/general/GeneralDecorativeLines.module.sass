@@ -5,6 +5,7 @@
 .container
   position: absolute
   z-index: 1
+  // z-index: -1
   top: 0
   left: 0
   min-width: 100%
@@ -12,24 +13,21 @@
   min-height: 100%
   max-height: 100%
 
-.line1
+.line
   position: absolute
   top: 0
-  // right: f.px(120)
-  right: 9.3%
   min-height: 100%
   max-height: 100%
   min-width: f.px(1)
   max-width: f.px(1)
   @include m.dye(bg, c.$lambda) 
 
+
+.line1
+  left: 50% // desktop 728px
+
 .line2
-  position: absolute
-  top: 0
-  // right: f.px(472)
-  left: 36.3%
-  min-height: 100%
-  max-height: 100%
-  min-width: f.px(1)
-  max-width: f.px(1)
-  @include m.dye(bg, c.$lambda)
+  left: 36.3% // desktop 472px
+
+.line3
+  right: 9.3% // desktop 120px  

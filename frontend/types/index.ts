@@ -6,6 +6,7 @@ export type { default as TGeneralColorKeys } from '@/types/general/TGeneralColor
 export type { default as TGeneralDataUrl } from '@/types/general/TGeneralDataUrl'
 export type { default as TGeneralElId } from '@/types/general/TGeneralElId'
 export type { default as TGeneralH } from '@/types/general/TGeneralH'
+export type { default as TGeneralLocale } from '@/types/general/TGeneralLocale'
 export type { default as TGeneralRoute } from '@/types/general/TGeneralRoute'
 export type { default as TGeneralTitle } from '@/types/general/TGeneralTitle'
 

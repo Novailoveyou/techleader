@@ -77,12 +77,29 @@ const SectionGeneralGeography: FC<TSectionGeneralGeographyProps> = ({
     </>
   ]
 
+  const cities = {
+    samara: {
+      name: at.en ? 'Samara' : 'Самара'
+    },
+    ufa: { name: at.en ? 'Ufa' : 'Уфа' },
+    perm: { name: at.en ? 'Perm' : 'Пермь' },
+    nefteyugansk: { name: at.en ? 'Nefteyugansk' : 'Нефтеюганск' },
+    nizhnevartovsk: { name: at.en ? 'Nizhnevartovsk' : 'Нижневартовск' },
+    novyUrengoy: { name: at.en ? 'Novy Urengoy' : 'Новый Уренгой' },
+    usinsk: { name: at.en ? 'Usinsk' : 'Усинск' },
+    gydan: { name: at.en ? 'Gydan' : 'Гыдан' },
+    krasnoyarsk: { name: at.en ? 'Krasnoyarsk' : 'Красноярск' },
+    irkutsk: { name: at.en ? 'irkutsk' : 'Иркутск' },
+    zabaikalsk: { name: at.en ? 'zabaikalsk' : 'Забайкальск' }
+  } as const
+
   return (
     <Section
       id={selectors.ids.geography}
       classNames={[cn(stls.container, classNames)]}>
       <MenuContentContainer
         menuBgc={colors.alpha}
+        contentChildClassNames={[cn(stls.contentChild)]}
         progressBarContainerBgc={colors.alpha}
         progressBarLineBgc={colors.omega}
         topGap='l'
@@ -102,7 +119,20 @@ const SectionGeneralGeography: FC<TSectionGeneralGeographyProps> = ({
           <H2 classNames={[stls.title]}>{title}</H2>
         )}
         <div className={stls.content}>
-          <ImgGeographyMap classNames={[stls.ImgGeographyMap]} />
+          <div className={stls.left}>
+            <div className={stls.map}>
+              <ImgGeographyMap classNames={[stls.ImgGeographyMap]} />
+              {Object.keys(cities).map((city, idx) => (
+                <>
+                  <span
+                    key={`SectionGeneralGeography-${city}-${idx}`}
+                    className={cn(stls.city, stls[`city--${city}`])}>
+                    {cities[city as keyof typeof cities].name}
+                  </span>
+                </>
+              ))}
+            </div>
+          </div>
           <Ul classNames={[stls.list]}>
             {list.map((item, idx) => (
               <Li

@@ -40,7 +40,7 @@ const Menu: FC<TMenuProps> = ({
 }) => {
   return (
     <nav
-      id={selectors.ids.menu}
+      // id={selectors.ids.menu}
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       style={{ backgroundColor: menuBgc }}>
       {close ? (

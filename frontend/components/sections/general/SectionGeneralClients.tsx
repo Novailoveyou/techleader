@@ -69,9 +69,7 @@ const SectionGeneralClients: FC<TSectionGeneralClientsProps> = ({
       title: at.en
         ? 'LLC Smith Siberian Services'
         : 'ООО «Смит Сайбириан Сервисез»',
-      desc: at.en
-        ? '- supply and repair of bits'
-        : '— поставка и ремонт долотенда долот'
+      desc: at.en ? '- supply and repair of bits' : '— поставка и ремонт долот'
     }
   ]
 

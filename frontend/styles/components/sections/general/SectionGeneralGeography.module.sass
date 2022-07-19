@@ -7,26 +7,37 @@
   @include m.dye(bg, c.$alpha)
   @include m.dye(c, c.$omega)
 
+.contentChild
+  @include m.media(laptop)
+    display: flex
+    flex-direction: column
+    align-items: center
+
 .title
   @include m.media(laptop, desktop)
     text-align: center
 
 .content
   display: flex
-  @include m.media(phone, tablet)
+  @include m.media(phone, tablet, laptop)
     flex-direction: column
+  @include m.media(desktop)
+    padding-right: 7.23% // 104, root: 1rem = 1px
 
-$ImgGeographyMap_ld_fb: 55.2%
+$left_ld_fb: 55.2%
 $list_ld_ml: 3.7%
-.ImgGeographyMap
-  @include m.media(phone, tablet)
+.left
+  @include m.media(phone, tablet, laptop)
     margin-bottom: f.px(32)
-  @include m.media(laptop, desktop)
-    flex-basis: $ImgGeographyMap_ld_fb
+    overflow: auto
+  @include m.media(desktop)
+    flex-basis: $left_ld_fb
 
 ul.list
-  @include m.media(laptop, desktop)
-    flex-basis: 100% - $ImgGeographyMap_ld_fb - $list_ld_ml
+  @include m.media(laptop)
+    max-width: 75ch
+  @include m.media(desktop)
+    flex-basis: 100% - $left_ld_fb - $list_ld_ml
     max-width: 35ch
     margin-left: $list_ld_ml
 
@@ -45,3 +56,83 @@ ul.list
     margin-left: f.px(10)
     & + .listItem
       margin-top: f.px(30)
+
+.map
+  position: relative
+  max-width: f.px(700)
+
+.ImgGeographyMap
+  min-width: f.px(320)
+
+.city
+  position: absolute
+  display: flex
+  flex-direction: column
+  font-size: f.px(10)
+  font-weight: 700
+  line-height: 120%
+  text-shadow: 1px 1px 0 #333, -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333, 2px 2px 5px rgba(0,0,0,0.65)
+  cursor: initial
+  transition: transform 0.15s ease-in-out
+  @include m.dye(c, c.$alpha)
+  &::before
+    content: ''
+    order: 1
+    min-width: f.px(16)
+    max-width: f.px(16)
+    min-height: f.px(16)
+    max-height: f.px(16)
+    aspect-ratio: 1 / 1
+    margin-top: f.px(4)
+    border-radius: 50%
+    border: f.px(4) solid
+    box-shadow: 0 0 f.px(8) 0 transparent
+    @include m.dye(border, c.$kappa)
+    @include m.dye(bg, c.$alpha)
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      transform: scale(1.2)
+    
+.city--samara
+  top: 56% // 204px
+  left: 15.9% // 110px
+
+.city--ufa
+  top: 54.1% // 197px
+  left: 21.87% // 153px
+
+.city--perm
+  top: 50.4% // 184px
+  left: 25.3% // 177px
+
+.city--nefteyugansk
+  top: 53.6% // 195px
+  left: 36.2% // 253px
+
+.city--nizhnevartovsk
+  top: 57.1% // 208px
+  left: 41.45% // 290px
+
+.city--novyUrengoy
+  top: 43.5% // 158px
+  left: 41.5% // 290px
+
+.city--usinsk
+  top: 30.8% // 112px
+  left: 33.9% // 237px
+
+.city--gydan
+  top: 32.15% // 117px
+  left: 43.6% // 305px
+
+.city--krasnoyarsk
+  top: 68.9% // 251px
+  left: 49.75% // 348px
+
+.city--irkutsk
+  top: 75.5% // 275px
+  left: 58.2% // 407px
+
+.city--zabaikalsk
+  top: 79.1% // 288px
+  left: 68.88% // 482px

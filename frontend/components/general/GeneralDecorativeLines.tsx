@@ -21,10 +21,13 @@ const GeneralDecorativeLines: FC<TGeneralDecorativeLines> = ({
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <span
-        className={stls.line1}
+        className={cn(stls.line, stls.line1)}
         style={{ backgroundColor: decorativeLinesColor }}></span>
       <span
-        className={stls.line2}
+        className={cn(stls.line, stls.line2)}
+        style={{ backgroundColor: decorativeLinesColor }}></span>
+      <span
+        className={cn(stls.line, stls.line3)}
         style={{ backgroundColor: decorativeLinesColor }}></span>
     </span>
   )

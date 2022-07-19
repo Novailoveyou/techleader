@@ -40,6 +40,7 @@ type TMenuContentContainerProps = TPropClassNames &
     progressBarLineBgc?: TGeneralColorHex
     noMenuLineDecoration?: boolean
     decorativeLinesColor?: TGeneralColorHex
+    decorativeLinesAreHidden?: boolean
   }
 
 const MenuContentContainer: FC<TMenuContentContainerProps> = ({
@@ -65,7 +66,8 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
   progressBarContainerBgc,
   progressBarLineBgc,
   noMenuLineDecoration,
-  decorativeLinesColor
+  decorativeLinesColor,
+  decorativeLinesAreHidden
 }) => {
   const sectionsListLength = 8
 
@@ -100,7 +102,10 @@ const MenuContentContainer: FC<TMenuContentContainerProps> = ({
         menuArrowLineColor={menuArrowLineColor}
         noMenuLineDecoration={noMenuLineDecoration}
       />
-      <GeneralDecorativeLines decorativeLinesColor={decorativeLinesColor} />
+      {!decorativeLinesAreHidden && (
+        <GeneralDecorativeLines decorativeLinesColor={decorativeLinesColor} />
+      )}
+
       <div
         className={cn(
           stls.content,

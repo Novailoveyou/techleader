@@ -12,15 +12,16 @@ type TBtnLangProps = TPropClassNames & TPropChildren & TPropLinkLocale
 const BtnLang: FC<TBtnLangProps> = ({ classNames, children, locale }) => {
   const router = useRouter()
 
-  const isActive = router.locale === locale
+  const isActive = router.locale === locale.val
   return (
-    <Link href={router.asPath} locale={locale}>
+    <Link href={router.asPath} locale={locale.val}>
       <a
         className={
           cn(stls.container, getClassNames({ classNames }), {
             [stls.isActive]: isActive
           }) || undefined
-        }>
+        }
+        title={locale.title}>
         {children}
       </a>
     </Link>

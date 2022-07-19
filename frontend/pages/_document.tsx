@@ -22,8 +22,11 @@ class MyDocument extends Document {
           {/* <meta charSet='UTF-8' /> */}
 
           <link rel='preconnect' href='https://fonts.googleapis.com' />
-          {/* @ts-expect-error */}
-          <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
+          <link
+            rel='preconnect'
+            href='https://fonts.gstatic.com'
+            crossOrigin='true'
+          />
           <link
             href='https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Raleway:wght@400;600&display=swap'
             rel='stylesheet'></link>

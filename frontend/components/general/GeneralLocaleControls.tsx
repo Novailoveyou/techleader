@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/GeneralLocaleControls.module.sass'
-import { TPropClassNames } from '@/types/index'
+import { TPropClassNames, TGeneralLocale } from '@/types/index'
 import cn from 'classnames'
 import { FC } from 'react'
 import { i18n } from '@/config/index'
@@ -11,14 +11,16 @@ type TGeneralLocaleControls = TPropClassNames
 
 const GeneralLocaleControls: FC<TGeneralLocaleControls> = ({ classNames }) => {
   const at = useAt()
-  const list = [
+  const list: TGeneralLocale[] = [
     {
-      locale: i18n.locales.ru,
-      label: 'RU'
+      val: i18n.locales.ru,
+      label: 'RU',
+      title: 'Русский'
     },
     {
-      locale: i18n.locales.en,
-      label: 'EN'
+      val: i18n.locales.en,
+      label: 'EN',
+      title: 'English'
     }
   ]
   return (
@@ -28,7 +30,7 @@ const GeneralLocaleControls: FC<TGeneralLocaleControls> = ({ classNames }) => {
       <ul className={stls.list}>
         {list.map((item, idx) => (
           <li key={`${item.label}-${idx}`} className={stls.listItem}>
-            <BtnLang locale={item.locale}>{item.label}</BtnLang>
+            <BtnLang locale={item}>{item.label}</BtnLang>
           </li>
         ))}
       </ul>

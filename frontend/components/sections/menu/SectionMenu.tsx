@@ -94,7 +94,8 @@ const SectionMenu: FC<TSectionMenuProps> = ({ classNames, close }) => {
         topGap='l'
         bottomGap='l'
         close={close}
-        noMenuLineDecoration>
+        noMenuLineDecoration
+        decorativeLinesAreHidden>
         <div className={stls.content}>
           <div className={stls.left}>
             <Ul classNames={[stls.ul]}>
