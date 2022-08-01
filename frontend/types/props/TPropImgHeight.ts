@@ -1,7 +1,7 @@
 import { TImgHeight } from '@/types/index'
 
-type TPropClassNames = {
+type TPropImgHeight = {
   height?: TImgHeight
 }
 
-export default TPropClassNames
+export default TPropImgHeight
